@@ -8,7 +8,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         @keyframes reveal {
-            from { opacity: 0; transform: translateY(20px); filter: blur(5px); }
+            from { opacity: 0; transform: translateY(30px); filter: blur(10px); }
             to { opacity: 1; transform: translateY(0); filter: blur(0); }
         }
 
@@ -16,57 +16,63 @@
             font-family: 'Inter', -apple-system, sans-serif;
             background-color: #050a14;
             color: #ffffff;
-            display: flex; justify-content: center; align-items: flex-start; min-height: 100vh;
-            text-align: center; overflow-x: hidden; padding: 40px 20px;
+            display: flex; justify-content: center; align-items: center; min-height: 100vh;
+            text-align: center; overflow-x: hidden; padding: clamp(20px, 5vw, 60px);
         }
 
         #particles-js { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: 1; }
-        .container { position: relative; z-index: 2; max-width: 600px; width: 100%; }
+        .container { position: relative; z-index: 2; width: 100%; max-width: 1200px; margin: 0 auto; }
 
-        /* Mobile-Optimized Branding */
+        /* Fluid Typography: Scales smoothly between mobile and desktop */
         .brand-name { 
-            font-size: 3rem; font-weight: 950; letter-spacing: -3px; 
-            margin-bottom: 25px; opacity: 0; animation: reveal 0.8s ease-out 0.2s forwards; 
+            font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 950; letter-spacing: -4px; 
+            margin-bottom: 20px; opacity: 0; animation: reveal 1s ease-out 0.2s forwards; 
             text-transform: uppercase;
         }
 
         h1 { 
-            font-size: clamp(1.8rem, 10vw, 3rem); font-weight: 950; letter-spacing: -2px; 
-            line-height: 1.1; margin-bottom: 15px; text-transform: uppercase; 
-            opacity: 0; animation: reveal 0.8s ease-out 0.4s forwards; 
+            font-size: clamp(1.8rem, 6vw, 3.8rem); font-weight: 950; letter-spacing: -3px; 
+            line-height: 1.05; margin-bottom: 15px; text-transform: uppercase; 
+            opacity: 0; animation: reveal 1s ease-out 0.4s forwards; 
         }
 
         .expert-title { 
-            font-size: 0.9rem; color: #FF6B35; font-weight: 800; text-transform: uppercase; 
-            letter-spacing: 1px; margin-bottom: 50px; opacity: 0; 
-            animation: reveal 0.8s ease-out 0.6s forwards; 
+            font-size: clamp(0.85rem, 2vw, 1.1rem); color: #FF6B35; font-weight: 800; text-transform: uppercase; 
+            letter-spacing: 1px; margin-bottom: clamp(30px, 8vw, 60px); opacity: 0; 
+            animation: reveal 1s ease-out 0.6s forwards; 
         }
 
-        /* The Vertical Stack for Mobile Flow */
+        /* Fully Adjustable Grid */
         .framework {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: clamp(40px, 8vw, 80px);
             opacity: 0;
-            animation: reveal 0.8s ease-out 0.8s forwards;
+            animation: reveal 1s ease-out 0.8s forwards;
+        }
+
+        /* On very small screens, make sure boxes don't get too cramped */
+        @media (max-width: 350px) {
+            .framework { grid-template-columns: 1fr; }
         }
 
         .pillar {
-            padding: 25px;
-            border-left: 3px solid #FF6B35;
-            background: rgba(255, 255, 255, 0.03);
+            padding: 30px;
+            border-top: 3px solid #FF6B35;
+            background: rgba(255, 255, 255, 0.02);
             text-align: left;
+            transition: all 0.3s ease;
         }
 
-        .pillar span { font-size: 0.75rem; color: #FF6B35; font-weight: 900; letter-spacing: 2px; display: block; margin-bottom: 5px; }
-        .pillar h3 { font-size: 1.1rem; color: #ffffff; margin-bottom: 8px; letter-spacing: 1px; font-weight: 800; text-transform: uppercase; }
-        .pillar p { font-size: 0.9rem; color: #94a3b8; line-height: 1.5; }
+        .pillar:hover { background: rgba(255, 255, 255, 0.05); transform: translateY(-5px); }
+        .pillar span { font-size: 0.8rem; color: #FF6B35; font-weight: 900; letter-spacing: 2px; display: block; margin-bottom: 10px; }
+        .pillar h3 { font-size: 1.2rem; color: #ffffff; margin-bottom: 10px; letter-spacing: 1px; font-weight: 800; text-transform: uppercase; }
+        .pillar p { font-size: 0.95rem; color: #94a3b8; line-height: 1.5; }
 
         .cta-button {
-            display: block;
-            width: 100%;
-            padding: 20px;
+            display: inline-block;
+            padding: clamp(16px, 3vw, 22px) clamp(30px, 5vw, 60px);
             background-color: transparent;
             color: #ffffff;
             border: 2px solid #FF6B35;
@@ -74,20 +80,18 @@
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             border-radius: 4px;
             transition: all 0.3s ease;
             opacity: 0;
-            animation: reveal 0.8s ease-out 1s forwards;
+            animation: reveal 1s ease-out 1.2s forwards;
         }
 
-        .cta-button:active {
-            background-color: #FF6B35;
-            transform: scale(0.98);
-        }
+        .cta-button:hover { background: #FF6B35; box-shadow: 0 0 40px rgba(255, 107, 53, 0.4); }
 
-        .status-box { margin-top: 50px; opacity: 0; animation: reveal 0.8s ease-out 1.2s forwards; }
-        .tagline { font-size: 0.8rem; color: #64748b; letter-spacing: 0.5px; }
+        .status-box { margin-top: clamp(40px, 8vw, 80px); opacity: 0; animation: reveal 1s ease-out 1.4s forwards; }
+        .coming-soon { font-size: 1.2rem; font-weight: 900; letter-spacing: 2px; margin-bottom: 5px; }
+        .tagline { font-size: 0.9rem; color: #64748b; font-weight: 500; }
     </style>
 </head>
 <body>
@@ -102,17 +106,17 @@
             <div class="pillar">
                 <span>01. AUDIT</span>
                 <h3>LEAK DETECTION</h3>
-                <p>We identify the hidden gaps in your current sales funnel and lead management.</p>
+                <p>We identify the exact leaks in your current sales funnel and lead management process.</p>
             </div>
             <div class="pillar">
                 <span>02. ARCHITECT</span>
                 <h3>SYSTEM DESIGN</h3>
-                <p>We build custom conversion frameworks designed for predictable high-ticket scale.</p>
+                <p>We build custom, high-ticket conversion systems designed for predictable scale.</p>
             </div>
             <div class="pillar">
                 <span>03. OPTIMIZE</span>
                 <h3>MAXIMUM ROI</h3>
-                <p>We scale your team's closing efficiency to ensure every lead is a profit opportunity.</p>
+                <p>We scale your team's closing efficiency and maximize your front-end advertising ROI.</p>
             </div>
         </div>
 
@@ -121,6 +125,7 @@
         </a>
 
         <div class="status-box">
+            <div class="coming-soon">COMING SOON</div>
             <p class="tagline">Currently upgrading our digital home to better serve our B2B partners.</p>
         </div>
     </div>
@@ -129,12 +134,12 @@
     <script>
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 40 },
+                "number": { "value": 60 },
                 "color": { "value": "#FF6B35" },
                 "opacity": { "value": 0.2 },
                 "size": { "value": 2 },
-                "line_linked": { "enable": true, "distance": 120, "color": "#ffffff", "opacity": 0.1, "width": 1 },
-                "move": { "enable": true, "speed": 1 }
+                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.1, "width": 1 },
+                "move": { "enable": true, "speed": 0.8 }
             }
         });
     </script>
