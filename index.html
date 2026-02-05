@@ -4,19 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CLOSIMO | Sales Systems</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
+        @keyframes reveal {
+            from { opacity: 0; transform: translateY(30px); filter: blur(10px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+
+        @keyframes bgPulse {
+            0% { background-color: #050a14; }
+            50% { background-color: #0f172a; }
+            100% { background-color: #050a14; }
+        }
+
         body {
-            background-color: #050a14;
-            color: #ffffff;
             font-family: 'Inter', -apple-system, sans-serif;
-            overflow: hidden;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-color: #050a14;
+            animation: bgPulse 10s ease-in-out infinite;
+            color: #ffffff;
+            display: flex; justify-content: center; align-items: center; min-height: 100vh;
+            text-align: center; overflow: hidden;
         }
 
         #particles-js {
@@ -27,56 +35,83 @@
             position: relative; z-index: 2; text-align: center; padding: 40px; max-width: 1000px;
         }
 
-        @keyframes reveal {
-            from { opacity: 0; transform: translateY(30px); filter: blur(10px); }
-            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        /* Tightened brand name spacing */
+        .brand-name { 
+            font-size: 3.5rem; 
+            font-weight: 900; 
+            letter-spacing: 1px; /* Reduced space between letters */
+            margin-bottom: 40px; 
+            opacity: 0; 
+            animation: reveal 1.2s ease-out 0.2s forwards; 
         }
 
-        .brand-name { font-size: 3.5rem; font-weight: 900; letter-spacing: 6px; margin-bottom: 40px; opacity: 0; animation: reveal 1.2s ease-out 0.2s forwards; }
-        h1 { font-size: clamp(2rem, 8vw, 3.8rem); font-weight: 900; letter-spacing: -2px; line-height: 1.1; margin-bottom: 12px; text-transform: uppercase; opacity: 0; animation: reveal 1.2s ease-out 0.4s forwards; }
-        .expert-title { font-size: 1.1rem; color: #FF6B35; font-weight: 600; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 40px; opacity: 0; animation: reveal 1.2s ease-out 0.6s forwards; }
+        h1 { 
+            font-size: clamp(2rem, 8vw, 3.8rem); 
+            font-weight: 900; 
+            letter-spacing: -2px; 
+            line-height: 1.1; 
+            margin-bottom: 12px; 
+            text-transform: uppercase; 
+            opacity: 0; 
+            animation: reveal 1.2s ease-out 0.4s forwards; 
+        }
 
-        /* The WhatsApp Button with Official Colors */
+        .expert-title { 
+            font-size: 1.1rem; 
+            color: #FF6B35; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            margin-bottom: 40px; 
+            opacity: 0; 
+            animation: reveal 1.2s ease-out 0.6s forwards; 
+        }
+
+        /* Original professional button style with Orange theme */
         .cta-button {
-            display: inline-flex;
-            align-items: center;
+            display: inline-block;
             margin-top: 20px;
-            padding: 16px 32px;
+            padding: 18px 35px;
             background-color: transparent;
             color: #ffffff;
-            border: 2px solid #25D366; /* Official WhatsApp Green */
+            border: 2px solid #FF6B35;
             text-decoration: none;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.95rem;
-            border-radius: 50px; /* Rounded pill style for modern feel */
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            border-radius: 4px;
             transition: all 0.3s ease;
             opacity: 0;
             animation: reveal 1.2s ease-out 1.2s forwards;
         }
 
-        .cta-button i {
-            font-size: 1.4rem;
-            margin-right: 12px;
-            color: #25D366;
-            transition: all 0.3s ease;
-        }
-
         .cta-button:hover {
-            background-color: #25D366;
+            background-color: #FF6B35;
             color: #ffffff;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 107, 53, 0.4);
         }
 
-        .cta-button:hover i {
-            color: #ffffff;
+        .status-box { 
+            margin-top: 60px; 
+            opacity: 0; 
+            animation: reveal 1.2s ease-out 1s forwards; 
         }
 
-        .status-box { margin-top: 60px; opacity: 0; animation: reveal 1.2s ease-out 1s forwards; }
-        .coming-soon { font-size: 1.2rem; font-weight: 800; letter-spacing: 3px; margin-bottom: 10px; color: #ffffff; }
-        .tagline { font-size: 1rem; color: #94a3b8; font-weight: 400; letter-spacing: 0.5px; }
+        .coming-soon { 
+            font-size: 1.1rem; 
+            font-weight: 800; 
+            letter-spacing: 2px; 
+            margin-bottom: 8px; 
+            color: #ffffff; 
+        }
+
+        .tagline { 
+            font-size: 0.95rem; 
+            color: #94a3b8; 
+            letter-spacing: 0.5px; 
+        }
     </style>
 </head>
 <body>
@@ -88,7 +123,7 @@
         <div class="expert-title">Building High-Ticket Systems</div>
         
         <a href="https://wa.me/923700950063?text=Hi%20Closimo,%20I'm%20interested%20in%20optimizing%20my%20B2B%20sales%20conversion." class="cta-button">
-            <i class="fab fa-whatsapp"></i> Direct Expert Consultation
+            Direct Expert Consultation
         </a>
 
         <div class="status-box">
@@ -98,22 +133,3 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 60 },
-                "color": { "value": "#FF6B35" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.2 },
-                "size": { "value": 2 },
-                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.1, "width": 1 },
-                "move": { "enable": true, "speed": 0.8 }
-            },
-            "interactivity": {
-                "events": { "onhover": { "enable": true, "mode": "grab" } },
-                "modes": { "grab": { "distance": 200, "line_linked": { "opacity": 0.5 } } }
-            }
-        });
-    </script>
-</body>
-</html>
