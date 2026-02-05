@@ -19,11 +19,11 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: #050a14;
             animation: bgPulse 10s ease-in-out infinite;
             color: #ffffff;
-            display: flex; justify-content: center; align-items: center; height: 100vh;
+            display: flex; justify-content: center; align-items: center; min-height: 100vh;
             text-align: center; overflow: hidden;
         }
 
@@ -33,60 +33,60 @@
             animation: reveal 1.5s ease-out forwards;
         }
 
-        /* This replaces your image logo */
-        .text-logo {
-            font-size: 2.5rem;
+        /* Large, Bold Brand Name */
+        .brand-name {
+            font-size: 3.5rem;
             font-weight: 900;
-            letter-spacing: 8px;
-            margin-bottom: 50px;
+            letter-spacing: 4px;
+            margin-bottom: 40px;
             color: #ffffff;
-            display: inline-block;
-            border-left: 5px solid #FF6B35; /* Brand Orange Accent */
-            padding-left: 15px;
+            text-transform: uppercase;
         }
         
+        /* High-Authority Heading */
         h1 { 
             font-size: clamp(2rem, 8vw, 3.8rem); 
             font-weight: 900; 
             letter-spacing: -2px; 
             line-height: 1.1;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             text-transform: uppercase;
         }
 
+        /* Slightly smaller secondary text as requested */
         .expert-title { 
-            font-size: 1.2rem; 
-            color: #FF6B35; 
+            font-size: 1.1rem; 
+            color: #FF6B35; /* Your Bold Orange */
             font-weight: 600; 
             text-transform: uppercase; 
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             margin-bottom: 60px;
         }
 
         .divider {
-            width: 100px;
+            width: 80px;
             height: 1px;
             background: rgba(255,255,255,0.2);
             margin: 0 auto 40px;
         }
 
         .coming-soon {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 800;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
         }
 
         .tagline {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #94a3b8;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="text-logo">CLOSIMO</div>
+        <div class="brand-name">CLOSIMO</div>
         
         <h1>B2B SALES CONVERSION <br> OPTIMIZATION EXPERT</h1>
         <div class="expert-title">Building High-Ticket Systems</div>
