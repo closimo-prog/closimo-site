@@ -35,14 +35,15 @@
             position: relative; z-index: 2; text-align: center; padding: 40px; max-width: 1000px;
         }
 
-        /* Tightened brand name spacing */
+        /* TIGHT LETTER SPACING FOR BRANDING */
         .brand-name { 
-            font-size: 3.5rem; 
-            font-weight: 900; 
-            letter-spacing: 1px; /* Reduced space between letters */
+            font-size: 3.8rem; 
+            font-weight: 950; 
+            letter-spacing: -3px; /* This brings the letters very close together */
             margin-bottom: 40px; 
             opacity: 0; 
             animation: reveal 1.2s ease-out 0.2s forwards; 
+            text-transform: uppercase;
         }
 
         h1 { 
@@ -67,7 +68,6 @@
             animation: reveal 1.2s ease-out 0.6s forwards; 
         }
 
-        /* Original professional button style with Orange theme */
         .cta-button {
             display: inline-block;
             margin-top: 20px;
@@ -133,3 +133,22 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 60 },
+                "color": { "value": "#FF6B35" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.2 },
+                "size": { "value": 2 },
+                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.1, "width": 1 },
+                "move": { "enable": true, "speed": 0.8 }
+            },
+            "interactivity": {
+                "events": { "onhover": { "enable": true, "mode": "grab" } },
+                "modes": { "grab": { "distance": 200, "line_linked": { "opacity": 0.5 } } }
+            }
+        });
+    </script>
+</body>
+</html>
