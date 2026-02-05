@@ -3,43 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLOSIMO | B2B Sales Expert</title>
+    <title>CLOSIMO | Coming Soon</title>
     <style>
+        /* Modern reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* Smooth Fade-In Animation */
+        @keyframes reveal {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Subtle Breathing Background */
+        @keyframes bgPulse {
+            0% { background-color: #050a14; }
+            50% { background-color: #0f172a; }
+            100% { background-color: #050a14; }
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: #0f172a; /* Deep Navy */
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: #050a14;
+            animation: bgPulse 10s ease-in-out infinite;
             color: #ffffff;
             display: flex; justify-content: center; align-items: center; height: 100vh;
-            text-align: center;
+            text-align: center; overflow: hidden;
         }
-        .container { padding: 40px; max-width: 900px; }
-        .logo { width: 180px; margin-bottom: 50px; }
+
+        .container { 
+            padding: 40px; 
+            max-width: 1000px;
+            animation: reveal 1.5s ease-out forwards;
+        }
+
+        .logo { width: 220px; margin-bottom: 40px; }
         
         h1 { 
-            font-size: 3.5rem; 
+            font-size: clamp(2rem, 8vw, 4rem); 
             font-weight: 900; 
-            letter-spacing: -1.5px; 
+            letter-spacing: -2px; 
             line-height: 1.1;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             text-transform: uppercase;
         }
+
         .subhead { 
-            font-size: 1.5rem; 
-            color: #FF6B35; /* Bold Orange */
+            font-size: 1.3rem; 
+            color: #FF6B35; /* Your Bold Orange */
             font-weight: 600; 
             text-transform: uppercase; 
-            letter-spacing: 3px;
+            letter-spacing: 5px;
             margin-bottom: 60px;
         }
-        .status { 
-            font-size: 1rem; 
-            color: #64748b; 
-            line-height: 1.6;
-            border-top: 1px solid #334155;
-            padding-top: 30px;
-            max-width: 500px;
-            margin: 0 auto;
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            margin-bottom: 40px;
+        }
+
+        .coming-soon {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            font-weight: 300;
         }
     </style>
 </head>
@@ -50,7 +85,10 @@
         <h1>B2B SALES CONVERSION <br> OPTIMIZATION EXPERT</h1>
         <div class="subhead">Building High-Ticket Systems</div>
         
-        <p class="status">Our digital home is under construction.<br>We are crafting a premium experience for you.</p>
+        <div class="divider"></div>
+
+        <div class="coming-soon">COMING SOON</div>
+        <p class="tagline">Our digital home is being built for a premium experience.</p>
     </div>
 </body>
 </html>
