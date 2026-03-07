@@ -957,30 +957,33 @@
         }).join(' ');
       })();
     // CountUp animation
-    (function () {
-      var counters = document.querySelectorAll('.countup');
-      if (!counters.length) return;
+    window.initCountUp = function (elements) {
+      if (!elements || !elements.length) return;
       var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (!entry.isIntersecting) return;
           var el = entry.target;
-          var target = parseInt(el.getAttribute('data-target'));
+          var targetStr = el.getAttribute('data-target');
+          var isFloat = targetStr.indexOf('.') !== -1;
+          var target = isFloat ? parseFloat(targetStr) : parseInt(targetStr);
           var duration = 1800;
           var start = null;
           function step(ts) {
             if (!start) start = ts;
             var progress = Math.min((ts - start) / duration, 1);
             var ease = 1 - Math.pow(1 - progress, 3);
-            el.textContent = Math.floor(ease * target);
+            var val = ease * target;
+            el.textContent = isFloat ? val.toFixed(1) : Math.floor(val);
             if (progress < 1) requestAnimationFrame(step);
-            else el.textContent = target;
+            else el.textContent = targetStr;
           }
           requestAnimationFrame(step);
           observer.unobserve(el);
         });
       }, { threshold: 0.5 });
-      counters.forEach(function (c) { observer.observe(c); });
-    })();
+      elements.forEach(function (c) { observer.observe(c); });
+    };
+    window.initCountUp(document.querySelectorAll('.countup'));
   </script>
   <div id="cursor-spotlight"></div>
   <script>
@@ -1139,6 +1142,9 @@
               }
             });
             window.isForeign = true;
+            if (window.initCountUp) {
+              window.initCountUp(document.querySelectorAll('.geo-cur-stat .countup'));
+            }
 
             // Update ROI calculator labels immediately if logic exists
             const rp = document.getElementById('rev-prefix');
