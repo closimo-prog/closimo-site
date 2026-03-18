@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="robots" content="noindex, follow">
+  <title>404 Not Found — CLOSIMO</title>
+  
+  <link rel="icon" href="favicon-orange.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .not-found-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 48px;
+    }
+    
+    .not-found-content {
+      max-width: 600px;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .blob-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255, 92, 26, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="noise-overlay"></div>
+  <div class="interactive-grid"></div>
+
+  <main class="not-found-wrap">
+    <div class="blob-center"></div>
+    <div class="not-found-content">
+      <div class="label" style="justify-content: center; color: var(--orange);">Error 404</div>
+      <h1 class="section-title" style="font-size: clamp(48px, 8vw, 84px); margin-bottom: 24px;">Deal Lost.</h1>
+      <p class="section-sub" style="margin: 0 auto 40px auto; color: var(--white); font-size: 18px;">
+        The page you are looking for has dropped out of the pipeline. Let's get you back to finding revenue leakage.
+      </p>
+      <a href="index.html" class="btn">
+        <span class="btn-text">Return to Homepage</span>
+        <span class="btn-arr">➔</span>
+      </a>
+    </div>
+  </main>
+</body>
+
+</html>

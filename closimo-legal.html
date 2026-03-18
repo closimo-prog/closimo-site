@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy & Terms of Service — CLOSIMO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    :root {
+      --bg: #080808;
+      --bg-2: #0D0D0D;
+      --bg-3: #111111;
+      --border: rgba(255, 255, 255, 0.06);
+      --border-hover: rgba(255, 92, 26, 0.22);
+      --orange: #FF5C1A;
+      --orange-lo: rgba(255, 92, 26, 0.08);
+      --white: #EEEEE9;
+      --muted: #7A7A72;
+      --muted-2: #3A3A36;
+      --green: #22C55E;
+      --r-lg: 14px;
+      --r: 8px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      line-height: 1.06;
+      letter-spacing: -0.03em
+    }
+
+    a {
+      color: var(--orange);
+      text-decoration: none
+    }
+
+    a:hover {
+      text-decoration: underline
+    }
+
+    /* NAV */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 8, 8, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--white);
+      text-decoration: none
+    }
+
+    .nav-logo em {
+      font-style: normal;
+      color: var(--orange)
+    }
+
+    .nav-back {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s
+    }
+
+    .nav-back:hover {
+      color: var(--white);
+      text-decoration: none
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #FF5C1A 0%, #FF8C42 50%, #FF5C1A 100%);
+      padding: 80px 48px 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+      position: relative
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.75);
+      max-width: 480px;
+      margin: 0 auto;
+      position: relative
+    }
+
+    .hero-date {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 16px;
+      position: relative
+    }
+
+    /* TAB NAV */
+    .tab-nav {
+      background: var(--bg-2);
+      border-bottom: 1px solid var(--border);
+      padding: 0 48px;
+      display: flex;
+      gap: 0;
+      position: sticky;
+      top: 60px;
+      z-index: 90
+    }
+
+    .tab-btn {
+      padding: 16px 28px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      cursor: pointer;
+      border: none;
+      background: none;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      white-space: nowrap
+    }
+
+    .tab-btn.active {
+      color: var(--orange);
+      border-bottom-color: var(--orange)
+    }
+
+    .tab-btn:hover {
+      color: var(--white)
+    }
+
+    /* CONTENT */
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 48px
+    }
+
+    .section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--border)
+    }
+
+    .section:last-child {
+      border-bottom: none
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px
+    }
+
+    .section h2 {
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: var(--white)
+    }
+
+    .section p {
+      font-size: 15px;
+      color: rgba(238, 238, 233, 0.75);
+      line-height: 1.8;
+      margin-bottom: 16px
+    }
+
+    .section p:last-child {
+      margin-bottom: 0
+    }
+
+    /* LISTS */
+    .legal-list {
+      list-style: none;
+      margin: 16px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .legal-list li {
+      font-size: 14px;
+      color: rgba(238, 238, 233, 0.72);
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.7
+    }
+
+    .legal-list li::before {
+      content: '·';
+      position: absolute;
+      left: 6px;
+      color: var(--orange);
+      font-weight: 700
+    }
+
+    /* HIGHLIGHT CARDS */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 24px 0
+    }
+
+    .card {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 20px 24px
+    }
+
+    .card-title {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px
+    }
+
+    .card-title.green {
+      color: var(--green)
+    }
+
+    .card-title.red {
+      color: #EF4444
+    }
+
+    .card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .card ul li {
+      font-size: 13px;
+      color: rgba(238, 238, 233, 0.7);
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.6
+    }
+
+    .card ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      font-size: 11px
+    }
+
+    .card.green ul li::before {
+      color: var(--green)
+    }
+
+    .card.red ul li::before {
+      content: '✕';
+      color: #EF4444
+    }
+
+    /* HIGHLIGHT BOX */
+    .highlight-box {
+      background: var(--orange-lo);
+      border: 1px solid var(--border-hover);
+      border-radius: var(--r-lg);
+      padding: 20px 24px;
+      margin: 20px 0
+    }
+
+    .highlight-box strong {
+      color: var(--orange)
+    }
+
+    .highlight-box p {
+      margin: 0;
+      font-size: 14px;
+      color: rgba(238, 238, 233, 0.8)
+    }
+
+    /* CONTACT BLOCK */
+    .contact-block {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 24px;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px
+    }
+
+    .contact-block a {
+      color: var(--orange);
+      font-weight: 600
+    }
+
+    /* TAB CONTENT */
+    .tab-content {
+      display: none
+    }
+
+    .tab-content.active {
+      display: block
+    }
+
+    /* FOOTER */
+    .legal-footer {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0
+    }
+
+    .legal-footer-copy {
+      font-size: 12px;
+      color: var(--muted)
+    }
+
+    .legal-footer-links {
+      display: flex;
+      gap: 24px
+    }
+
+    .legal-footer-links a {
+      font-size: 12px;
+      color: var(--muted);
+      transition: color 0.2s
+    }
+
+    .legal-footer-links a:hover {
+      color: var(--white);
+      text-decoration: none
+    }
+
+    @media(max-width:768px) {
+
+      .nav,
+      .tab-nav,
+      .wrap,
+      .legal-footer {
+        padding-left: 20px;
+        padding-right: 20px
+      }
+
+      .hero {
+        padding: 56px 20px 48px
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr
+      }
+
+      .legal-footer {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center
+      }
+
+      .tab-btn {
+        padding: 14px 16px;
+        font-size: 11px
+      }
+    }
+
+    /* --- Page Transition Overlay --- */
+    .page-transition-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: var(--bg);
+      z-index: 999999;
+      pointer-events: all;
+      opacity: 1;
+      transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .page-transition-overlay.is-loaded {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Noise Overlay -->
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo" style="padding:0"><img src="image1.png" alt="CLOSIMO"
+        style="height:28px;width:auto;display:block;object-fit:cover"></a>
+    <a href="index.html" class="nav-back">← Back to Home</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-date">Last Updated: January 2026</div>
+    <h1>Privacy Policy &amp; Terms of Service</h1>
+    <p>How we handle your business information and what you can expect from us when you request a free sales audit.</p>
+  </div>
+
+  <!-- TAB NAV -->
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('privacy')">Privacy Policy</button>
+    <button class="tab-btn" onclick="switchTab('terms')">Terms of Service</button>
+  </div>
+
+  <!-- PRIVACY POLICY -->
+  <div id="privacy" class="tab-content active">
+    <div class="wrap">
+
+      <div class="section">
+        <div class="section-label">Introduction</div>
+        <h2>We protect what you share with us.</h2>
+        <p>We value your privacy and are committed to protecting your business information. This document outlines how
+          we collect, use, and safeguard your data when you request our free sales process audit.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Data Collection</div>
+        <h2>Personal &amp; Business Information</h2>
+        <p>We are transparent about exactly what we collect and what we never touch.</p>
+        <div class="card-grid">
+          <div class="card green">
+            <div class="card-title green">What we collect</div>
+            <ul>
+              <li>Contact information (name, email, company details)</li>
+              <li>Sales process information and methodologies you share</li>
+              <li>Business performance data relevant to your audit</li>
+            </ul>
+          </div>
+          <div class="card red">
+            <div class="card-title red">What we never collect</div>
+            <ul>
+              <li>Your customer lists or client contact data</li>
+              <li>Proprietary customer information</li>
+              <li>Any personal information about your clients or prospects</li>
+            </ul>
+          </div>
+        </div>
+        <p style="margin-top:8px">How we collect it:</p>
+        <ul class="legal-list">
+          <li>Through our assessment questionnaire</li>
+          <li>Follow-up questions via email</li>
+          <li>Optional consultation calls for qualified prospects</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Data Usage</div>
+        <h2>How we use your information</h2>
+        <div class="card-grid">
+          <div class="card green">
+            <div class="card-title green">We use your data for</div>
+            <ul>
+              <li>Conducting your sales process analysis</li>
+              <li>Preparing your custom audit report</li>
+              <li>Delivering recommendations and implementation plans</li>
+              <li>Improving our audit methodology (anonymized only)</li>
+            </ul>
+          </div>
+          <div class="card red">
+            <div class="card-title red">We never</div>
+            <ul>
+              <li>Sell your information to third parties</li>
+              <li>Share your business data with competitors</li>
+              <li>Use your data for marketing to others</li>
+              <li>Store sensitive information longer than necessary</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Security</div>
+        <h2>Data Protection &amp; Security</h2>
+        <p>We implement industry-standard security protocols to protect your information. Your business data is
+          encrypted, stored securely, and accessed only by authorized team members conducting your audit.</p>
+        <div class="highlight-box">
+          <p><strong>NDA Available:</strong> For qualified customers requiring additional protection, we provide signed
+            Non-Disclosure Agreements upon request.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Your Rights</div>
+        <h2>Your Rights &amp; Contact</h2>
+        <p>You have the right to:</p>
+        <ul class="legal-list">
+          <li>Request deletion of your data after audit completion</li>
+          <li>Receive a copy of information we have collected about you</li>
+          <li>Withdraw consent for further communication at any time</li>
+        </ul>
+        <div class="contact-block">
+          <div>
+            <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:4px">Contact us about this
+              policy</div>
+            <div style="font-size:13px;color:var(--muted)">Email: <a
+                href="mailto:audit@closimo.com">audit@closimo.com</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Updates</div>
+        <h2>Changes to This Policy</h2>
+        <p>We may update this policy to reflect changes in our practices or legal requirements. Updates will be posted
+          on this page with a revised date. Continued use of our services constitutes acceptance of any changes.</p>
+        <p>This policy ensures transparency in how we handle your business information while delivering valuable sales
+          process insights.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TERMS OF SERVICE -->
+  <div id="terms" class="tab-content">
+    <div class="wrap">
+
+      <div class="section">
+        <div class="section-label">Overview</div>
+        <h2>Free Sales Audit Terms</h2>
+        <p>When you request a free sales audit from CLOSIMO, here is exactly what is included and what is not.</p>
+        <div class="card-grid">
+          <div class="card green">
+            <div class="card-title green">What's included</div>
+            <ul>
+              <li>10-minute assessment questionnaire</li>
+              <li>6+ hour expert analysis of your sales process</li>
+              <li>Custom audit report with specific recommendations</li>
+              <li>Step-by-step implementation roadmap</li>
+            </ul>
+          </div>
+          <div class="card red">
+            <div class="card-title red">What's NOT included</div>
+            <ul>
+              <li>Implementation services (available separately)</li>
+              <li>Ongoing consulting or support</li>
+              <li>Guarantee of specific revenue improvements</li>
+            </ul>
+          </div>
+        </div>
+        <p style="margin-top:8px">Delivery:</p>
+        <ul class="legal-list">
+          <li>Reports delivered within 48 hours of completed assessment</li>
+          <li>Delivered via email in PDF format</li>
+          <li>One revision included if clarification is needed</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Our Guarantee</div>
+        <h2>Service Limitations &amp; Liability</h2>
+        <div class="highlight-box">
+          <p><strong>Our guarantee:</strong> If we don't identify at least 3 specific problems in your sales process,
+            we'll redo the analysis at no charge.</p>
+        </div>
+        <p style="margin-top:20px">Limitations:</p>
+        <ul class="legal-list">
+          <li>Audit recommendations are advisory only</li>
+          <li>Implementation results depend on your execution</li>
+          <li>We are not liable for business decisions based on our recommendations</li>
+          <li>Service limited to B2B companies with 2+ person sales teams</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Eligibility</div>
+        <h2>Who This Service Is For</h2>
+        <p>This free audit is designed for B2B companies that meet all of the following criteria:</p>
+        <ul class="legal-list">
+          <li>10 or more employees in the organization</li>
+          <li>Active sales operation with at least 2 people in sales</li>
+          <li>Minimum PKR 10M in monthly revenue</li>
+          <li>Based in Pakistan, UAE, or Saudi Arabia</li>
+        </ul>
+        <p>Not sure if you qualify? WhatsApp us at <a href="https://wa.me/923700950063">+92 370 0950063</a> and we will
+          tell you honestly within minutes.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Contact</div>
+        <h2>Questions About These Terms</h2>
+        <p>If you have any questions about these terms or your audit engagement, reach out directly.</p>
+        <div class="contact-block">
+          <div>
+            <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:4px">CLOSIMO — Sales Audit Team
+            </div>
+            <div style="font-size:13px;color:var(--muted)">Email: <a
+                href="mailto:audit@closimo.com">audit@closimo.com</a> &nbsp;·&nbsp; WhatsApp: <a
+                href="https://wa.me/923700950063">+92 370 0950063</a></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="legal-footer">
+    <div class="legal-footer-copy">© Copyright CLOSIMO 2026. All Rights Reserved.</div>
+    <div class="legal-footer-links">
+      <a href="index.html">Home</a>
+      <a href="#" onclick="switchTab('privacy')">Privacy Policy</a>
+      <a href="#" onclick="switchTab('terms')">Terms &amp; Conditions</a>
+    </div>
+  </div>
+
+  <script>
+    function switchTab(tab) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(tab).classList.add('active');
+      event.target.classList.add('active');
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+  </script>
+  <div class="page-transition-overlay"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const overlay = document.querySelector('.page-transition-overlay');
+      if (overlay) {
+        setTimeout(() => overlay.classList.add('is-loaded'), 50);
+      }
+      document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function (e) {
+          const target = this.getAttribute('target');
+          const href = this.getAttribute('href');
+          if (target === '_blank' || !href || href.startsWith('#') || href.startsWith('tel:') || href.startsWith('mailto:')) return;
+          if (this.hostname !== window.location.hostname && href.indexOf('http') !== -1) return;
+          e.preventDefault();
+          if (overlay) overlay.classList.remove('is-loaded');
+          setTimeout(() => {
+            window.location.href = href;
+          }, 400);
+        });
+      });
+    });
+    window.addEventListener('pageshow', (event) => {
+      const overlay = document.querySelector('.page-transition-overlay');
+      if (event.persisted && overlay) {
+        overlay.classList.add('is-loaded');
+      }
+    });
+  </script>
+</body>
+
+</html>
