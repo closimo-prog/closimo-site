@@ -1437,7 +1437,11 @@
         }
 
         function syncToSheets() {
-            if (!SSS_URL || SSS_URL.indexOf("PASTE_YOUR") >= 0) return;
+            if (!SSS_URL || SSS_URL.indexOf("PASTE_YOUR") >= 0) {
+                console.error("⛔ SETUP ERROR: You have not added your Google Apps Script URL yet! Please paste it into line 1328 of your code.");
+                return;
+            }
+            console.log("🚀 Syncing lead to Google Sheets...");
             var payload = {
                 uName: document.getElementById('user-info') ? document.getElementById('user-info').value : "",
                 uComp: document.getElementById('user-company') ? document.getElementById('user-company').value : "",
@@ -1447,7 +1451,9 @@
                 surveyQ2: document.getElementById('survey-q2').value,
                 recommend: recChoice
             };
-            fetch(SSS_URL, { method: "POST", mode: "no-cors", cache: "no-cache", body: JSON.stringify(payload) });
+            fetch(SSS_URL, { method: "POST", mode: "no-cors", cache: "no-cache", body: JSON.stringify(payload) })
+                .then(function() { console.log("✅ Sync request sent to Google! Allow 2-3 seconds for it to appear in the sheet."); })
+                .catch(function(err) { console.error("❌ Sync Error:", err); });
         }
 
         function toggleRefine() {
