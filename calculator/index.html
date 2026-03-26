@@ -55,7 +55,7 @@
 
         body {
             background-color: #070707;
-            background-image: 
+            background-image:
                 linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(135deg, #0f0f0f 0%, #050505 100%);
@@ -70,25 +70,58 @@
 
         .bg-orbs {
             position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             z-index: -2;
             overflow: hidden;
             pointer-events: none;
             opacity: 0.15;
         }
+
         .orb {
             position: absolute;
             border-radius: 50%;
             filter: blur(80px);
             animation: float 20s infinite ease-in-out alternate;
         }
-        .orb-1 { width: 40vw; height: 40vw; background: var(--green); top: -10vw; left: -10vw; animation-delay: 0s; }
-        .orb-2 { width: 35vw; height: 35vw; background: #00b4d8; bottom: -5vw; right: -10vw; animation-delay: -5s; }
-        .orb-3 { width: 30vw; height: 30vw; background: var(--amber); top: 40%; left: 30%; animation-delay: -10s; }
+
+        .orb-1 {
+            width: 40vw;
+            height: 40vw;
+            background: var(--green);
+            top: -10vw;
+            left: -10vw;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 35vw;
+            height: 35vw;
+            background: #00b4d8;
+            bottom: -5vw;
+            right: -10vw;
+            animation-delay: -5s;
+        }
+
+        .orb-3 {
+            width: 30vw;
+            height: 30vw;
+            background: var(--amber);
+            top: 40%;
+            left: 30%;
+            animation-delay: -10s;
+        }
+
         @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(8vw, 8vh) scale(1.1); }
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(8vw, 8vh) scale(1.1);
+            }
         }
 
         /* NAV */
@@ -98,9 +131,11 @@
             align-items: center;
             justify-content: space-between;
             padding: 0 24px;
-            border-bottom: 0.5px solid rgba(255, 255, 255, 0.08); /* glass highlight */
+            border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+            /* glass highlight */
             gap: 16px;
-            background: rgba(10, 10, 10, 0.65); /* translucent */
+            background: rgba(10, 10, 10, 0.65);
+            /* translucent */
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             position: sticky;
@@ -491,14 +526,16 @@
 
         /* ══ OUTPUT ══ */
         .out-card {
-            background: rgba(17, 17, 17, 0.6); /* translucent var(--s1) */
-            border: 0.5px solid rgba(255, 255, 255, 0.06); /* subtle glass edge */
+            background: rgba(17, 17, 17, 0.6);
+            /* translucent var(--s1) */
+            border: 0.5px solid rgba(255, 255, 255, 0.06);
+            /* subtle glass edge */
             border-radius: var(--rxl);
             padding: 24px;
             margin-bottom: 10px;
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.03);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.03);
         }
 
         .out-label {
@@ -520,7 +557,7 @@
             border-radius: var(--rl);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 8px 32px rgba(226, 75, 74, 0.05), inset 0 1px 0 rgba(255,255,255,0.05);
+            box-shadow: 0 8px 32px rgba(226, 75, 74, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.05);
         }
 
         .big-loss-num {
@@ -964,16 +1001,26 @@
             transform: translateY(24px);
             transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
         @keyframes resultPulse {
-            0% { transform: scale(1); }
-            40% { transform: scale(1.04); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            40% {
+                transform: scale(1.04);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
+
         .pulse-text {
             animation: resultPulse 0.4s ease-out;
             display: inline-block;
@@ -1022,10 +1069,11 @@
         <div class="card">
             <div class="card-label">About You</div>
             <div class="row2 reveal">
-                <input class="inp-plain" type="text" id="user-info" placeholder="Name & Title (e.g. John - VP Sales)" oninput="saveState()">
+                <input class="inp-plain" type="text" id="user-info" placeholder="Name & Title (e.g. John - VP Sales)"
+                    oninput="saveState()">
                 <input class="inp-plain" type="text" id="user-company" placeholder="Company Name" oninput="saveState()">
             </div>
-            
+
             <div class="dv"></div>
 
             <div class="card-label" style="margin-top:20px;">Your numbers</div>
@@ -1058,9 +1106,9 @@
 
             <div class="reveal" style="margin-bottom:16px">
                 <div class="flabel">Your Sales Team Size</div>
-                <div class="iw" style="max-width:50%; margin-bottom: 24px;"><span class="ctag">Reps</span><input class="inp" type="number"
-                        id="active-deals" style="display:none"><input class="inp" type="number" id="team-size"
-                        placeholder="e.g. 4" oninput="update()"></div>
+                <div class="iw" style="max-width:50%; margin-bottom: 24px;"><span class="ctag">Reps</span><input
+                        class="inp" type="number" id="active-deals" style="display:none"><input class="inp"
+                        type="number" id="team-size" placeholder="e.g. 4" oninput="update()"></div>
             </div>
 
             <div class="flabel" style="margin-bottom:5px">Your Industry?</div>
@@ -1270,8 +1318,9 @@
     </footer>
 
 
-    <script src="data.js"></script><script>
-        
+    <script src="data.js"></script>
+    <script>
+
 
         var GF = { "l2q": 30, "q2m": 45, "m2s": 80, "d2p": 55, "p2c": 25, "ocr": 2.9, "cy": 77, "ret": 24, "icr": 5.0, "ocr2": 1.7, "cov": 4, "cliff": 50 };
 
@@ -1310,7 +1359,7 @@
         var fuzzyTimeout = null;
         function debounceFuzzy() {
             if (fuzzyTimeout) clearTimeout(fuzzyTimeout);
-            fuzzyTimeout = setTimeout(function() {
+            fuzzyTimeout = setTimeout(function () {
                 fuzzyMatch();
             }, 300);
         }
@@ -1382,6 +1431,11 @@
             return v || 'your industry';
         }
 
+        function getBench() {
+            if (curInd) return curInd;
+            return { ocr: GF.ocr, cy: GF.cy, cliff: GF.cliff, cov: GF.cov, ret: GF.ret, icr: GF.icr, ocr2: GF.ocr2 };
+        }
+
         function syncToSheets() {
             if (!SSS_URL || SSS_URL.indexOf("PASTE_YOUR") >= 0) return;
             var payload = {
@@ -1414,7 +1468,7 @@
         function submitSurvey() {
             var q1 = document.getElementById('survey-q1').value.trim();
             if (!q1 && !recChoice) return;
-            
+
             syncToSheets();
 
             auditCount++;
@@ -1460,7 +1514,7 @@
                 var raw = localStorage.getItem('closimoState');
                 if (!raw) return;
                 var state = JSON.parse(raw);
-                
+
                 if (state.ts && (Date.now() - state.ts > 300000)) { // 5 minutes expiration
                     localStorage.removeItem('closimoState');
                     return;
@@ -1469,7 +1523,7 @@
                 if (state.uName && document.getElementById('user-info')) document.getElementById('user-info').value = state.uName;
                 if (state.uComp && document.getElementById('user-company')) document.getElementById('user-company').value = state.uComp;
                 if (state.ind) document.getElementById('other-industry').value = state.ind;
-                
+
                 var val = state.ind ? state.ind.toLowerCase().trim() : '';
                 if (val.length >= 2 && typeof IDB !== 'undefined') {
                     var best = null, bestScore = 0;
@@ -1497,14 +1551,14 @@
                 if (state.deal !== undefined) document.getElementById('deal').value = state.deal;
                 if (state.act !== undefined) document.getElementById('active-deals').value = state.act;
                 if (state.team !== undefined) document.getElementById('team-size').value = state.team;
-                
+
                 if (state.cSym) {
-                    var btnC = document.querySelector('.cbtn[data-sym="'+state.cSym+'"]');
+                    var btnC = document.querySelector('.cbtn[data-sym="' + state.cSym + '"]');
                     if (btnC) {
                         cSym = state.cSym; cWord = state.cWord || state.cSym;
                         var row = btnC.closest('.cur-row');
                         if (row) {
-                            row.querySelectorAll('.cbtn').forEach(function(b){b.classList.remove('active');});
+                            row.querySelectorAll('.cbtn').forEach(function (b) { b.classList.remove('active'); });
                             btnC.classList.add('active');
                         }
                         document.getElementById('tag-m').textContent = cSym;
@@ -1516,28 +1570,28 @@
                     }
                 }
                 if (state.cLead) {
-                    var btnL = document.querySelector('.tog[data-lead="'+state.cLead+'"]');
+                    var btnL = document.querySelector('.tog[data-lead="' + state.cLead + '"]');
                     if (btnL) {
                         cLead = state.cLead;
                         var row2 = btnL.closest('.tog3');
                         if (row2) {
-                            row2.querySelectorAll('.tog').forEach(function(b){b.classList.remove('active');});
+                            row2.querySelectorAll('.tog').forEach(function (b) { b.classList.remove('active'); });
                             btnL.classList.add('active');
                         }
                     }
                 }
                 if (state.cBtype) {
-                    var btnB = document.querySelector('.tog[data-type="'+state.cBtype+'"]');
+                    var btnB = document.querySelector('.tog[data-type="' + state.cBtype + '"]');
                     if (btnB) {
                         cBtype = state.cBtype;
                         var row3 = btnB.closest('.tog3');
                         if (row3) {
-                            row3.querySelectorAll('.tog').forEach(function(b){b.classList.remove('active');});
+                            row3.querySelectorAll('.tog').forEach(function (b) { b.classList.remove('active'); });
                             btnB.classList.add('active');
                         }
                     }
                 }
-            } catch (e) {}
+            } catch (e) { }
         }
 
         function update() {
@@ -1719,16 +1773,16 @@
             document.getElementById('audit-counter').textContent = '340+';
         })();
 
-        document.addEventListener('DOMContentLoaded', function() {
-            var revObs = new IntersectionObserver(function(entries, observer) {
-                entries.forEach(function(entry) {
+        document.addEventListener('DOMContentLoaded', function () {
+            var revObs = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                         observer.unobserve(entry.target);
                     }
                 });
             }, { threshold: 0.15 });
-            document.querySelectorAll('.reveal').forEach(function(el) {
+            document.querySelectorAll('.reveal').forEach(function (el) {
                 revObs.observe(el);
             });
         });
