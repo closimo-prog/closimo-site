@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B Sales Pipeline Leakage Calculator — Free Tool</title>
+    <meta name="description"
+        content="Find out exactly how much revenue is leaking from your B2B sales pipeline. Free calculator with benchmarks for 120 industries. Results in seconds.">
+    <link rel="canonical" href="https://salespipelineleakage.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&display=swap" rel="stylesheet">
+
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"B2B Sales Pipeline Leakage Calculator","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://salespipelineleakage.com","description":"Free B2B sales pipeline leakage calculator. Benchmarks across 120 industries. Find where your deals are dying.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What causes B2B sales pipeline leakage?","acceptedAnswer":{"@type":"Answer","text":"The five stages where B2B pipeline leaks are: lead qualification (avg 30% qualify), meeting booking, show-up rate (avg 80-85%), proposal conversion, and proposal closing. The most overlooked is the show-up rate which most companies never measure."}},{"@type":"Question","name":"What is the average B2B sales cycle length?","acceptedAnswer":{"@type":"Answer","text":"The median B2B sales cycle is 77 days. SaaS averages 58 days, IT Managed Services 65 days, ERP 165 days. Sales cycles have lengthened 22-38% since 2021."}},{"@type":"Question","name":"How much pipeline coverage do B2B companies need?","acceptedAnswer":{"@type":"Answer","text":"B2B companies need 3-7x their revenue target in active pipeline. SaaS needs 4x, IT Managed Services 5x, General Contractors 7x — based on industry win rates."}},{"@type":"Question","name":"What percentage of B2B deals are lost to no decision?","acceptedAnswer":{"@type":"Answer","text":"45-55% of all lost B2B deals are lost to no decision. The status quo wins more often than any competitor. Most pipeline leakage is fixable through urgency creation, not better pitching."}}]}</script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --bg: #0A0A0A;
+            --s1: #111;
+            --s2: #161616;
+            --bdr: #1e1e1e;
+            --bdr2: #2a2a2a;
+            --text: #fff;
+            --muted: #b0b0b0;
+            --hint: #777;
+            --green: #1D9E75;
+            --green-dk: #0F6E56;
+            --green-lo: rgba(29, 158, 117, 0.1);
+            --red: #E24B4A;
+            --red-lo: rgba(226, 75, 74, 0.06);
+            --red-bd: rgba(226, 75, 74, 0.2);
+            --amber: #EF9F27;
+            --amber-lo: rgba(239, 159, 39, 0.08);
+            --amber-bd: rgba(239, 159, 39, 0.2);
+            --blue-lo: rgba(99, 143, 220, 0.08);
+            --blue-bd: rgba(99, 143, 220, 0.2);
+            --r: 8px;
+            --rl: 12px;
+            --rxl: 16px;
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            background-color: #070707;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(135deg, #0f0f0f 0%, #050505 100%);
+            background-size: 24px 24px, 24px 24px, 100% 100%;
+            background-attachment: fixed;
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .bg-orbs {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            z-index: -2;
+            overflow: hidden;
+            pointer-events: none;
+            opacity: 0.15;
+        }
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: float 20s infinite ease-in-out alternate;
+        }
+        .orb-1 { width: 40vw; height: 40vw; background: var(--green); top: -10vw; left: -10vw; animation-delay: 0s; }
+        .orb-2 { width: 35vw; height: 35vw; background: #00b4d8; bottom: -5vw; right: -10vw; animation-delay: -5s; }
+        .orb-3 { width: 30vw; height: 30vw; background: var(--amber); top: 40%; left: 30%; animation-delay: -10s; }
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(8vw, 8vh) scale(1.1); }
+        }
+
+        /* NAV */
+        nav {
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            border-bottom: 0.5px solid rgba(255, 255, 255, 0.08); /* glass highlight */
+            gap: 16px;
+            background: rgba(10, 10, 10, 0.65); /* translucent */
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -.01em;
+            text-decoration: none;
+            white-space: nowrap;
+            flex-shrink: 0
+        }
+
+        .nav-stats {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            flex: 1;
+            justify-content: flex-end
+        }
+
+        .nstat {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0 16px;
+            border-right: 0.5px solid var(--bdr2)
+        }
+
+        .nstat:last-child {
+            border-right: none;
+            padding-right: 0
+        }
+
+        .nstat-num {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--text);
+            letter-spacing: -.02em;
+            white-space: nowrap
+        }
+
+        .nstat-num.g {
+            color: var(--green)
+        }
+
+        .nstat-lbl {
+            font-size: 10px;
+            color: var(--hint);
+            white-space: nowrap
+        }
+
+        /* HERO */
+        .hero {
+            padding: 36px 24px 24px;
+            max-width: 680px;
+            margin: 0 auto
+        }
+
+        .hero h1 {
+            font-size: clamp(24px, 4vw, 38px);
+            font-weight: 900;
+            letter-spacing: -.03em;
+            line-height: 1.12;
+            margin-bottom: 8px
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--green)
+        }
+
+        .hero p {
+            font-size: 15px;
+            color: var(--muted);
+            font-weight: 300;
+            line-height: 1.6
+        }
+
+        /* TOOL */
+        .tool {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 24px 60px
+        }
+
+        /* CARDS */
+        .card {
+            background: var(--s1);
+            border: 0.5px solid var(--bdr2);
+            border-radius: var(--rxl);
+            padding: 24px;
+            margin-bottom: 10px
+        }
+
+        .card-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--hint);
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            margin-bottom: 14px
+        }
+
+        /* CURRENCY */
+        .cur-row {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            margin-bottom: 28px
+        }
+
+        .cbtn {
+            padding: 5px 12px;
+            border-radius: 16px;
+            border: 0.5px solid var(--bdr2);
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            background: transparent;
+            color: var(--muted);
+            transition: all .15s;
+            font-family: 'Inter', sans-serif
+        }
+
+        .cbtn.active {
+            background: var(--green);
+            color: #fff;
+            border-color: var(--green);
+            font-weight: 600
+        }
+
+        .cbtn:hover:not(.active) {
+            border-color: #555;
+            color: var(--text)
+        }
+
+        /* INPUTS */
+        .row2 {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 16px;
+            margin-bottom: 28px
+        }
+
+        .flabel {
+            font-size: 11px;
+            color: var(--muted);
+            margin-bottom: 5px
+        }
+
+        .iw {
+            display: flex;
+            align-items: center;
+            border: 0.5px solid var(--bdr2);
+            border-radius: var(--r);
+            overflow: hidden;
+            background: var(--s2);
+            transition: border-color .2s
+        }
+
+        .iw:focus-within {
+            border-color: var(--green)
+        }
+
+        .ctag {
+            padding: 0 10px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--hint);
+            background: var(--bg);
+            border-right: 0.5px solid var(--bdr);
+            height: 40px;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0
+        }
+
+        .inp {
+            flex: 1;
+            padding: 9px 12px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+            background: transparent;
+            color: var(--text);
+            min-width: 0;
+            font-family: 'Inter', sans-serif
+        }
+
+        .inp::placeholder {
+            color: var(--hint)
+        }
+
+        .inp-plain {
+            width: 100%;
+            padding: 9px 12px;
+            border: 0.5px solid var(--bdr2);
+            border-radius: var(--r);
+            font-size: 13px;
+            background: var(--s2);
+            color: var(--text);
+            outline: none;
+            transition: border-color .2s;
+            font-family: 'Inter', sans-serif
+        }
+
+        .inp-plain::placeholder {
+            color: var(--hint)
+        }
+
+        .inp-plain:focus {
+            border-color: var(--green)
+        }
+
+        /* LEAD SOURCE TOGGLE */
+        .tog3 {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 6px
+        }
+
+        .tog {
+            padding: 9px 8px;
+            border-radius: var(--r);
+            border: 0.5px solid var(--bdr2);
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            background: transparent;
+            color: var(--muted);
+            transition: all .15s;
+            text-align: center;
+            line-height: 1.4;
+            font-family: 'Inter', sans-serif
+        }
+
+        .tog:hover:not(.active) {
+            border-color: #555;
+            color: var(--text)
+        }
+
+        .tog.active {
+            background: var(--green);
+            color: #fff;
+            border-color: var(--green);
+            font-weight: 600
+        }
+
+        .sub-tog {
+            font-size: 10px;
+            opacity: .65;
+            display: block;
+            margin-top: 1px
+        }
+
+        /* MATCH BADGE */
+
+        /* DIVIDER */
+        .dv {
+            border: none;
+            border-top: 0.5px solid var(--bdr);
+            margin: 18px 0
+        }
+
+        /* ── REFINE SECTION ── */
+        .refine-toggle {
+            width: 100%;
+            background: transparent;
+            border: 0.5px solid var(--bdr2);
+            border-radius: var(--r);
+            padding: 10px 14px;
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all .15s;
+            text-align: left;
+            margin-bottom: 0
+        }
+
+        .refine-toggle:hover {
+            border-color: #555;
+            color: var(--text)
+        }
+
+        .refine-toggle.open {
+            border-color: var(--green);
+            color: var(--green);
+            border-radius: var(--r) var(--r) 0 0;
+            border-bottom: none
+        }
+
+        .refine-arrow {
+            font-size: 16px;
+            transition: transform .2s;
+            font-weight: 300
+        }
+
+        .refine-toggle.open .refine-arrow {
+            transform: rotate(180deg)
+        }
+
+        .refine-body {
+            display: none;
+            border: 0.5px solid var(--green);
+            border-top: none;
+            border-radius: 0 0 var(--r) var(--r);
+            padding: 16px;
+            background: var(--s2);
+            margin-bottom: 10px
+        }
+
+        .refine-body.open {
+            display: block
+        }
+
+        /* SLIDERS */
+        .sf {
+            margin-bottom: 14px
+        }
+
+        .sf:last-child {
+            margin-bottom: 0
+        }
+
+        .sft {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px
+        }
+
+        .sfn {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text)
+        }
+
+        .sfn.hot {
+            color: var(--amber)
+        }
+
+        .sfv {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--green);
+            min-width: 44px;
+            text-align: right
+        }
+
+        .sfv.warn {
+            color: var(--red)
+        }
+
+        .sfd {
+            font-size: 11px;
+            color: var(--hint);
+            margin-bottom: 5px;
+            line-height: 1.4
+        }
+
+        input[type=range] {
+            width: 100%;
+            cursor: pointer;
+            accent-color: var(--green)
+        }
+
+        .warn-banner {
+            background: var(--red-lo);
+            border: 0.5px solid var(--red-bd);
+            border-radius: var(--r);
+            padding: 7px 10px;
+            margin-bottom: 6px;
+            font-size: 11px;
+            line-height: 1.5;
+            color: #f87171;
+            display: none
+        }
+
+        /* ══ OUTPUT ══ */
+        .out-card {
+            background: rgba(17, 17, 17, 0.6); /* translucent var(--s1) */
+            border: 0.5px solid rgba(255, 255, 255, 0.06); /* subtle glass edge */
+            border-radius: var(--rxl);
+            padding: 24px;
+            margin-bottom: 10px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.03);
+        }
+
+        .out-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--hint);
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            margin-bottom: 20px
+        }
+
+        /* BIG DAILY LOSS — hero number */
+        .big-loss {
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 28px 20px;
+            background: rgba(226, 75, 74, 0.06);
+            border: 0.5px solid rgba(226, 75, 74, 0.25);
+            border-radius: var(--rl);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px rgba(226, 75, 74, 0.05), inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+
+        .big-loss-num {
+            font-size: clamp(52px, 10vw, 80px);
+            font-weight: 900;
+            color: var(--red);
+            line-height: 1;
+            letter-spacing: -.04em;
+            margin-bottom: 6px
+        }
+
+        .big-loss-lbl {
+            font-size: 13px;
+            color: rgba(226, 75, 74, 0.65);
+            font-weight: 400
+        }
+
+        /* BIGGEST LEAK CALLOUT */
+        .leak-callout {
+            border-left: 3px solid var(--red);
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            background: rgba(226, 75, 74, 0.04);
+            border-radius: 0 var(--r) var(--r) 0
+        }
+
+        .leak-callout-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--red);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: 4px
+        }
+
+        .leak-callout-text {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.6
+        }
+
+        .leak-callout strong {
+            color: var(--text);
+            font-weight: 600
+        }
+
+        /* RESULT ROWS */
+        .rbox {
+            border-radius: var(--r);
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px
+        }
+
+        .rr {
+            border: 0.5px solid var(--red-bd)
+        }
+
+        .rt {
+            border: 0.5px solid rgba(29, 158, 117, 0.2)
+        }
+
+        .ra {
+            border: 0.5px solid var(--amber-bd)
+        }
+
+        .rb {
+            border: 0.5px solid var(--blue-bd)
+        }
+
+        .rl {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text);
+            line-height: 1.4
+        }
+
+        .rs {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 2px
+        }
+
+        .rn {
+            font-size: 22px;
+            font-weight: 900;
+            white-space: nowrap;
+            flex-shrink: 0;
+            letter-spacing: -.02em
+        }
+
+        /* 3 METRICS */
+        .m3 {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 8px;
+            margin-bottom: 10px
+        }
+
+        .mc {
+            background: var(--s2);
+            border-radius: var(--r);
+            padding: 12px 10px;
+            text-align: center;
+            border: 0.5px solid var(--bdr)
+        }
+
+        .mn {
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: -.02em
+        }
+
+        .ml {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 3px;
+            line-height: 1.3
+        }
+
+        /* SALES CYCLE */
+        .cy {
+            background: var(--s2);
+            border-radius: var(--r);
+            padding: 14px;
+            margin-bottom: 10px;
+            border: 0.5px solid var(--bdr)
+        }
+
+        .cy-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--hint);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: 10px
+        }
+
+        .cy3 {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 8px;
+            margin-bottom: 10px
+        }
+
+        .cyi {
+            text-align: center;
+            background: var(--s1);
+            border-radius: var(--r);
+            padding: 12px 6px;
+            border: 0.5px solid var(--bdr)
+        }
+
+        .cyn {
+            font-size: 18px;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 2px;
+            letter-spacing: -.02em
+        }
+
+        .cyl {
+            font-size: 11px;
+            color: var(--muted);
+            line-height: 1.3
+        }
+
+        .cyt {
+            font-size: 11px;
+            color: var(--muted);
+            line-height: 1.6;
+            border-top: 0.5px solid var(--bdr);
+            padding-top: 8px
+        }
+
+        /* PIPE NOTE */
+        .pnote {
+            font-size: 11px;
+            color: var(--hint);
+            background: var(--s2);
+            border-radius: var(--r);
+            padding: 6px 10px;
+            margin-bottom: 10px;
+            line-height: 1.5;
+            border: 0.5px solid var(--bdr)
+        }
+
+        .pnote strong {
+            color: var(--muted)
+        }
+
+        /* EMPTY */
+        .empty {
+            font-size: 13px;
+            color: var(--hint);
+            padding: 16px 0;
+            text-align: center
+        }
+
+        /* ══ MICRO-SURVEY ══ */
+        .survey {
+            margin-top: 20px;
+            padding: 20px;
+            background: var(--s2);
+            border: 0.5px solid var(--bdr2);
+            border-radius: var(--rl);
+            display: none
+        }
+
+        .survey.visible {
+            display: block
+        }
+
+        .survey-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            margin-bottom: 14px
+        }
+
+        .survey-q {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 8px
+        }
+
+        .survey-input {
+            width: 100%;
+            padding: 9px 12px;
+            border: 0.5px solid var(--bdr2);
+            border-radius: var(--r);
+            font-size: 13px;
+            background: var(--bg);
+            color: var(--text);
+            outline: none;
+            transition: border-color .2s;
+            font-family: 'Inter', sans-serif;
+            resize: none
+        }
+
+        .survey-input:focus {
+            border-color: var(--green)
+        }
+
+        .recommend-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px
+        }
+
+        .rec-btn {
+            flex: 1;
+            padding: 10px;
+            border-radius: var(--r);
+            border: 0.5px solid var(--bdr2);
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            background: transparent;
+            color: var(--muted);
+            transition: all .15s;
+            font-family: 'Inter', sans-serif
+        }
+
+        .rec-btn.selected-yes {
+            background: var(--green-lo);
+            color: var(--green);
+            border-color: rgba(29, 158, 117, 0.4)
+        }
+
+        .rec-btn.selected-no {
+            background: var(--red-lo);
+            color: var(--red);
+            border-color: var(--red-bd)
+        }
+
+        .survey-submit {
+            width: 100%;
+            padding: 11px;
+            background: var(--green);
+            color: #fff;
+            border: none;
+            border-radius: var(--r);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: background .15s;
+            margin-top: 8px
+        }
+
+        .survey-submit:hover {
+            background: var(--green-dk)
+        }
+
+        .survey-done {
+            font-size: 13px;
+            color: var(--green);
+            text-align: center;
+            padding: 8px 0;
+            display: none
+        }
+
+        /* ══ CTA BLOCK ══ */
+        .cta-block {
+            margin-top: 16px;
+            background: #111;
+            border: 0.5px solid var(--bdr2);
+            border-radius: var(--rl);
+            overflow: hidden;
+            display: none
+        }
+
+        .cta-top {
+            padding: 18px 20px 14px
+        }
+
+        .cta-top p {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--green);
+            line-height: 1.7
+        }
+
+        .cta-btn-wrap {
+            padding: 0 20px 14px
+        }
+
+        .cta-btn {
+            display: block;
+            width: 100%;
+            padding: 14px 24px;
+            background: var(--green);
+            color: #fff;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            text-align: center;
+            box-sizing: border-box;
+            letter-spacing: -.01em;
+            transition: background .15s;
+            font-family: 'Inter', sans-serif
+        }
+
+        .cta-btn:hover {
+            background: var(--green-dk)
+        }
+
+        .cta-below {
+            padding: 0 20px 18px;
+            text-align: center
+        }
+
+        .cta-below p {
+            font-size: 13px;
+            color: #fff;
+            font-weight: 400;
+            line-height: 1.7
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 0.5px solid var(--bdr);
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            max-width: 680px;
+            margin: 0 auto
+        }
+
+        footer p,
+        footer a {
+            font-size: 11px;
+            color: var(--hint);
+            text-decoration: none
+        }
+
+        footer a:hover {
+            color: var(--muted)
+        }
+
+        /* HIDDEN SPANS */
+        .ghost {
+            display: none;
+            visibility: hidden;
+            position: absolute;
+            width: 0;
+            height: 0;
+            overflow: hidden
+        }
+
+        @media(max-width:560px) {
+            .hero {
+                padding: 24px 16px 16px
+            }
+
+            .tool {
+                padding: 0 16px 48px
+            }
+
+            .card,
+            .out-card {
+                padding: 16px
+            }
+
+            .row2 {
+                grid-template-columns: 1fr
+            }
+
+            .m3,
+            .cy3 {
+                grid-template-columns: repeat(3, 1fr)
+            }
+
+            .big-loss-num {
+                font-size: 52px
+            }
+
+            .nstat-lbl {
+                display: none
+            }
+
+            .nstat {
+                padding: 0 10px
+            }
+        }
+
+        /* ══ DYNAMIC ANIMATIONS ══ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes resultPulse {
+            0% { transform: scale(1); }
+            40% { transform: scale(1.04); }
+            100% { transform: scale(1); }
+        }
+        .pulse-text {
+            animation: resultPulse 0.4s ease-out;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- NAV -->
+    <nav>
+        <a href="/" class="logo">Sales Pipeline Leakage Calculator</a>
+        <div class="nav-stats">
+            <div class="nstat">
+                <span class="nstat-num live-stat" data-target="450" data-prefix="$" data-suffix="M+">$0</span>
+                <span class="nstat-lbl">in sales leakage found</span>
+            </div>
+            <div class="nstat">
+                <span class="nstat-num live-stat" data-target="120" data-suffix="+">0</span>
+                <span class="nstat-lbl">industries</span>
+            </div>
+            <div class="nstat">
+                <span class="nstat-num live-stat" id="audit-counter" data-target="340" data-suffix="+">0</span>
+                <span class="nstat-lbl">sales teams audited</span>
+            </div>
+            <div class="nstat">
+                <span class="nstat-num g live-stat" data-target="28" data-prefix="+" data-suffix="%">+0%</span>
+                <span class="nstat-lbl">avg close rate lift</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Your Sales Pipeline is losing deals every day.<br><em>Find out how much it's costing you?</em></h1>
+    </div>
+
+    <div class="tool">
+
+        <!-- ══ STEP 1: FAST INPUTS ══ -->
+        <div class="card">
+            <div class="card-label">About You</div>
+            <div class="row2 reveal">
+                <input class="inp-plain" type="text" id="user-info" placeholder="Name & Title (e.g. John - VP Sales)" oninput="saveState()">
+                <input class="inp-plain" type="text" id="user-company" placeholder="Company Name" oninput="saveState()">
+            </div>
+            
+            <div class="dv"></div>
+
+            <div class="card-label" style="margin-top:20px;">Your numbers</div>
+
+            <div class="cur-row reveal">
+                <button class="cbtn active" data-sym="PKR" data-word="rupee" onclick="setCur(this)">PKR</button>
+                <button class="cbtn" data-sym="$" data-word="dollar" onclick="setCur(this)">USD</button>
+                <button class="cbtn" data-sym="€" data-word="euro" onclick="setCur(this)">EUR</button>
+                <button class="cbtn" data-sym="£" data-word="pound" onclick="setCur(this)">GBP</button>
+                <button class="cbtn" data-sym="AED" data-word="dirham" onclick="setCur(this)">AED</button>
+                <button class="cbtn" data-sym="SAR" data-word="riyal" onclick="setCur(this)">SAR</button>
+                <button class="cbtn" data-sym="CAD" data-word="dollar" onclick="setCur(this)">CAD</button>
+                <button class="cbtn" data-sym="AUD" data-word="dollar" onclick="setCur(this)">AUD</button>
+                <button class="cbtn" data-sym="¥" data-word="yen" onclick="setCur(this)">JPY</button>
+                <button class="cbtn" data-sym="SGD" data-word="dollar" onclick="setCur(this)">SGD</button>
+            </div>
+
+            <div class="row2 reveal">
+                <div>
+                    <div class="flabel">Your Monthly Revenue</div>
+                    <div class="iw"><span class="ctag" id="tag-m">PKR</span><input class="inp" type="number"
+                            id="monthly" placeholder="e.g. 10,000,000" oninput="update()"></div>
+                </div>
+                <div>
+                    <div class="flabel">Your Average Deal Size</div>
+                    <div class="iw"><span class="ctag" id="tag-d">PKR</span><input class="inp" type="number" id="deal"
+                            placeholder="e.g. 500,000" oninput="update()"></div>
+                </div>
+            </div>
+
+            <div class="reveal" style="margin-bottom:16px">
+                <div class="flabel">Your Sales Team Size</div>
+                <div class="iw" style="max-width:50%; margin-bottom: 24px;"><span class="ctag">Reps</span><input class="inp" type="number"
+                        id="active-deals" style="display:none"><input class="inp" type="number" id="team-size"
+                        placeholder="e.g. 4" oninput="update()"></div>
+            </div>
+
+            <div class="flabel" style="margin-bottom:5px">Your Industry?</div>
+            <input class="inp-plain" type="text" id="other-industry"
+                placeholder="e.g. SaaS, Cybersecurity, Solar, Staffing, Consulting..." oninput="debounceFuzzy()"
+                style="margin-bottom:6px">
+
+            <div class="dv"></div>
+
+            <div class="flabel" style="margin-bottom:8px">How do your leads come in?</div>
+            <div class="tog3 reveal">
+                <button class="tog active" data-lead="inbound" onclick="setLead(this)">Inbound<span
+                        class="sub-tog">referrals, SEO, ads</span></button>
+                <button class="tog" data-lead="mixed" onclick="setLead(this)">Mixed<span class="sub-tog">both
+                        sources</span></button>
+                <button class="tog" data-lead="outbound" onclick="setLead(this)">Outbound<span class="sub-tog">cold
+                        outreach</span></button>
+            </div>
+        </div>
+
+        <!-- ══ REFINE: COLLAPSIBLE SLIDERS ══ -->
+        <button class="refine-toggle reveal" id="refine-toggle" onclick="toggleRefine()">
+            <span>Your conversion rates</span>
+            <span class="refine-arrow">↓</span>
+        </button>
+        <div class="refine-body" id="refine-body">
+            <div class="sf reveal">
+                <div class="sft"><span class="sfn">Lead → Qualified</span><span class="sfv" id="v1">35%</span></div>
+                <div class="sfd">Of all leads, how many are genuinely worth pursuing?</div>
+                <input type="range" min="5" max="80" value="35" id="s1" oninput="update()">
+            </div>
+            <div class="sf reveal">
+                <div class="sft"><span class="sfn">Qualified → Meeting booked</span><span class="sfv" id="v2">55%</span>
+                </div>
+                <div class="sfd">Of qualified leads, how many book a meeting or demo?</div>
+                <input type="range" min="5" max="90" value="55" id="s2" oninput="update()">
+            </div>
+            <div class="sf reveal">
+                <div class="sft"><span class="sfn hot">Meeting booked → Showed up</span><span class="sfv"
+                        id="vs">70%</span></div>
+                <div class="sfd">The silent killer. Of booked meetings, how many actually showed up?</div>
+                <div class="warn-banner" id="showup-banner">Below 60% show-up rate — deals are dying before the
+                    conversation starts. This is a reminder problem, not a lead quality problem.</div>
+                <input type="range" min="10" max="100" value="70" id="ss" oninput="update()">
+            </div>
+            <div class="sf reveal">
+                <div class="sft"><span class="sfn">Meeting → Proposal sent</span><span class="sfv" id="v3">65%</span>
+                </div>
+                <div class="sfd">Of meetings held, how many received a formal proposal?</div>
+                <input type="range" min="5" max="95" value="65" id="s3" oninput="update()">
+            </div>
+            <div class="sf reveal">
+                <div class="sft"><span class="sfn">Proposal → Closed won</span><span class="sfv" id="v4">28%</span>
+                </div>
+                <div class="sfd">Of proposals sent, how many became signed deals?</div>
+                <input type="range" min="2" max="80" value="28" id="s4" oninput="update()">
+            </div>
+            <div class="dv"></div>
+            <div class="sf reveal" style="margin-bottom:0">
+                <div class="sft"><span class="sfn">Average client retention</span><span class="sfv" id="v5">18 mo</span>
+                </div>
+                <div class="sfd">How long does a typical client stay? Affects lifetime value calculation.</div>
+                <input type="range" min="1" max="60" value="18" id="s5" oninput="update()">
+            </div>
+        </div>
+
+        <!-- ══ OUTPUT CARD ══ -->
+        <div class="out-card" id="results-section">
+            <div class="out-label reveal">Where your money is dying</div>
+
+            <div id="pipe-note-box" class="pnote reveal" style="display:none"></div>
+
+            <!-- HERO NUMBER -->
+            <div class="big-loss">
+                <div class="big-loss-num" id="inaction-num">—</div>
+                <div class="big-loss-lbl">You are losing this. Every. Single. Day.</div>
+            </div>
+
+            <!-- BIGGEST LEAK — replaces waterfall -->
+            <div class="leak-callout reveal" id="leak-callout" style="display:none">
+                <div class="leak-callout-label">Biggest leak</div>
+                <div class="leak-callout-text" id="leak-callout-text">—</div>
+            </div>
+
+            <!-- ANNUAL + LTV -->
+            <div class="rbox rr reveal">
+                <div>
+                    <div class="rl">Your annual revenue leakage</div>
+                    <div class="rs">Pipeline value lost across all 5 stages</div>
+                </div>
+                <div class="rn" style="color:var(--red)" id="t-annual">—</div>
+            </div>
+            <div class="rbox rt reveal">
+                <div>
+                    <div class="rl">Your lifetime value lost per year</div>
+                    <div class="rs">The true cost — lost deals compound over time</div>
+                </div>
+                <div class="rn" style="color:var(--green)" id="t-ltv">—</div>
+            </div>
+
+            <!-- CLOSE RATE ROW -->
+            <div class="m3 reveal">
+                <div class="mc">
+                    <div class="mn" id="m1" style="color:var(--red)">—</div>
+                    <div class="ml">Your close rate</div>
+                </div>
+                <div class="mc">
+                    <div class="mn" id="m2" style="color:var(--amber)">—</div>
+                    <div class="ml">Industry benchmark</div>
+                </div>
+                <div class="mc">
+                    <div class="mn" id="m3" style="color:var(--green)">—</div>
+                    <div class="ml">Upside at benchmark</div>
+                </div>
+            </div>
+
+            <!-- SALES CYCLE -->
+            <div class="cy reveal">
+                <div class="cy-title">Sales cycle analysis</div>
+                <div class="cy3">
+                    <div class="cyi">
+                        <div class="cyn" id="cy-yours" style="color:var(--red)">—</div>
+                        <div class="cyl">Your implied cycle</div>
+                    </div>
+                    <div class="cyi">
+                        <div class="cyn" id="cy-bench" style="color:var(--amber)">—</div>
+                        <div class="cyl">Industry benchmark</div>
+                    </div>
+                    <div class="cyi">
+                        <div class="cyn" id="cy-cliff" style="color:var(--red)">—</div>
+                        <div class="cyl">Win rate cliff day</div>
+                    </div>
+                </div>
+                <div class="cyt" id="cy-insight"></div>
+            </div>
+
+            <!-- PIPELINE COVERAGE -->
+            <div class="rbox rb reveal">
+                <div>
+                    <div class="rl" id="cov-label">Your pipeline coverage needed</div>
+                    <div class="rs" id="cov-sub">How much pipeline you need to hit your number</div>
+                </div>
+                <div style="text-align:right;flex-shrink:0">
+                    <div class="rn" style="color:#7aa7e8" id="cov-num">—</div>
+                    <div style="font-size:10px;color:#7aa7e8;margin-top:2px" id="cov-mult"></div>
+                </div>
+            </div>
+
+            <!-- INSIGHT TEXT -->
+            <div id="insight"
+                style="border-radius:var(--r);padding:14px;font-size:12px;line-height:1.7;background:var(--amber-lo);border:0.5px solid var(--amber-bd);color:#f5c67a;margin-bottom:0">
+            </div>
+
+            <div class="cta-block reveal" id="cta-block">
+                <div class="cta-top">
+                    <p id="cta-title">You now know what it's costing you. These are estimates based on 2026 benchmarks
+                        across 120 B2B industries. Every pipeline leaks differently — your exact number needs a deeper
+                        look.</p>
+                </div>
+                <div class="cta-btn-wrap">
+                    <a href="https://closimo.com/#tally-open" target="_blank" class="cta-btn">Book your FREE
+                        Comprehensive Sales Audit ↗</a>
+                </div>
+                <div class="cta-below">
+                    <p>If you want to know your exact numbers &amp; how to fix your sales — book a <strong>FREE
+                            Comprehensive Sales Audit</strong> with <strong>CLOSIMO</strong>.</p>
+                </div>
+            </div>
+
+            <!-- MICRO-SURVEY -->
+            <div class="survey" id="survey">
+                <div class="survey-label">Quick question — takes 20 seconds</div>
+                <div class="survey-q">What did this calculator answer for you?</div>
+                <textarea class="survey-input" id="survey-q1" rows="2"
+                    placeholder="e.g. I finally understood why my show-up rate was killing my numbers..."></textarea>
+                <div style="height:14px"></div>
+                <div class="survey-q">What's one thing you wish this calculator could tell you?</div>
+                <textarea class="survey-input" id="survey-q2" rows="2"
+                    placeholder="e.g. I wish it showed me how to fix the show-up rate problem..."></textarea>
+                <div style="height:14px"></div>
+                <div class="survey-q">Would you recommend this to another founder?</div>
+                <div class="recommend-row">
+                    <button class="rec-btn" id="rec-yes" onclick="setRec('yes')">Yes</button>
+                    <button class="rec-btn" id="rec-no" onclick="setRec('no')">No</button>
+                </div>
+                <button class="survey-submit" onclick="submitSurvey()">Submit — add my audit to the data</button>
+                <div class="survey-done" id="survey-done">Thank you. Your audit has been added.</div>
+            </div>
+
+            <!-- CTA -->
+            <!-- GHOST SPANS for JS -->
+            <span class="ghost" id="cur-word">dollar</span>
+            <span class="ghost" id="cur-word2">dollar</span>
+            <span class="ghost" id="cta-body"></span>
+            <span class="ghost" id="waterfall"></span>
+            <span class="ghost" id="team-insight"></span>
+            <span class="ghost" id="team-sub"></span>
+            <span class="ghost" id="team-num"></span>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Free tool · 120 B2B industries · 2026 benchmarks · <a href="https://closimo.com" target="_blank">Built by
+                <strong>CLOSIMO</strong> ↗</a></p>
+        <p><a href="https://closimo.com" target="_blank">closimo.com</a></p>
+    </footer>
+
+
+    <script src="data.js"></script><script>
+        
+
+        var GF = { "l2q": 30, "q2m": 45, "m2s": 80, "d2p": 55, "p2c": 25, "ocr": 2.9, "cy": 77, "ret": 24, "icr": 5.0, "ocr2": 1.7, "cov": 4, "cliff": 50 };
+
+        var sheetTimeout = null;
+        var SSS_URL = "https://script.google.com/macros/s/AKfycbw0-yPWxVZ4ObDynXE0dkicFdAc2QHdYcJ5HktxYuoC-UB2SaudcbwM9Aj5WdvBfSdvoA/exec";
+
+        var cSym = 'PKR', cWord = 'rupee', cLead = 'inbound', cBtype = 'b2b', curInd = null;
+        curInd = IDB.find(function (i) { return i.id === 1; }) || null;
+
+        function setCur(btn) {
+            cSym = btn.getAttribute('data-sym');
+            cWord = btn.getAttribute('data-word');
+            btn.closest('.cur-row').querySelectorAll('.cbtn').forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            document.getElementById('tag-m').textContent = cSym;
+            document.getElementById('tag-d').textContent = cSym;
+            document.getElementById('cur-word').textContent = cWord;
+            document.getElementById('cur-word2').textContent = cWord;
+            update();
+        }
+
+        function setBtype(btn) {
+            cBtype = btn.getAttribute('data-type');
+            btn.closest('.tog3').querySelectorAll('.tog').forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+        }
+
+        function setLead(btn) {
+            cLead = btn.getAttribute('data-lead');
+            btn.closest('.tog3').querySelectorAll('.tog').forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            if (curInd) loadDefaults(curInd);
+            update();
+        }
+
+        var fuzzyTimeout = null;
+        function debounceFuzzy() {
+            if (fuzzyTimeout) clearTimeout(fuzzyTimeout);
+            fuzzyTimeout = setTimeout(function() {
+                fuzzyMatch();
+            }, 300);
+        }
+
+        function fuzzyMatch() {
+            var val = document.getElementById('other-industry').value.toLowerCase().trim();
+            if (val.length < 2) { curInd = null; loadGlobal(); update(); return; }
+            var best = null, bestScore = 0;
+            for (var i = 0; i < IDB.length; i++) {
+                var ind = IDB[i]; var score = 0;
+                var nm = ind.n.toLowerCase();
+                if (nm.indexOf(val) >= 0 || val.indexOf(nm.split('/')[0].trim()) >= 0) score += 10;
+                for (var j = 0; j < ind.a.length; j++) {
+                    var al = ind.a[j];
+                    if (al === val) score += 12;
+                    else if (al.indexOf(val) >= 0 || val.indexOf(al) >= 0) score += (al.length > val.length ? 5 : 8);
+                }
+                if (score > bestScore) { bestScore = score; best = ind; }
+            }
+            if (best && bestScore > 4) {
+                curInd = best;
+
+                loadDefaults(best);
+            } else {
+                curInd = null;
+
+                loadGlobal();
+            }
+            update();
+        }
+
+        function loadDefaults(ind) {
+            var mult = cLead === 'inbound' ? 1.0 : cLead === 'outbound' ? 0.6 : 0.8;
+            document.getElementById('s1').value = Math.min(80, Math.round(ind.l2q * mult));
+            document.getElementById('s2').value = ind.q2m;
+            document.getElementById('ss').value = ind.m2s;
+            document.getElementById('s3').value = ind.d2p;
+            document.getElementById('s4').value = ind.p2c;
+            document.getElementById('s5').value = ind.ret;
+            update();
+        }
+
+        function loadGlobal() {
+            document.getElementById('s1').value = GF.l2q;
+            document.getElementById('s2').value = GF.q2m;
+            document.getElementById('ss').value = GF.m2s;
+            document.getElementById('s3').value = GF.d2p;
+            document.getElementById('s4').value = GF.p2c;
+            document.getElementById('s5').value = GF.ret;
+            update();
+        }
+
+        function fmt(n) {
+            var s = cSym;
+            if (s === 'PKR') {
+                if (n >= 10000000) return s + ' ' + (Math.round(n / 1000000 * 10) / 10) + ' Cr';
+                if (n >= 100000) return s + ' ' + (Math.round(n / 100000 * 10) / 10) + ' L';
+                return s + ' ' + Math.round(n).toLocaleString();
+            }
+            if (n >= 1000000000) return s + (Math.round(n / 100000000) / 10) + 'B';
+            if (n >= 1000000) return s + (Math.round(n / 100000) / 10) + 'M';
+            if (n >= 1000) return s + (Math.round(n / 100) / 10) + 'K';
+            return s + Math.round(n).toLocaleString();
+        }
+
+        function getLabel() {
+            if (curInd) return curInd.n;
+            var v = document.getElementById('other-industry').value.trim();
+            return v || 'your industry';
+        }
+
+        function syncToSheets() {
+            if (!SSS_URL || SSS_URL.indexOf("PASTE_YOUR") >= 0) return;
+            var payload = {
+                uName: document.getElementById('user-info') ? document.getElementById('user-info').value : "",
+                uComp: document.getElementById('user-company') ? document.getElementById('user-company').value : "",
+                industry: document.getElementById('other-industry').value,
+                revenue: document.getElementById('monthly').value,
+                surveyQ1: document.getElementById('survey-q1').value,
+                surveyQ2: document.getElementById('survey-q2').value,
+                recommend: recChoice
+            };
+            fetch(SSS_URL, { method: "POST", mode: "no-cors", cache: "no-cache", body: JSON.stringify(payload) });
+        }
+
+        function toggleRefine() {
+            var btn = document.getElementById('refine-toggle');
+            var body = document.getElementById('refine-body');
+            btn.classList.toggle('open');
+            body.classList.toggle('open');
+        }
+
+        var recChoice = '';
+        function setRec(v) {
+            recChoice = v;
+            document.getElementById('rec-yes').className = 'rec-btn' + (v === 'yes' ? ' selected-yes' : '');
+            document.getElementById('rec-no').className = 'rec-btn' + (v === 'no' ? ' selected-no' : '');
+        }
+
+        var auditCount = 340;
+        function submitSurvey() {
+            var q1 = document.getElementById('survey-q1').value.trim();
+            if (!q1 && !recChoice) return;
+            
+            syncToSheets();
+
+            auditCount++;
+            var el = document.getElementById('audit-counter');
+            el.textContent = auditCount + '+';
+            document.getElementById('survey-q1').disabled = true;
+            document.getElementById('rec-yes').disabled = true;
+            document.getElementById('rec-no').disabled = true;
+            document.querySelector('.survey-submit').style.display = 'none';
+            document.getElementById('survey-done').style.display = 'block';
+        }
+
+        function saveState() {
+            var state = {
+                ts: Date.now(),
+                uName: document.getElementById('user-info') ? document.getElementById('user-info').value : '',
+                uComp: document.getElementById('user-company') ? document.getElementById('user-company').value : '',
+                ind: document.getElementById('other-industry').value,
+                s1: document.getElementById('s1').value,
+                s2: document.getElementById('s2').value,
+                ss: document.getElementById('ss').value,
+                s3: document.getElementById('s3').value,
+                s4: document.getElementById('s4').value,
+                s5: document.getElementById('s5').value,
+                mo: document.getElementById('monthly').value,
+                deal: document.getElementById('deal').value,
+                act: document.getElementById('active-deals').value,
+                team: document.getElementById('team-size').value,
+                cSym: cSym,
+                cWord: cWord,
+                cLead: cLead,
+                cBtype: cBtype
+            };
+            localStorage.setItem('closimoState', JSON.stringify(state));
+
+            // Sync leads after 2 seconds of inactivity
+            if (sheetTimeout) clearTimeout(sheetTimeout);
+            sheetTimeout = setTimeout(syncToSheets, 2000);
+        }
+
+        function loadState() {
+            try {
+                var raw = localStorage.getItem('closimoState');
+                if (!raw) return;
+                var state = JSON.parse(raw);
+                
+                if (state.ts && (Date.now() - state.ts > 300000)) { // 5 minutes expiration
+                    localStorage.removeItem('closimoState');
+                    return;
+                }
+
+                if (state.uName && document.getElementById('user-info')) document.getElementById('user-info').value = state.uName;
+                if (state.uComp && document.getElementById('user-company')) document.getElementById('user-company').value = state.uComp;
+                if (state.ind) document.getElementById('other-industry').value = state.ind;
+                
+                var val = state.ind ? state.ind.toLowerCase().trim() : '';
+                if (val.length >= 2 && typeof IDB !== 'undefined') {
+                    var best = null, bestScore = 0;
+                    for (var i = 0; i < IDB.length; i++) {
+                        var ind = IDB[i]; var score = 0;
+                        var nm = ind.n.toLowerCase();
+                        if (nm.indexOf(val) >= 0 || val.indexOf(nm.split('/')[0].trim()) >= 0) score += 10;
+                        for (var j = 0; j < ind.a.length; j++) {
+                            var al = ind.a[j];
+                            if (al === val) score += 12;
+                            else if (al.indexOf(val) >= 0 || val.indexOf(al) >= 0) score += (al.length > val.length ? 5 : 8);
+                        }
+                        if (score > bestScore) { bestScore = score; best = ind; }
+                    }
+                    if (best && bestScore > 4) curInd = best;
+                }
+
+                if (state.s1) document.getElementById('s1').value = state.s1;
+                if (state.s2) document.getElementById('s2').value = state.s2;
+                if (state.ss) document.getElementById('ss').value = state.ss;
+                if (state.s3) document.getElementById('s3').value = state.s3;
+                if (state.s4) document.getElementById('s4').value = state.s4;
+                if (state.s5) document.getElementById('s5').value = state.s5;
+                if (state.mo !== undefined) document.getElementById('monthly').value = state.mo;
+                if (state.deal !== undefined) document.getElementById('deal').value = state.deal;
+                if (state.act !== undefined) document.getElementById('active-deals').value = state.act;
+                if (state.team !== undefined) document.getElementById('team-size').value = state.team;
+                
+                if (state.cSym) {
+                    var btnC = document.querySelector('.cbtn[data-sym="'+state.cSym+'"]');
+                    if (btnC) {
+                        cSym = state.cSym; cWord = state.cWord || state.cSym;
+                        var row = btnC.closest('.cur-row');
+                        if (row) {
+                            row.querySelectorAll('.cbtn').forEach(function(b){b.classList.remove('active');});
+                            btnC.classList.add('active');
+                        }
+                        document.getElementById('tag-m').textContent = cSym;
+                        document.getElementById('tag-d').textContent = cSym;
+                        var curWordEl = document.getElementById('cur-word');
+                        var curWord2El = document.getElementById('cur-word2');
+                        if (curWordEl) curWordEl.textContent = cWord;
+                        if (curWord2El) curWord2El.textContent = cWord;
+                    }
+                }
+                if (state.cLead) {
+                    var btnL = document.querySelector('.tog[data-lead="'+state.cLead+'"]');
+                    if (btnL) {
+                        cLead = state.cLead;
+                        var row2 = btnL.closest('.tog3');
+                        if (row2) {
+                            row2.querySelectorAll('.tog').forEach(function(b){b.classList.remove('active');});
+                            btnL.classList.add('active');
+                        }
+                    }
+                }
+                if (state.cBtype) {
+                    var btnB = document.querySelector('.tog[data-type="'+state.cBtype+'"]');
+                    if (btnB) {
+                        cBtype = state.cBtype;
+                        var row3 = btnB.closest('.tog3');
+                        if (row3) {
+                            row3.querySelectorAll('.tog').forEach(function(b){b.classList.remove('active');});
+                            btnB.classList.add('active');
+                        }
+                    }
+                }
+            } catch (e) {}
+        }
+
+        function update() {
+            var s1 = +document.getElementById('s1').value;
+            var s2 = +document.getElementById('s2').value;
+            var sv = +document.getElementById('ss').value;
+            var s3 = +document.getElementById('s3').value;
+            var s4 = +document.getElementById('s4').value;
+            var s5 = +document.getElementById('s5').value;
+            var mo = +document.getElementById('monthly').value || 0;
+            var dealVal = +document.getElementById('deal').value || 0;
+            var activeD = +document.getElementById('active-deals').value || 0;
+            var teamSz = +document.getElementById('team-size').value || 0;
+
+            document.getElementById('v1').textContent = s1 + '%';
+            document.getElementById('v2').textContent = s2 + '%';
+            document.getElementById('vs').textContent = sv + '%';
+            document.getElementById('v3').textContent = s3 + '%';
+            document.getElementById('v4').textContent = s4 + '%';
+            document.getElementById('v5').textContent = s5 + ' mo';
+
+            var vsEl = document.getElementById('vs');
+            var banner = document.getElementById('showup-banner');
+            if (sv < 60) { vsEl.className = 'sfval warn'; banner.style.display = 'block'; }
+            else { vsEl.className = 'sfval'; banner.style.display = 'none'; }
+
+            if (!mo) { return; }
+
+            var bench = getBench();
+
+            var pipeline, pipeNote;
+            if (dealVal > 0 && activeD > 0) {
+                pipeline = dealVal * activeD;
+                pipeNote = 'Pipeline from <strong>' + activeD + ' deals × ' + fmt(dealVal) + '</strong> deal size.';
+            } else {
+                var covR = bench.cov || 4;
+                pipeline = mo * 12 * covR;
+                pipeNote = 'Pipeline estimated as <strong>' + covR + '× annual revenue</strong> (' + getLabel() + ' benchmark). Add deal size + active deals for your exact figure.';
+            }
+
+            var noteBox = document.getElementById('pipe-note-box');
+            noteBox.style.display = 'block';
+            noteBox.innerHTML = pipeNote;
+
+            var a1 = pipeline * (s1 / 100);
+            var a2 = a1 * (s2 / 100);
+            var ash = a2 * (sv / 100);
+            var a3 = ash * (s3 / 100);
+            var a4 = a3 * (s4 / 100);
+            var leaks = [pipeline - a1, a1 - a2, a2 - ash, ash - a3, a3 - a4];
+            var aLeak = leaks.reduce(function (a, b) { return a + b; }, 0);
+            var ltv = aLeak * (s5 / 12);
+            var daily = aLeak / 365;
+
+            var outNum = document.getElementById('inaction-num');
+            outNum.textContent = fmt(daily);
+            outNum.classList.remove('pulse-text');
+            void outNum.offsetWidth; // trigger reflow
+            outNum.classList.add('pulse-text');
+
+            document.getElementById('t-annual').textContent = fmt(aLeak);
+            document.getElementById('t-ltv').textContent = fmt(ltv);
+
+            // BIGGEST LEAK CALLOUT (replaces waterfall)
+            var labels = ['Lead → Qualified', 'Qualified → Meeting booked', 'Meeting booked → Showed up', 'Meeting → Proposal sent', 'Proposal → Closed won'];
+            var fix = [
+                'Most leads are not worth pursuing. Fix your ICP definition and lead scoring before you spend more on outreach.',
+                'Qualified leads are not booking meetings. Test your call-to-action, follow-up timing, and offer clarity.',
+                'Prospects book then ghost. Add SMS + email reminders 24h and 2h before every meeting — this is the fastest fix in any pipeline.',
+                'Meetings are not turning into proposals. End every meeting with a booked proposal date, not a "we will follow up."',
+                'Proposals are sitting. Call within 24 hours of sending every proposal. Every day of silence kills close probability.'
+            ];
+            var maxL = Math.max.apply(null, leaks);
+            var mi = leaks.indexOf(maxL);
+            var callout = document.getElementById('leak-callout');
+            var calloutText = document.getElementById('leak-callout-text');
+            callout.style.display = 'block';
+            calloutText.innerHTML = '<strong>' + labels[mi] + '</strong> — ' + fmt(maxL) + ' lost here annually. ' + fix[mi];
+
+            // CLOSE RATE METRICS
+            var overall = (s1 / 100) * (s2 / 100) * (sv / 100) * (s3 / 100) * (s4 / 100) * 100;
+            var benchOCR = cLead === 'inbound' ? (bench.icr || bench.ocr) : cLead === 'outbound' ? (bench.ocr2 || bench.ocr * 0.5) : (bench.ocr);
+            if (!benchOCR || benchOCR <= 0) benchOCR = 2.9;
+            var gap = benchOCR - overall;
+            document.getElementById('m1').textContent = overall.toFixed(2) + '%';
+            document.getElementById('m2').textContent = benchOCR.toFixed(1) + '%';
+            if (gap > 0) {
+                document.getElementById('m3').textContent = '+' + fmt(pipeline * (gap / 100));
+                document.getElementById('m3').style.color = '#1D9E75';
+            } else {
+                document.getElementById('m3').textContent = 'At benchmark';
+                document.getElementById('m3').style.color = '#1D9E75';
+            }
+
+            // SALES CYCLE
+            var benchCy = bench.cy || 77;
+            var cliff = bench.cliff || 50;
+            var implCy;
+            if (overall <= 0.01) { implCy = benchCy * 4; }
+            else {
+                implCy = Math.round(benchCy * benchOCR / overall);
+                implCy = Math.max(Math.round(benchCy * 0.4), Math.min(implCy, benchCy * 5));
+            }
+            document.getElementById('cy-yours').textContent = implCy + ' days';
+            document.getElementById('cy-bench').textContent = benchCy + ' days';
+            document.getElementById('cy-cliff').textContent = 'Day ' + cliff;
+            var cyTxt = '';
+            if (implCy > cliff * 1.4) {
+                cyTxt = 'Your implied cycle of ' + implCy + ' days has passed the Day ' + cliff + ' cliff — the point where win rates drop below 20% in ' + getLabel() + '. Deals sitting this long are at high risk of going cold.';
+            } else if (implCy > benchCy * 1.15) {
+                cyTxt = 'Your implied cycle (' + implCy + ' days) is running longer than the ' + benchCy + '-day benchmark for ' + getLabel() + '. Every extra week reduces close probability.';
+            } else {
+                cyTxt = 'Your cycle is tracking close to the ' + benchCy + '-day benchmark for ' + getLabel() + '. Stall risk begins at Day ' + cliff + '.';
+            }
+            document.getElementById('cy-insight').textContent = cyTxt;
+
+            // PIPELINE COVERAGE
+            var covR = bench.cov || 4;
+            var neededPipeline = mo * 12 * covR;
+            document.getElementById('cov-label').textContent = 'You need ' + fmt(neededPipeline) + ' in pipeline to hit your target';
+            document.getElementById('cov-sub').textContent = covR + '× annual revenue — ' + getLabel() + ' industry standard';
+            document.getElementById('cov-num').textContent = fmt(neededPipeline);
+            document.getElementById('cov-mult').textContent = covR + '× coverage ratio';
+
+            // INSIGHT (amber box)
+            var sn = ['lead qualification', 'meeting booking', 'show-up rate', 'proposal conversion', 'deal closing'];
+            var insightEl = document.getElementById('insight');
+            if (mi === 2) {
+                insightEl.style.background = 'rgba(226,75,74,0.06)';
+                insightEl.style.borderColor = 'rgba(226,75,74,0.2)';
+                insightEl.style.color = '#fca5a5';
+            } else {
+                insightEl.style.background = 'rgba(239,159,39,0.08)';
+                insightEl.style.borderColor = 'rgba(239,159,39,0.2)';
+                insightEl.style.color = '#f5c67a';
+            }
+            insightEl.innerHTML = 'Your ' + sn[mi] + ' stage is your primary bottleneck in ' + getLabel() + '. Fixing this single stage moves more revenue than any other improvement you can make right now.';
+
+            // SHOW SURVEY after result
+            if (aLeak > 0) {
+                document.getElementById('survey').classList.add('visible');
+                document.getElementById('cta-block').style.display = 'block';
+            }
+
+            saveState();
+        }
+
+        loadState();
+        update();
+
+        (function () {
+            var done = false;
+            var obs = new IntersectionObserver(function (entries) {
+                if (done) return;
+                entries.forEach(function (e) {
+                    if (!e.isIntersecting) return;
+                    done = true;
+                    document.querySelectorAll('.live-stat:not(#audit-counter)').forEach(function (el) {
+                        if (el.id === 'audit-counter') return;
+                        var target = +el.getAttribute('data-target');
+                        var prefix = el.getAttribute('data-prefix') || '';
+                        var suffix = el.getAttribute('data-suffix') || '';
+                        var start = null, dur = 1600;
+                        function step(ts) {
+                            if (!start) start = ts;
+                            var p = Math.min((ts - start) / dur, 1);
+                            var ease = 1 - Math.pow(1 - p, 3);
+                            el.textContent = prefix + Math.round(ease * target).toLocaleString() + suffix;
+                            if (p < 1) requestAnimationFrame(step);
+                        }
+                        requestAnimationFrame(step);
+                    });
+                    obs.disconnect();
+                });
+            }, { threshold: 0.3 });
+            var nav = document.querySelector('nav');
+            if (nav) obs.observe(nav);
+            // Set audit counter immediately
+            document.getElementById('audit-counter').textContent = '340+';
+        })();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var revObs = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            document.querySelectorAll('.reveal').forEach(function(el) {
+                revObs.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>
