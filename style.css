@@ -337,7 +337,8 @@ nav {
 .nav-links {
   display: flex;
   gap: 0;
-  list-style: none
+  list-style: none;
+  flex-wrap: nowrap;
 }
 
 .nav-links li {
@@ -355,7 +356,7 @@ nav {
   font-weight: 600;
   color: var(--orange);
   transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.2s;
-  padding: 0 22px;
+  padding: 0 12px;
   height: 58px;
   display: flex;
   align-items: center;
