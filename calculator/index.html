@@ -66,6 +66,8 @@
             line-height: 1.6;
             min-height: 100vh;
             position: relative;
+            overflow-x: hidden;
+            width: 100%;
         }
 
         .bg-orbs {
@@ -960,12 +962,38 @@
         }
 
         @media(max-width:560px) {
+            nav {
+                height: auto;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 12px 16px;
+                gap: 8px;
+            }
+
+            .logo {
+                font-size: 13px;
+                white-space: normal;
+                text-align: center;
+                width: 100%;
+            }
+
+            .nav-stats {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
             .hero {
-                padding: 24px 16px 16px
+                padding: 24px 16px 16px;
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 28px;
             }
 
             .tool {
-                padding: 0 16px 48px
+                padding: 0 16px 48px;
+                width: 100%;
             }
 
             .card,
@@ -983,7 +1011,7 @@
             }
 
             .big-loss-num {
-                font-size: 52px
+                font-size: 44px
             }
 
             .nstat-lbl {
@@ -991,7 +1019,8 @@
             }
 
             .nstat {
-                padding: 0 10px
+                padding: 0 10px;
+                border-right: none;
             }
         }
 
@@ -1325,7 +1354,7 @@
         var GF = { "l2q": 30, "q2m": 45, "m2s": 80, "d2p": 55, "p2c": 25, "ocr": 2.9, "cy": 77, "ret": 24, "icr": 5.0, "ocr2": 1.7, "cov": 4, "cliff": 50 };
 
         var sheetTimeout = null;
-        var SSS_URL = "https://script.google.com/macros/s/AKfycbxOg1RETvdbEL1u2tWqOiCaYHmU05a3gla5kcxmzv_bgyVA7qeiFT7g4nrurgT81GqL/exec";
+        var SSS_URL = "https://script.google.com/macros/s/AKfycbwYnwXz2n8n3fcTBjo1LnpaxpWeuwp5HpInp1KOA-Mv0CjC1DSt5-KMo5lXGChQ32Qs_w/exec";
 
         var cSym = 'PKR', cWord = 'rupee', cLead = 'inbound', cBtype = 'b2b', curInd = null;
         curInd = IDB.find(function (i) { return i.id === 1; }) || null;
@@ -1437,11 +1466,7 @@
         }
 
         function syncToSheets() {
-            if (!SSS_URL || SSS_URL.indexOf("PASTE_YOUR") >= 0) {
-                console.error("⛔ SETUP ERROR: You have not added your Google Apps Script URL yet! Please paste it into line 1328 of your code.");
-                return;
-            }
-            console.log("🚀 Syncing lead to Google Sheets...");
+            if (!SSS_URL || SSS_URL.indexOf("PASTE_YOUR") >= 0) return;
             var payload = {
                 uName: document.getElementById('user-info') ? document.getElementById('user-info').value : "",
                 uComp: document.getElementById('user-company') ? document.getElementById('user-company').value : "",
@@ -1451,9 +1476,7 @@
                 surveyQ2: document.getElementById('survey-q2').value,
                 recommend: recChoice
             };
-            fetch(SSS_URL, { method: "POST", mode: "no-cors", cache: "no-cache", body: JSON.stringify(payload) })
-                .then(function() { console.log("✅ Sync request sent to Google! Allow 2-3 seconds for it to appear in the sheet."); })
-                .catch(function(err) { console.error("❌ Sync Error:", err); });
+            fetch(SSS_URL, { method: "POST", mode: "no-cors", cache: "no-cache", body: JSON.stringify(payload) });
         }
 
         function toggleRefine() {
