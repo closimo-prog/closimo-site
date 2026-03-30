@@ -1098,9 +1098,13 @@
         <div class="card">
             <div class="card-label">About You</div>
             <div class="row2 reveal">
-                <input class="inp-plain" type="text" id="user-info" placeholder="Name & Title (e.g. John - VP Sales)"
+                <input class="inp-plain" type="text" id="user-info" placeholder="Your Name (e.g. John)"
                     oninput="saveState()">
-                <input class="inp-plain" type="text" id="user-company" placeholder="Company Name" oninput="saveState()">
+                <input class="inp-plain" type="text" id="user-title" placeholder="Your Title/Role (e.g. VP Sales)"
+                    oninput="saveState()">
+            </div>
+            <div class="reveal" style="margin-bottom:28px">
+                <input class="inp-plain" type="text" id="user-company" placeholder="Company Name" oninput="saveState()" style="width:100%">
             </div>
 
             <div class="dv"></div>
@@ -1310,14 +1314,32 @@
             <!-- MICRO-SURVEY -->
             <div class="survey" id="survey">
                 <div class="survey-label">Quick question — takes 20 seconds</div>
-                <div class="survey-q">What did this calculator answer for you?</div>
-                <textarea class="survey-input" id="survey-q1" rows="2"
-                    placeholder="e.g. I finally understood why my show-up rate was killing my numbers..."></textarea>
+                <div class="survey-q">How long have you known something was wrong with your sales?</div>
+                <select class="survey-input" id="survey-q1">
+                    <option value="" disabled selected>Select an option...</option>
+                    <option value="Just realized today">Just realized today</option>
+                    <option value="3 to 6 months">3 to 6 months</option>
+                    <option value="6 to 12 months">6 to 12 months</option>
+                    <option value="Over a year">Over a year</option>
+                </select>
                 <div style="height:14px"></div>
+                
+                <div class="survey-q">What have you already tried to fix it?</div>
+                <select class="survey-input" id="survey-q2">
+                    <option value="" disabled selected>Select an option...</option>
+                    <option value="Nothing yet">Nothing yet</option>
+                    <option value="Hired more reps">Hired more reps</option>
+                    <option value="Changed our process">Changed our process</option>
+                    <option value="Brought in outside help">Brought in outside help</option>
+                    <option value="Tried multiple things — nothing worked">Tried multiple things — nothing worked</option>
+                </select>
+                <div style="height:14px"></div>
+
                 <div class="survey-q">What's one thing you wish this calculator could tell you?</div>
-                <textarea class="survey-input" id="survey-q2" rows="2"
+                <textarea class="survey-input" id="survey-q3" rows="2"
                     placeholder="e.g. I wish it showed me how to fix the show-up rate problem..."></textarea>
                 <div style="height:14px"></div>
+
                 <div class="survey-q">Would you recommend this to another founder?</div>
                 <div class="recommend-row">
                     <button class="rec-btn" id="rec-yes" onclick="setRec('yes')">Yes</button>
@@ -1354,7 +1376,7 @@
         var GF = { "l2q": 30, "q2m": 45, "m2s": 80, "d2p": 55, "p2c": 25, "ocr": 2.9, "cy": 77, "ret": 24, "icr": 5.0, "ocr2": 1.7, "cov": 4, "cliff": 50 };
 
         var sheetTimeout = null;
-        var SSS_URL = "https://script.google.com/macros/s/AKfycbxOg1RETvdbEL1u2tWqOiCaYHmU05a3gla5kcxmzv_bgyVA7qeiFT7g4nrurgT81GqL/exec";
+        var SSS_URL = "https://script.google.com/macros/s/AKfycbwYnwXz2n8n3fcTBjo1LnpaxpWeuwp5HpInp1KOA-Mv0CjC1DSt5-KMo5lXGChQ32Qs_w/exec";
 
         var cSym = 'PKR', cWord = 'rupee', cLead = 'inbound', cBtype = 'b2b', curInd = null;
         curInd = IDB.find(function (i) { return i.id === 1; }) || null;
@@ -1469,11 +1491,16 @@
             if (!SSS_URL || SSS_URL.indexOf("PASTE_YOUR") >= 0) return;
             var payload = {
                 uName: document.getElementById('user-info') ? document.getElementById('user-info').value : "",
+                uTitle: document.getElementById('user-title') ? document.getElementById('user-title').value : "",
                 uComp: document.getElementById('user-company') ? document.getElementById('user-company').value : "",
                 industry: document.getElementById('other-industry').value,
                 revenue: document.getElementById('monthly').value,
-                surveyQ1: document.getElementById('survey-q1').value,
-                surveyQ2: document.getElementById('survey-q2').value,
+                dailyLeak: document.getElementById('inaction-num') ? document.getElementById('inaction-num').innerText : "",
+                annualLeak: document.getElementById('t-annual') ? document.getElementById('t-annual').innerText : "",
+                ltvLeak: document.getElementById('t-ltv') ? document.getElementById('t-ltv').innerText : "",
+                surveyQ1: document.getElementById('survey-q1') ? document.getElementById('survey-q1').value : "",
+                surveyQ2: document.getElementById('survey-q2') ? document.getElementById('survey-q2').value : "",
+                surveyQ3: document.getElementById('survey-q3') ? document.getElementById('survey-q3').value : "",
                 recommend: recChoice
             };
             fetch(SSS_URL, { method: "POST", mode: "no-cors", cache: "no-cache", body: JSON.stringify(payload) });
@@ -1514,6 +1541,7 @@
             var state = {
                 ts: Date.now(),
                 uName: document.getElementById('user-info') ? document.getElementById('user-info').value : '',
+                uTitle: document.getElementById('user-title') ? document.getElementById('user-title').value : '',
                 uComp: document.getElementById('user-company') ? document.getElementById('user-company').value : '',
                 ind: document.getElementById('other-industry').value,
                 s1: document.getElementById('s1').value,
@@ -1550,6 +1578,7 @@
                 }
 
                 if (state.uName && document.getElementById('user-info')) document.getElementById('user-info').value = state.uName;
+                if (state.uTitle && document.getElementById('user-title')) document.getElementById('user-title').value = state.uTitle;
                 if (state.uComp && document.getElementById('user-company')) document.getElementById('user-company').value = state.uComp;
                 if (state.ind) document.getElementById('other-industry').value = state.ind;
 
