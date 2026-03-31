@@ -33,13 +33,16 @@
             --text: #fff;
             --muted: #b0b0b0;
             --hint: #777;
-            --green: #34d399; /* Vibrant Green */
+            --green: #34d399;
+            /* Vibrant Green */
             --green-dk: #059669;
             --green-lo: rgba(52, 211, 153, 0.1);
-            --red: #ff5e5e; /* Vibrant Poppy Red */
+            --red: #ff5e5e;
+            /* Vibrant Poppy Red */
             --red-lo: rgba(255, 94, 94, 0.08);
             --red-bd: rgba(255, 94, 94, 0.25);
-            --amber: #fbbf24; /* Vibrant Amber */
+            --amber: #fbbf24;
+            /* Vibrant Amber */
             --amber-lo: rgba(251, 191, 36, 0.08);
             --amber-bd: rgba(251, 191, 36, 0.25);
             --blue-lo: rgba(99, 143, 220, 0.08);
@@ -79,7 +82,8 @@
             z-index: -2;
             overflow: hidden;
             pointer-events: none;
-            opacity: 0.12; /* Balanced visibility */
+            opacity: 0.12;
+            /* Balanced visibility */
         }
 
         .bg-grain {
@@ -98,23 +102,89 @@
         .orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(120px); /* Deep atmosphere but with enough presence */
+            filter: blur(120px);
+            /* Deep atmosphere but with enough presence */
             animation: float 25s infinite ease-in-out alternate;
             will-change: transform, opacity;
         }
 
-        .orb-1 { width: 45vw; height: 45vw; background: var(--green); top: -15vw; left: -10vw; animation-delay: 0s; }
-        .orb-2 { width: 40vw; height: 40vw; background: #222; bottom: -10vw; right: -5vw; animation-delay: -5s; animation-duration: 30s; }
-        .orb-3 { width: 35vw; height: 35vw; background: var(--s2); top: 30%; left: 60%; animation-delay: -10s; animation-duration: 35s; }
-        .orb-4 { width: 25vw; height: 25vw; background: var(--green-lo); top: 60%; left: 10%; animation-delay: -3s; animation-duration: 40s; opacity: 0.2; }
-        .orb-5 { width: 50vw; height: 50vw; background: #050505; top: 10%; right: 10%; animation-delay: -12s; animation-duration: 45s; z-index: -1; }
-        .orb-6 { width: 30vw; height: 30vw; background: rgba(29, 158, 117, 0.05); bottom: 10%; left: 40%; animation-delay: -8s; animation-duration: 22s; }
+        .orb-1 {
+            width: 45vw;
+            height: 45vw;
+            background: var(--green);
+            top: -15vw;
+            left: -10vw;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 40vw;
+            height: 40vw;
+            background: #222;
+            bottom: -10vw;
+            right: -5vw;
+            animation-delay: -5s;
+            animation-duration: 30s;
+        }
+
+        .orb-3 {
+            width: 35vw;
+            height: 35vw;
+            background: var(--s2);
+            top: 30%;
+            left: 60%;
+            animation-delay: -10s;
+            animation-duration: 35s;
+        }
+
+        .orb-4 {
+            width: 25vw;
+            height: 25vw;
+            background: var(--green-lo);
+            top: 60%;
+            left: 10%;
+            animation-delay: -3s;
+            animation-duration: 40s;
+            opacity: 0.2;
+        }
+
+        .orb-5 {
+            width: 50vw;
+            height: 50vw;
+            background: #050505;
+            top: 10%;
+            right: 10%;
+            animation-delay: -12s;
+            animation-duration: 45s;
+            z-index: -1;
+        }
+
+        .orb-6 {
+            width: 30vw;
+            height: 30vw;
+            background: rgba(29, 158, 117, 0.05);
+            bottom: 10%;
+            left: 40%;
+            animation-delay: -8s;
+            animation-duration: 22s;
+        }
 
         @keyframes float {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            33% { transform: translate(4vw, 6vh) scale(1.1) rotate(5deg); }
-            66% { transform: translate(-3vw, 4vh) scale(0.9) rotate(-3deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            0% {
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+
+            33% {
+                transform: translate(4vw, 6vh) scale(1.1) rotate(5deg);
+            }
+
+            66% {
+                transform: translate(-3vw, 4vh) scale(0.9) rotate(-3deg);
+            }
+
+            100% {
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
         }
 
         /* NAV */
@@ -130,7 +200,8 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Thicker, more prominent */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            /* Thicker, more prominent */
         }
 
         .logo {
@@ -156,7 +227,8 @@
             align-items: center;
             gap: 8px;
             padding: 0 16px;
-            border-right: 1px solid rgba(255, 255, 255, 0.12) /* Thicker separator stats */
+            border-right: 1px solid rgba(255, 255, 255, 0.12)
+                /* Thicker separator stats */
         }
 
         .nstat:last-child {
@@ -214,7 +286,8 @@
             align-items: center;
             gap: 6px;
             background: rgba(29, 158, 117, 0.1);
-            border: 1px solid rgba(29, 158, 117, 0.4); /* Stronger badge border */
+            border: 1px solid rgba(29, 158, 117, 0.4);
+            /* Stronger badge border */
             border-radius: 20px;
             padding: 4px 12px;
             font-size: 10px;
@@ -242,14 +315,16 @@
 
         /* CARDS */
         .card {
-            background: rgba(10, 10, 10, 0.96); /* Nearly solid to prevent background bleed-through */
-            border: 1px solid rgba(255, 255, 255, 0.16); /* Doubled prominence */
+            background: rgba(10, 10, 10, 0.96);
+            /* Nearly solid to prevent background bleed-through */
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            /* Doubled prominence */
             border-radius: var(--rxl);
             padding: 24px;
             margin-bottom: 12px;
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
         }
 
         .card-label {
@@ -272,7 +347,8 @@
         .cbtn {
             padding: 5px 12px;
             border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.15); /* More prominent borders */
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            /* More prominent borders */
             cursor: pointer;
             font-size: 12px;
             font-weight: 500;
@@ -312,7 +388,8 @@
         .iw {
             display: flex;
             align-items: center;
-            border: 1px solid rgba(255, 255, 255, 0.14); /* Thicker, brighter borders */
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            /* Thicker, brighter borders */
             border-radius: var(--r);
             overflow: hidden;
             background: var(--s2);
@@ -545,7 +622,8 @@
 
         /* ══ OUTPUT ══ */
         .out-card {
-            background: rgba(10, 10, 10, 0.98); /* Almost solid for final report clarity */
+            background: rgba(10, 10, 10, 0.98);
+            /* Almost solid for final report clarity */
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: var(--rl);
             padding: 32px 24px;
@@ -931,66 +1009,80 @@
 
         .roadmap {
             display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 8px;
-            max-width: 480px;
+            flex-direction: column;
+            gap: 0;
+            max-width: 540px;
             margin: 0 auto;
             position: relative;
+            padding-left: 10px;
         }
 
         .roadmap::before {
             content: '';
             position: absolute;
-            top: 16px;
-            left: 10%;
-            width: 80%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--bdr2), transparent);
+            top: 32px;
+            left: 24px;
+            width: 1px;
+            height: calc(100% - 64px);
+            background: linear-gradient(180deg, var(--bdr2), transparent);
             z-index: 1;
         }
 
         .r-step {
-            flex: 1;
-            text-align: center;
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 32px;
             z-index: 2;
+            position: relative;
+        }
+
+        .r-step:last-child {
+            margin-bottom: 0;
         }
 
         .r-icon {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             background: var(--bg);
             border: 1px solid var(--bdr2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 10px;
+            margin-right: 18px;
+            flex-shrink: 0;
             font-size: 11px;
             font-weight: 700;
             color: var(--muted);
             transition: all 0.3s;
-            position: relative;
+            margin-top: 2px;
         }
 
         .r-step.active .r-icon {
             border-color: var(--green);
             color: var(--green);
             background: var(--green-lo);
-            box-shadow: 0 0 12px rgba(29, 158, 117, 0.3);
+            box-shadow: 0 0 15px rgba(29, 158, 117, 0.4);
+        }
+
+        .r-content {
+            flex: 1;
         }
 
         .r-txt {
-            font-size: 9px;
-            font-weight: 700;
-            color: var(--hint);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            line-height: 1.3
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.4;
+            letter-spacing: -0.01em;
         }
 
-        .r-step.active .r-txt {
-            color: var(--text);
+        .r-sub {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px;
+            line-height: 1.5;
+            font-weight: 400;
         }
 
         /* ══ FOCUS MODE ══ */
@@ -1247,7 +1339,7 @@
             width: 0;
             height: 3px;
             background: linear-gradient(90deg, var(--green-lo), var(--green));
-            box-shadow: 0 0 12px rgba(29,158,117,0.4);
+            box-shadow: 0 0 12px rgba(29, 158, 117, 0.4);
             z-index: 10000;
             transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
@@ -1497,7 +1589,7 @@
 
             <!-- MICRO-SURVEY -->
             <div class="survey" id="survey" style="margin-top: 0;">
-                <div class="survey-label">Quick question — takes 20 seconds</div>
+                <div class="survey-label">Help us make your audit more accurate</div>
                 <div class="group-sep" style="margin-top:0">History & Context</div>
                 <div class="survey-q">How long have you known something was wrong with your sales?</div>
                 <select class="survey-input" id="survey-q1">
@@ -1538,7 +1630,7 @@
 
             <div class="step-sep" id="cta-sep">
                 <div class="step-line"></div>
-                <div class="step-label">NEXT STEP: YOUR AUDIT</div>
+                <div class="step-label">WHAT HAPPENS NEXT</div>
                 <div class="step-line"></div>
             </div>
 
@@ -1546,15 +1638,25 @@
                 <div class="roadmap">
                     <div class="r-step active">
                         <div class="r-icon">1</div>
-                        <div class="r-txt">Audit<br>Request</div>
+                        <div class="r-content">
+                            <div class="r-txt">Book your free audit. Takes 2 minutes.</div>
+                            <div class="r-sub">Just your name and what you sell.</div>
+                        </div>
                     </div>
                     <div class="r-step">
                         <div class="r-icon">2</div>
-                        <div class="r-txt">15-Min<br>Verification</div>
+                        <div class="r-content">
+                            <div class="r-txt">We go through your sales together. One 30 minute call.</div>
+                            <div class="r-sub">We already know where to look.</div>
+                        </div>
                     </div>
                     <div class="r-step">
                         <div class="r-icon">3</div>
-                        <div class="r-txt">Fixing<br>Roadmap</div>
+                        <div class="r-content">
+                            <div class="r-txt">Your full report in 48 hours. Yours to keep.</div>
+                            <div class="r-sub">Every leak. The <span id="cur-tag-3">PKR</span> cost. The exact fix.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1611,9 +1713,10 @@
             cSym = btn.getAttribute('data-sym');
             cWord = btn.getAttribute('data-word');
             btn.closest('.cur-row').querySelectorAll('.cbtn').forEach(function (b) { b.classList.remove('active'); });
-            btn.classList.add('active');
             document.getElementById('tag-m').textContent = cSym;
             document.getElementById('tag-d').textContent = cSym;
+            var cur3 = document.getElementById('cur-tag-3');
+            if (cur3) cur3.textContent = cSym;
             document.getElementById('cur-word').textContent = cWord;
             document.getElementById('cur-word2').textContent = cWord;
             update();
@@ -1848,6 +1951,8 @@
                         }
                         document.getElementById('tag-m').textContent = cSym;
                         document.getElementById('tag-d').textContent = cSym;
+                        var cur3 = document.getElementById('cur-tag-3');
+                        if (cur3) cur3.textContent = cSym;
                         var curWordEl = document.getElementById('cur-word');
                         var curWord2El = document.getElementById('cur-word2');
                         if (curWordEl) curWordEl.textContent = cWord;
@@ -1886,11 +1991,11 @@
             var m = document.getElementById('monthly').value ? 1 : 0;
             var i = document.getElementById('other-industry').value ? 1 : 0;
             var d = document.getElementById('deal').value ? 1 : 0;
-            
+
             // 6 Basic fields = 60%, Results = 40%
             var total = n + t + c + m + i + d;
             var pct = (total / 6) * 100;
-            
+
             document.getElementById('p-line').style.width = pct + '%';
         }
 
