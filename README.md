@@ -8,3 +8,12 @@ Blog (blog/) — 5-article pipeline intelligence series covering all 5 B2B sales
 Calculator (calculator/) — Interactive pipeline leakage calculator with 120-industry dataset (data.js), geo-detection, PKR/USD switching, and Google Sheets sync
 Legal (closimo-legal.html) — Privacy Policy and Terms of Service
 404 Page — Custom branded error page
+
+Key features:
+
+GeoIP-based currency switching (PKR ↔ USD/EUR/GBP/AED)
+120-industry benchmark database
+Animated testimonial marquee loaded from data.json
+Page transition system, parallax layers, magnetic buttons
+Mobile-first responsive across all breakpoints down to 360px
+Tally.so form integration for audit bookings
