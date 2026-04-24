@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Pipeline Intelligence | CLOSIMO</title>
+  <meta name="description" content="B2B sales pipeline benchmarks, diagnostics, and revenue math. Built from real audit data across 120 industries.">
+  <meta property="og:title" content="Pipeline Intelligence | CLOSIMO">
+  <meta property="og:description" content="B2B sales pipeline benchmarks, diagnostics, and revenue math.">
+  <meta property="og:url" content="https://closimo.com/blog/">
+  <link rel="icon" href="../favicon-orange.png" type="image/png">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600&display=swap" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "CLOSIMO Pipeline Intelligence",
+    "description": "B2B sales pipeline benchmarks and diagnostics",
+    "url": "https://closimo.com/blog/",
+    "publisher": { "@type": "Organization", "name": "CLOSIMO" }
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #f97316;
+      --orange-dark: #c2500a;
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --bg: #f8f7f4;
+      --surface: #ffffff;
+      --text: #111111;
+      --text-muted: #6b6b6b;
+      --border: #e4e2dc;
+      --font-head: 'Bricolage Grotesque', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV — matches closimo.com style */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--font-head);
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-logo span { color: var(--orange); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a.active { color: var(--orange); }
+
+    .nav-cta {
+      background: var(--orange) !important;
+      color: var(--white) !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--orange-dark) !important; }
+
+    /* HERO */
+    .hero {
+      background: var(--black);
+      color: var(--white);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      max-width: 680px;
+      margin: 0 auto 1.2rem;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* STAGE TABS */
+    .stage-nav-wrap {
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 0 2rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .stage-nav {
+      display: flex;
+      gap: 0;
+      max-width: 1100px;
+      margin: 0 auto;
+      white-space: nowrap;
+    }
+
+    .stage-tab {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.45);
+      padding: 1rem 1.25rem;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+      display: block;
+    }
+
+    .stage-tab:hover { color: rgba(255,255,255,0.85); }
+    .stage-tab.active { color: var(--orange); border-bottom-color: var(--orange); }
+
+    /* MAIN CONTENT */
+    .content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem 6rem;
+    }
+
+    /* STAGE SECTION */
+    .stage-section { margin-bottom: 4rem; }
+
+    .stage-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1.5px solid var(--border);
+    }
+
+    .stage-title {
+      font-family: var(--font-head);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .stage-count {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: var(--border);
+      padding: 0.2rem 0.6rem;
+      border-radius: 99px;
+    }
+
+    /* ARTICLE CARDS */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .article-card:hover {
+      border-color: var(--orange);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
+
+    .card-stage-label {
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    .card-title {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+      flex: 1;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+      margin-top: auto;
+    }
+
+    .card-date {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .card-arrow {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--orange);
+      font-family: var(--font-body);
+    }
+
+    /* EMPTY STATE */
+    .empty-state {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-style: italic;
+      padding: 1rem 0;
+    }
+
+    /* BOTTOM CTA BANNER */
+    .bottom-cta {
+      background: var(--orange);
+      border-radius: 12px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .bottom-cta .eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 0.75rem;
+    }
+
+    .bottom-cta h2 {
+      font-family: var(--font-head);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+    }
+
+    .bottom-cta p {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.95rem;
+      margin-bottom: 1.75rem;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--white);
+      color: var(--orange-dark);
+      text-decoration: none;
+      padding: 0.85rem 2.5rem;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: opacity 0.2s;
+    }
+
+    .cta-btn:hover { opacity: 0.92; }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      nav { padding: 0 1rem; }
+      .hero { padding: 3.5rem 1.25rem 3rem; }
+      .content { padding: 2rem 1.25rem 4rem; }
+      .nav-links { gap: 1rem; }
+      .stage-tab { padding: 0.75rem 0.85rem; font-size: 0.72rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://closimo.com" class="nav-logo">CLOS<span>I</span>MO</a>
+  <ul class="nav-links">
+    <li><a href="https://closimo.com">Home</a></li>
+    <li><a href="/blog/" class="active">Resources</a></li>
+    <li><a href="https://closimo.com/calculator" class="nav-cta">Free Calculator</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <span class="hero-eyebrow">Pipeline Intelligence Hub</span>
+  <h1>Stop Guessing Where Your Deals Die</h1>
+  <p>Benchmarks and revenue math across every B2B pipeline stage. Built from real audit data — not generic advice.</p>
+</section>
+
+<div class="stage-nav-wrap">
+  <div class="stage-nav">
+    <a href="#stage-1" class="stage-tab">Lead → Qualified</a>
+    <a href="#stage-2" class="stage-tab">Qualified → Meeting Booked</a>
+    <a href="#stage-3" class="stage-tab">Meeting Booked → Showed Up</a>
+    <a href="#stage-4" class="stage-tab">Meeting → Proposal Sent</a>
+    <a href="#stage-5" class="stage-tab">Proposal → Closed Won</a>
+  </div>
+</div>
+
+<main class="content">
+
+  <!-- STAGE 1 -->
+  <section class="stage-section" id="stage-1">
+    <div class="stage-header">
+      <h2 class="stage-title">Stage 1 — Lead → Qualified</h2>
+      <span class="stage-count">1 article</span>
+    </div>
+    <div class="articles-grid">
+      <a href="/blog/saas-lead-qualification-benchmark-2026.html" class="article-card">
+        <span class="card-stage-label">Lead → Qualified</span>
+        <h3 class="card-title">Why 80% of SaaS Leads Fail Qualification: 2026 Benchmark & ARR Impact</h3>
+        <div class="card-footer">
+          <span class="card-date">Apr 23, 2026</span>
+          <span class="card-arrow">Read →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- STAGE 2 -->
+  <section class="stage-section" id="stage-2">
+    <div class="stage-header">
+      <h2 class="stage-title">Stage 2 — Qualified → Meeting Booked</h2>
+      <span class="stage-count">Coming soon</span>
+    </div>
+    <p class="empty-state">Articles publishing this week.</p>
+  </section>
+
+  <!-- STAGE 3 -->
+  <section class="stage-section" id="stage-3">
+    <div class="stage-header">
+      <h2 class="stage-title">Stage 3 — Meeting Booked → Showed Up</h2>
+      <span class="stage-count">1 article</span>
+    </div>
+    <div class="articles-grid">
+      <a href="/blog/b2b-meeting-no-show-rate-2026-benchmark.html" class="article-card">
+        <span class="card-stage-label">Meeting Booked → Showed Up</span>
+        <h3 class="card-title">B2B Meeting No-Show Rate 2026: Healthcare Tech Leads the Worst Performers at 38%</h3>
+        <div class="card-footer">
+          <span class="card-date">Apr 24, 2026</span>
+          <span class="card-arrow">Read →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- STAGE 4 -->
+  <section class="stage-section" id="stage-4">
+    <div class="stage-header">
+      <h2 class="stage-title">Stage 4 — Meeting → Proposal Sent</h2>
+      <span class="stage-count">Coming soon</span>
+    </div>
+    <p class="empty-state">Articles publishing this week.</p>
+  </section>
+
+  <!-- STAGE 5 -->
+  <section class="stage-section" id="stage-5">
+    <div class="stage-header">
+      <h2 class="stage-title">Stage 5 — Proposal → Closed Won</h2>
+      <span class="stage-count">1 article</span>
+    </div>
+    <div class="articles-grid">
+      <a href="/blog/proposal-ghosting-saas-benchmark-2026.html" class="article-card">
+        <span class="card-stage-label">Proposal → Closed Won</span>
+        <h3 class="card-title">Proposal Ghosting in SaaS: Why 50% of Qualified Deals Go Silent — 2026 Data</h3>
+        <div class="card-footer">
+          <span class="card-date">Apr 25, 2026</span>
+          <span class="card-arrow">Read →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <div class="bottom-cta">
+    <div class="eyebrow">Free Diagnostic Tool</div>
+    <h2>See Your Exact Leakage Number</h2>
+    <p>Benchmarks show you the average. The calculator shows you your number. Takes 3 minutes.</p>
+    <a href="https://closimo.com/calculator" class="cta-btn">Run My Pipeline Audit →</a>
+  </div>
+
+</main>
+
+</body>
+</html>
