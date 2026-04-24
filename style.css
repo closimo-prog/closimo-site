@@ -44,7 +44,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
-  
+
 }
 
 /* Elements removed via linter */
@@ -484,8 +484,13 @@ nav {
 
 /* Ken Burns — slow cinematic zoom on hero image */
 @keyframes kenBurns {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.08); }
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.08);
+  }
 }
 
 .hero-img {
@@ -916,8 +921,15 @@ nav {
 }
 
 @keyframes glassSheen {
-  0%, 100% { left: -100%; }
-  50% { left: 150%; }
+
+  0%,
+  100% {
+    left: -100%;
+  }
+
+  50% {
+    left: 150%;
+  }
 }
 
 .proof-bar::before {
@@ -1233,7 +1245,8 @@ nav {
   position: relative;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   text-align: left;
-  border-bottom: 2px solid transparent; /* Prepare for hover border */
+  border-bottom: 2px solid transparent;
+  /* Prepare for hover border */
 }
 
 .problem-col:last-child {
@@ -1241,12 +1254,12 @@ nav {
 }
 
 .problem-col:hover {
-  background: linear-gradient(145deg, rgba(255,92,26,0.06), rgba(255,92,26,0.01));
+  background: linear-gradient(145deg, rgba(255, 92, 26, 0.06), rgba(255, 92, 26, 0.01));
   transform: scale(1.025);
   z-index: 10;
-  border-color: rgba(255,92,26,0.2) !important;
+  border-color: rgba(255, 92, 26, 0.2) !important;
   border-bottom: 2px solid var(--orange);
-  box-shadow: 0 16px 32px rgba(0,0,0,0.6);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
   border-radius: var(--r-lg);
 }
 
@@ -2556,13 +2569,16 @@ nav {
     gap: 16px;
     padding-bottom: 24px;
     -webkit-overflow-scrolling: touch;
-    margin-right: -20px; /* Break out of container slightly */
+    margin-right: -20px;
+    /* Break out of container slightly */
     padding-right: 20px;
-    scrollbar-width: none; /* Hide scrollbar Firefox */
+    scrollbar-width: none;
+    /* Hide scrollbar Firefox */
   }
 
   .cs-grid::-webkit-scrollbar {
-    display: none; /* Hide scrollbar Chrome/Safari/Edge */
+    display: none;
+    /* Hide scrollbar Chrome/Safari/Edge */
   }
 
   .cs-grid .cs-card {
@@ -3283,8 +3299,15 @@ input[type=range].saas-slider:active::-webkit-slider-thumb {
 }
 
 @keyframes leakPulse {
-  0%, 100% { text-shadow: 0 0 20px rgba(255, 92, 26, 0.3), 0 0 40px rgba(255, 92, 26, 0.1); }
-  50% { text-shadow: 0 0 30px rgba(255, 92, 26, 0.5), 0 0 60px rgba(255, 92, 26, 0.2); }
+
+  0%,
+  100% {
+    text-shadow: 0 0 20px rgba(255, 92, 26, 0.3), 0 0 40px rgba(255, 92, 26, 0.1);
+  }
+
+  50% {
+    text-shadow: 0 0 30px rgba(255, 92, 26, 0.5), 0 0 60px rgba(255, 92, 26, 0.2);
+  }
 }
 
 .roi-result-value {
@@ -3324,12 +3347,12 @@ input[type=range].saas-slider:active::-webkit-slider-thumb {
     width: 160px;
     padding: 12px;
   }
-  
+
   .hdw-val {
     font-size: 18px;
     margin-bottom: 8px;
   }
-  
+
   .hdw-bars {
     height: 36px;
   }
@@ -3693,9 +3716,15 @@ input[type=range].saas-slider:active::-webkit-slider-thumb {
   background: radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, transparent 70%);
 }
 
-.wa-hover:hover { background: rgba(37,211,102,0.18) !important; }
+.wa-hover:hover {
+  background: rgba(37, 211, 102, 0.18) !important;
+}
 
-.flex-col-stretch { display: inline-flex; flex-direction: column; align-items: stretch; }
+.flex-col-stretch {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+}
 
 /* Back to Top Button */
 .btt-btn {
@@ -3720,11 +3749,13 @@ input[type=range].saas-slider:active::-webkit-slider-thumb {
   align-items: center;
   justify-content: center;
 }
+
 .btt-btn.visible {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
+
 .btt-btn:hover {
   background: #e65215;
   transform: translateY(-2px);
