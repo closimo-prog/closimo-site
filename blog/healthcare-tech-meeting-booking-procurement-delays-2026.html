@@ -311,6 +311,9 @@
       indexAxis: 'y',
       responsive: true,
       maintainAspectRatio: false,
+      layout: {
+        padding: { left: 140, right: 10 }
+      },
       plugins: {
         legend: { display: false },
         tooltip: {
@@ -337,7 +340,8 @@
           grid: { display: false },
           ticks: {
             font: { size: 12, family: 'Inter' },
-            color: ctx => data[ctx.index]?.name === 'Healthcare Tech' ? '#f97316' : '#555'
+            color: ctx => data[ctx.index]?.name === 'Healthcare Tech' ? '#f97316' : '#555',
+            padding: 8
           }
         }
       }
