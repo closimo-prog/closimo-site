@@ -53,8 +53,10 @@ body::after { bottom: -200px; right: -200px; background: var(--green); }
 .video-wrap:hover .play-btn{background:var(--gold);transform:translate(-50%,-50%) scale(1.06)}
 .video-wrap:hover .play-btn svg path{fill:var(--navy)}
 .video-label{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:700;color:var(--gray);letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;}
-.buy-btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);font-weight:700;font-size:17px;padding:18px 48px;border-radius:4px;border:none;cursor:pointer;letter-spacing:0.03em;transition:all 0.3s cubic-bezier(0.16,1,0.3,1); box-shadow: 0 4px 20px rgba(201,150,42,0.2);}
-.buy-btn:hover{background:var(--gold2);transform:translateY(-2px); box-shadow: 0 8px 30px rgba(201,150,42,0.4);}
+.buy-btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:12px;background:linear-gradient(135deg, var(--gold2) 0%, var(--gold) 100%);color:var(--navy);font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:24px;padding:16px 48px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);cursor:pointer;letter-spacing:0.08em;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);box-shadow:0 6px 20px rgba(201,150,42,0.25), inset 0 1px 0 rgba(255,255,255,0.4);text-transform:uppercase;}
+.buy-btn::before{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);transform:skewX(-20deg);animation:shimmer 3.5s infinite;}
+@keyframes shimmer{0%{left:-100%}20%{left:200%}100%{left:200%}}
+.buy-btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 30px rgba(201,150,42,0.4), inset 0 1px 0 rgba(255,255,255,0.6);background:linear-gradient(135deg, #FCE29F 0%, var(--gold2) 100%);}
 .buy-proof{display:inline-flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px;margin-top:16px;padding:8px 18px;border-radius:100px;border:1px solid rgba(16,185,129,0.3);background:rgba(16,185,129,0.06);}
 .proof-item{font-size:12px;color:var(--green);font-weight:600;display:flex;align-items:center;gap:4px;}
 .proof-item span{color:var(--green);font-weight:700;font-size:13px;}
@@ -147,6 +149,61 @@ header { position: fixed; top: 0; left: 0; right: 0; padding: 16px 24px; display
 .faq-item.active .faq-question::after { transform: rotate(45deg); }
 .faq-answer { padding: 0 24px; max-height: 0; overflow: hidden; transition: all 0.3s ease; color: var(--gray); font-size: 14px; line-height: 1.6; }
 .faq-item.active .faq-answer { max-height: 200px; padding: 0 24px 24px; }
+
+/* Testimonial Marquee Styles */
+.testi-marquee-wrap {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  display: flex;
+  margin-bottom: 24px;
+}
+.testi-marquee-wrap::before, .testi-marquee-wrap::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2; pointer-events: none;
+}
+.testi-marquee-wrap::before { left: 0; background: linear-gradient(to right, var(--navy2), transparent); }
+.testi-marquee-wrap::after { right: 0; background: linear-gradient(to left, var(--navy2), transparent); }
+.testi-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+}
+.testi-track.ltr { animation: scroll-ltr 50s linear infinite; }
+.testi-track.rtl { animation: scroll-rtl 50s linear infinite; }
+.testi-marquee-wrap:hover .testi-track { animation-play-state: paused; }
+@keyframes scroll-ltr {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 8px)); }
+}
+@keyframes scroll-rtl {
+  0% { transform: translateX(calc(-50% - 8px)); }
+  100% { transform: translateX(0); }
+}
+.testi-track .tcard { width: 340px; flex-shrink: 0; }
+
+/* How It Works Section */
+.hiw { padding: 90px 24px; background: var(--navy); }
+.hiw-inner { max-width: 1000px; margin: 0 auto; }
+.hiw-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 12px; text-align: center; }
+.hiw-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(32px, 5vw, 52px); line-height: 1; text-align: center; margin-bottom: 50px; }
+.hiw-title span { color: var(--gold); }
+.hiw-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; position: relative; }
+.hiw-step { background: rgba(26, 34, 53, 0.4); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); padding: 36px 28px; border-radius: 12px; position: relative; z-index: 2; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.15); overflow: hidden; }
+.hiw-step::after { content: ''; position: absolute; inset: 0; border-radius: 12px; border: 1px solid transparent; background: linear-gradient(135deg, rgba(201,150,42,0.3) 0%, transparent 100%) border-box; -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite: destination-out; mask-composite: exclude; opacity: 0; transition: opacity 0.3s; }
+.hiw-step:hover { transform: translateY(-5px); background: rgba(26, 34, 53, 0.7); box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
+.hiw-step:hover::after { opacity: 1; }
+.step-num { font-family: 'Bebas Neue', sans-serif; font-size: 64px; color: rgba(201,150,42,0.1); line-height: 0.8; position: absolute; top: 20px; right: 24px; pointer-events: none; transition: color 0.3s; }
+.hiw-step:hover .step-num { color: rgba(201,150,42,0.25); }
+.step-icon { width: 48px; height: 48px; border-radius: 8px; background: rgba(201,150,42,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 24px; border: 1px solid rgba(201,150,42,0.2); color: var(--gold); }
+.step-title { font-size: 19px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+.step-desc { font-size: 14px; color: var(--gray); line-height: 1.6; }
+@media (min-width: 900px) {
+  .hiw-steps::before { content: ''; position: absolute; top: 100px; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); z-index: 1; }
+}
 </style>
 </head>
 <body>
@@ -161,11 +218,11 @@ header { position: fixed; top: 0; left: 0; right: 0; padding: 16px 24px; display
   <p class="demo-audit">Most tools look good in the pitch and break after. This is a Google Sheet. You can see everything before you spend a single rupee.</p>
   <p class="demo-trust">You do not need to trust us. The sheet speaks for itself.</p>
   <p class="demo-social">50+ businesses using this are seeing 30 to 40% more sales on average.</p>
-  <div class="video-wrap" onclick="this.innerHTML='<iframe width=\'100%\' height=\'100%\' src=\'https://www.youtube.com/embed/LhEYP5EgWQc?autoplay=1\' frameborder=\'0\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\' allowfullscreen style=\'position:absolute;top:0;left:0;width:100%;height:100%;\'></iframe>'" style="max-width:820px;width:100%">
+  <div class="video-wrap" onclick="this.innerHTML='<iframe width=\'100%\' height=\'100%\' src=\'https://www.youtube.com/embed/LhEYP5EgWQc?autoplay=1\' frameborder=\'0\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\' allowfullscreen style=\'position:absolute;top:0;left:0;width:100%;height:100%;\'></iframe>'" style="max-width:820px;width:100%;background-image:linear-gradient(rgba(10, 15, 28, 0.4), rgba(10, 15, 28, 0.7)), url('https://img.youtube.com/vi/LhEYP5EgWQc/maxresdefault.jpg');background-size:cover;background-position:center;">
     <div class="play-btn">
       <svg width="28" height="28" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="var(--gold)"/></svg>
     </div>
-    <div class="video-label">▶ &nbsp; 8 MIN · NO FLUFF · WATCH AT 1.5X · DONE IN 5</div>
+    <div class="video-label" style="color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">▶ &nbsp; 8 MIN · NO FLUFF · WATCH AT 1.5X · DONE IN 5</div>
   </div>
   <button class="buy-btn" onclick="document.getElementById('overlay').classList.add('open');document.body.style.overflow='hidden'">
     Get My SalesOS →
@@ -236,46 +293,191 @@ header { position: fixed; top: 0; left: 0; right: 0; padding: 16px 24px; display
   </div>
   </div>
 </section>
+<section class="hiw">
+  <div class="hiw-inner">
+    <p class="hiw-label reveal">The Process</p>
+    <h2 class="hiw-title reveal">How We Fix Your <span>Sales Pipeline</span></h2>
+    <div class="hiw-steps">
+      <div class="hiw-step reveal">
+        <div class="step-num">01</div>
+        <div class="step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+        </div>
+        <h3 class="step-title">Audit & Architecture</h3>
+        <p class="step-desc">We map exactly how your team works today. We identify the specific leaks where you're losing deals and design a custom process to plug those holes.</p>
+      </div>
+      <div class="hiw-step reveal" style="transition-delay: 0.1s;">
+        <div class="step-num">02</div>
+        <div class="step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+        </div>
+        <h3 class="step-title">Deploy The SalesOS</h3>
+        <p class="step-desc">Within 48 hours, we deploy your custom pipeline into a Google Sheet. No complicated software, no monthly fees. Your team logs in and starts tracking instantly.</p>
+      </div>
+      <div class="hiw-step reveal" style="transition-delay: 0.2s;">
+        <div class="step-num">03</div>
+        <div class="step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+        </div>
+        <h3 class="step-title">AI Coaching & Training</h3>
+        <p class="step-desc">We stay with you for 14 days to train your reps. Our AI analyzes their deals daily and coaches them on exactly what to say to close the gap. We don't leave until it works.</p>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="testi">
   <div class="testi-inner">
     <p class="testi-label">Real Results</p>
     <h2 class="testi-title">Businesses that <span>stopped losing.</span></h2>
-    <div class="testi-grid">
-      <div class="tcard reveal">
-        <div class="stars">★★★★★</div>
-        <p class="tquote">"Before this we were losing at least 30% of leads because nobody followed up. Now every rep knows exactly what to do every morning."</p>
-        <div class="tauthor">Ahmed K.</div><div class="trole">Founder</div>
-        <div class="tindustry">Solar · Lahore</div>
+    <div class="testi-marquee-wrap">
+      <div class="testi-track ltr">
+        <!-- Review 1 -->
+        <div class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <p class="tquote">"Before this we were losing at least 30% of leads because nobody followed up. Now every rep knows exactly what to do every morning."</p>
+          <div class="tauthor">Ahmed K.</div><div class="trole">Founder</div>
+          <div class="tindustry">Solar · Lahore</div>
+        </div>
+        <!-- Review 3 -->
+        <div class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <p class="tquote">"My reps used to go silent after two follow-ups. Now they follow up 8 to 10 times without me saying a word."</p>
+          <div class="tauthor">Usman R.</div><div class="trole">Director</div>
+          <div class="tindustry">Agency · Islamabad</div>
+        </div>
+        <!-- Review 5 -->
+        <div class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <p class="tquote">"I was skeptical about a Google Sheet running my sales. Two weeks later I cannot imagine going back. Every lead is accounted for."</p>
+          <div class="tauthor">Bilal H.</div><div class="trole">MD</div>
+          <div class="tindustry">Logistics · Faisalabad</div>
+        </div>
+        <!-- Review 7 -->
+        <div class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <p class="tquote">"We had 400 leads a month but barely 1–2 closing. SalesOS gave us the exact process we were missing in a simple Google Sheet. We're now on track for 5x more deals with the same ad spend."</p>
+          <div class="tauthor">Ahsan R.</div><div class="trole">Managing Director</div>
+          <div class="tindustry">Software · Lahore</div>
+        </div>
+        <!-- Review 9 -->
+        <div class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <p class="tquote">"I knew we were losing deals but couldn't see where. The SalesOS tracker changed everything. Profitability doubled because my reps finally have a clear daily system."</p>
+          <div class="tauthor">Ahmed B.</div><div class="trole">Managing Partner</div>
+          <div class="tindustry">Telecom · Islamabad</div>
+        </div>
+        <!-- DUPLICATE FOR SEAMLESS LOOP -->
+        <!-- Review 1 -->
+        <div class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <p class="tquote">"Before this we were losing at least 30% of leads because nobody followed up. Now every rep knows exactly what to do every morning."</p>
+          <div class="tauthor">Ahmed K.</div><div class="trole">Founder</div>
+          <div class="tindustry">Solar · Lahore</div>
+        </div>
+        <!-- Review 3 -->
+        <div class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <p class="tquote">"My reps used to go silent after two follow-ups. Now they follow up 8 to 10 times without me saying a word."</p>
+          <div class="tauthor">Usman R.</div><div class="trole">Director</div>
+          <div class="tindustry">Agency · Islamabad</div>
+        </div>
+        <!-- Review 5 -->
+        <div class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <p class="tquote">"I was skeptical about a Google Sheet running my sales. Two weeks later I cannot imagine going back. Every lead is accounted for."</p>
+          <div class="tauthor">Bilal H.</div><div class="trole">MD</div>
+          <div class="tindustry">Logistics · Faisalabad</div>
+        </div>
+        <!-- Review 7 -->
+        <div class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <p class="tquote">"We had 400 leads a month but barely 1–2 closing. SalesOS gave us the exact process we were missing in a simple Google Sheet. We're now on track for 5x more deals with the same ad spend."</p>
+          <div class="tauthor">Ahsan R.</div><div class="trole">Managing Director</div>
+          <div class="tindustry">Software · Lahore</div>
+        </div>
+        <!-- Review 9 -->
+        <div class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <p class="tquote">"I knew we were losing deals but couldn't see where. The SalesOS tracker changed everything. Profitability doubled because my reps finally have a clear daily system."</p>
+          <div class="tauthor">Ahmed B.</div><div class="trole">Managing Partner</div>
+          <div class="tindustry">Telecom · Islamabad</div>
+        </div>
       </div>
-      <div class="tcard reveal">
-        <div class="stars">★★★★★</div>
-        <p class="tquote">"Two weeks after setup we recovered three dead proposals worth over 4 lac rupees. I could finally see what my team was doing."</p>
-        <div class="tauthor">Saad M.</div><div class="trole">CEO</div>
-        <div class="tindustry">Real Estate · Karachi</div>
-      </div>
-      <div class="tcard reveal">
-        <div class="stars">★★★★★</div>
-        <p class="tquote">"My reps used to go silent after two follow-ups. Now they follow up 8 to 10 times without me saying a word."</p>
-        <div class="tauthor">Usman R.</div><div class="trole">Director</div>
-        <div class="tindustry">Agency · Islamabad</div>
-      </div>
-      <div class="tcard reveal">
-        <div class="stars">★★★★★</div>
-        <p class="tquote">"No monthly fees. Setup in one session. We closed 40% more deals in the first month. I wish I had this two years ago."</p>
-        <div class="tauthor">Naveed A.</div><div class="trole">Owner</div>
-        <div class="tindustry">Construction · Multan</div>
-      </div>
-      <div class="tcard reveal">
-        <div class="stars">★★★★★</div>
-        <p class="tquote">"I was skeptical about a Google Sheet running my sales. Two weeks later I cannot imagine going back. Every lead is accounted for."</p>
-        <div class="tauthor">Bilal H.</div><div class="trole">MD</div>
-        <div class="tindustry">Logistics · Faisalabad</div>
-      </div>
-      <div class="tcard reveal">
-        <div class="stars">★★★★★</div>
-        <p class="tquote">"That week we closed two deals we had already given up on. The AI coaching alone paid for the system in 3 days."</p>
-        <div class="tauthor">Hira Z.</div><div class="trole">Founder</div>
-        <div class="tindustry">Interior Design · Lahore</div>
+    </div>
+
+    <div class="testi-marquee-wrap">
+      <div class="testi-track rtl">
+        <!-- Review 2 -->
+        <div class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <p class="tquote">"Two weeks after setup we recovered three dead proposals worth over 4 lac rupees. I could finally see what my team was doing."</p>
+          <div class="tauthor">Saad M.</div><div class="trole">CEO</div>
+          <div class="tindustry">Real Estate · Karachi</div>
+        </div>
+        <!-- Review 4 -->
+        <div class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <p class="tquote">"No monthly fees. Setup in one session. We closed 40% more deals in the first month. I wish I had this two years ago."</p>
+          <div class="tauthor">Naveed A.</div><div class="trole">Owner</div>
+          <div class="tindustry">Construction · Multan</div>
+        </div>
+        <!-- Review 6 -->
+        <div class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <p class="tquote">"That week we closed two deals we had already given up on. The AI coaching alone paid for the system in 3 days."</p>
+          <div class="tauthor">Hira Z.</div><div class="trole">Founder</div>
+          <div class="tindustry">Interior Design · Lahore</div>
+        </div>
+        <!-- Review 8 -->
+        <div class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <p class="tquote">"We had the product but no repeatable way to close. SalesOS made everything visible. With the AI coaching and pipeline tracking, we closed significantly more deals in our first 90 days."</p>
+          <div class="tauthor">Riaz M.</div><div class="trole">Founder</div>
+          <div class="tindustry">Home Automation · Karachi</div>
+        </div>
+        <!-- Review 10 -->
+        <div class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <p class="tquote">"We were winning on relationships but losing on process. SalesOS brought order to our chaos without forcing us into complicated software. It's exactly what we needed."</p>
+          <div class="tauthor">Faizan H.</div><div class="trole">CEO</div>
+          <div class="tindustry">Security · Lahore</div>
+        </div>
+        <!-- DUPLICATE FOR SEAMLESS LOOP -->
+        <!-- Review 2 -->
+        <div class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <p class="tquote">"Two weeks after setup we recovered three dead proposals worth over 4 lac rupees. I could finally see what my team was doing."</p>
+          <div class="tauthor">Saad M.</div><div class="trole">CEO</div>
+          <div class="tindustry">Real Estate · Karachi</div>
+        </div>
+        <!-- Review 4 -->
+        <div class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <p class="tquote">"No monthly fees. Setup in one session. We closed 40% more deals in the first month. I wish I had this two years ago."</p>
+          <div class="tauthor">Naveed A.</div><div class="trole">Owner</div>
+          <div class="tindustry">Construction · Multan</div>
+        </div>
+        <!-- Review 6 -->
+        <div class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <p class="tquote">"That week we closed two deals we had already given up on. The AI coaching alone paid for the system in 3 days."</p>
+          <div class="tauthor">Hira Z.</div><div class="trole">Founder</div>
+          <div class="tindustry">Interior Design · Lahore</div>
+        </div>
+        <!-- Review 8 -->
+        <div class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <p class="tquote">"We had the product but no repeatable way to close. SalesOS made everything visible. With the AI coaching and pipeline tracking, we closed significantly more deals in our first 90 days."</p>
+          <div class="tauthor">Riaz M.</div><div class="trole">Founder</div>
+          <div class="tindustry">Home Automation · Karachi</div>
+        </div>
+        <!-- Review 10 -->
+        <div class="tcard reveal">
+          <div class="stars">★★★★★</div>
+          <p class="tquote">"We were winning on relationships but losing on process. SalesOS brought order to our chaos without forcing us into complicated software. It's exactly what we needed."</p>
+          <div class="tauthor">Faizan H.</div><div class="trole">CEO</div>
+          <div class="tindustry">Security · Lahore</div>
+        </div>
       </div>
     </div>
   </div>
@@ -330,13 +532,10 @@ header { position: fixed; top: 0; left: 0; right: 0; padding: 16px 24px; display
         <div class="q-opts" id="channel-opts">
           <label class="q-opt"><input type="checkbox" name="channels" value="meta" onchange="calcPrice()"> Meta Ads — Facebook and Instagram</label>
           <label class="q-opt"><input type="checkbox" name="channels" value="google-ads" onchange="calcPrice()"> Google Ads</label>
-          <label class="q-opt"><input type="checkbox" name="channels" value="google-organic" onchange="calcPrice()"> Google Organic — SEO and Content</label>
           <label class="q-opt"><input type="checkbox" name="channels" value="tiktok" onchange="calcPrice()"> TikTok Ads</label>
-          <label class="q-opt"><input type="checkbox" name="channels" value="linkedin" onchange="calcPrice()"> LinkedIn</label>
-          <label class="q-opt"><input type="checkbox" name="channels" value="olx" onchange="calcPrice()"> OLX</label>
-          <label class="q-opt"><input type="checkbox" name="channels" value="telesales" onchange="calcPrice()"> Telesales</label>
-          <label class="q-opt"><input type="checkbox" name="channels" value="whatsapp" onchange="calcPrice()"> WhatsApp Inbound</label>
-          <label class="q-opt"><input type="checkbox" name="channels" value="walkins" onchange="calcPrice()"> Walk-ins and Referrals</label>
+          <label class="q-opt"><input type="checkbox" name="channels" value="linkedin" onchange="calcPrice()"> LinkedIn Ads</label>
+          <label class="q-opt"><input type="checkbox" name="channels" value="inbound" onchange="calcPrice()"> Inbound Leads (WhatsApp, Referrals, Organic)</label>
+          <label class="q-opt"><input type="checkbox" name="channels" value="outbound" onchange="calcPrice()"> Outbound Leads (Telesales, Cold Outreach)</label>
         </div>
         <div class="price-indicator" id="price-indicator"></div>
         <p class="commitment-line" id="commitment-line" style="display:none;font-size:12px;color:var(--gray);text-align:center;margin-top:8px;line-height:1.5;">No refunds. No templates. Built around how your team actually works. If it is not working on day 15 we stay until it is.</p>
