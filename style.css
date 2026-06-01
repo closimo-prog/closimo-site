@@ -366,6 +366,7 @@ nav {
   display: inline-block;
   /* Needs to be block or inline-block for transform */
   line-height: 58px;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
