@@ -38,13 +38,13 @@ body::after { bottom: -200px; right: -200px; background: var(--green); }
 .demo-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold2);margin-bottom:20px;display:flex;align-items:center;gap:8px;}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--gold2);animation:blink 1.8s ease-in-out infinite;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
-.demo-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(42px,9vw,88px);line-height:0.95;text-align:center;margin-bottom:8px;letter-spacing:0.5px;}
+.demo-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,9vw,96px);line-height:0.95;text-align:center;margin-bottom:24px;letter-spacing:1px;}
 .demo-title span{background: linear-gradient(90deg, var(--gold2), #FCE29F, var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
-.demo-sub{font-size:15px;color:var(--gray);text-align:center;margin-bottom:20px;max-width:480px;}
-.demo-sub strong{color:var(--white)}
-.demo-audit{font-size:14px;color:var(--gray);text-align:center;max-width:520px;margin-bottom:10px;line-height:1.6;}
-.demo-trust{font-size:14px;color:var(--gold2);font-weight:600;text-align:center;margin-bottom:16px;font-style:italic;}
-.demo-social{font-size:15px;font-weight:700;color:var(--white);text-align:center;margin-bottom:28px;}
+.demo-sub{font-size:18px;line-height:1.6;color:var(--gray);text-align:center;margin-bottom:32px;max-width:580px;}
+.demo-sub strong{color:var(--white);font-weight:600;}
+.demo-audit{font-size:15px;color:rgba(136,146,164,0.85);text-align:center;max-width:540px;margin-bottom:12px;line-height:1.7;}
+.demo-trust{font-size:15px;color:var(--gold2);font-weight:500;text-align:center;margin-bottom:32px;font-style:italic;}
+.demo-social{font-size:14px;font-weight:600;color:var(--white);text-align:center;margin-bottom:48px;letter-spacing:0.5px;padding:12px 28px;background:rgba(255,255,255,0.03);border-radius:100px;border:1px solid rgba(255,255,255,0.05);display:inline-block;}
 .video-wrap{width:100%;max-width:820px;position:relative;aspect-ratio:16/9;background:#070C17;border:1px solid var(--border);border-radius:8px;overflow:hidden;cursor:pointer;margin-bottom:28px;}
 .video-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,150,42,0.05) 0%,transparent 70%);}
 .play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px;border-radius:50%;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;transition:background 0.2s,transform 0.2s;}
@@ -57,10 +57,9 @@ body::after { bottom: -200px; right: -200px; background: var(--green); }
 .buy-btn::before{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);transform:skewX(-20deg);animation:shimmer 3.5s infinite;}
 @keyframes shimmer{0%{left:-100%}20%{left:200%}100%{left:200%}}
 .buy-btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 30px rgba(201,150,42,0.4), inset 0 1px 0 rgba(255,255,255,0.6);background:linear-gradient(135deg, #FCE29F 0%, var(--gold2) 100%);}
-.buy-proof{display:inline-flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px;margin-top:16px;padding:8px 18px;border-radius:100px;border:1px solid rgba(16,185,129,0.3);background:rgba(16,185,129,0.06);}
-.proof-item{font-size:12px;color:var(--green);font-weight:600;display:flex;align-items:center;gap:4px;}
-.proof-item span{color:var(--green);font-weight:700;font-size:13px;}
-.proof-item:not(:last-child)::after{content:'-';margin-left:4px;color:rgba(16,185,129,0.5);font-weight:400;}
+.buy-proof-list{display:flex;flex-direction:column;gap:10px;margin-top:24px;}
+.proof-list-item{font-size:14.5px;color:rgba(255,255,255,0.9);display:flex;align-items:center;gap:12px;font-weight:500;}
+.proof-list-item span{display:flex;align-items:center;justify-content:center;width:20px;height:20px;background:rgba(16,185,129,0.15);border-radius:50%;color:var(--green);font-size:11px;flex-shrink:0;}
 .payment-note{font-size:11px;color:var(--gray);margin-top:12px;text-align:center;}
 .payment-note strong{color:var(--white);}
 .overlay{position:fixed;inset:0;background:rgba(5,8,18,0.85);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(16px); -webkit-backdrop-filter: blur(16px);}
@@ -81,9 +80,10 @@ body::after { bottom: -200px; right: -200px; background: var(--green); }
 .q-text{font-size:16px;font-weight:700;margin-bottom:4px;line-height:1.35}
 .q-hint{font-size:12px;color:var(--gray);margin-bottom:12px;}
 .q-opts{display:flex;flex-direction:column;gap:8px}
-.q-opt{display:flex;align-items:center;gap:10px;background:var(--navy3);border:1px solid var(--gray2);border-radius:6px;padding:12px 14px;cursor:pointer;font-size:13px;font-weight:500;color:var(--white);transition:all 0.25s cubic-bezier(0.16,1,0.3,1);user-select:none; transform: scale(1);}
-.q-opt:hover{border-color:var(--gold);background:rgba(201,150,42,0.05);transform:translateY(-1px);}
-.q-opt.sel{border-color:var(--gold);background:rgba(201,150,42,0.1);transform:scale(1.01);box-shadow: 0 4px 15px rgba(201,150,42,0.1);}
+.q-opt{display:flex;align-items:center;gap:10px;background:var(--navy3);border:1px solid var(--gray2);border-radius:8px;padding:14px 16px;cursor:pointer;font-size:14px;font-weight:500;color:var(--white);transition:all 0.3s cubic-bezier(0.16,1,0.3,1);user-select:none; transform: scale(1); position:relative; overflow:hidden;}
+.q-opt:hover{border-color:var(--gold2);background:rgba(201,150,42,0.03);transform:translateY(-2px);box-shadow: 0 4px 15px rgba(0,0,0,0.2);}
+@keyframes selectFlash { 0% { background: rgba(201,150,42,0.4); } 100% { background: rgba(201,150,42,0.12); } }
+.q-opt.sel{border-color:var(--gold);background:rgba(201,150,42,0.12);transform:scale(1.03);box-shadow: 0 8px 25px rgba(201,150,42,0.25), inset 0 1px 0 rgba(255,255,255,0.1); z-index:2; animation: selectFlash 0.4s ease-out forwards;}
 .q-opt input[type="radio"]{accent-color:var(--gold);width:15px;height:15px;flex-shrink:0}
 .q-opt input[type="checkbox"]{accent-color:var(--gold);width:15px;height:15px;flex-shrink:0}
 .divider{height:1px;background:var(--gray2);margin:0 0 24px}
@@ -105,9 +105,9 @@ body::after { bottom: -200px; right: -200px; background: var(--green); }
 .testi-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,5vw,52px);line-height:1;text-align:center;margin-bottom:48px;}
 .testi-title span{background: linear-gradient(90deg, var(--gold2), #FCE29F, var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
 .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
-.tcard{background:var(--navy);border:1px solid var(--gray2);border-radius:12px;padding:26px;transition:all 0.3s ease;position:relative;overflow:hidden;}
+.tcard{background:rgba(26,34,53,0.4);border:1px solid rgba(255,255,255,0.05);border-radius:12px;padding:26px;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
 .tcard::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,150,42,0.3),transparent);opacity:0;transition:opacity 0.3s;}
-.tcard:hover{transform:translateY(-4px);border-color:var(--border);box-shadow:0 12px 30px rgba(0,0,0,0.3);background:var(--navy2);}
+.tcard:hover{transform:translateY(-6px) scale(1.02);border-color:var(--gold);box-shadow:0 20px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);background:rgba(26,34,53,0.7);}
 .tcard:hover::before{opacity:1;}
 .stars{color:var(--gold2);font-size:13px;letter-spacing:3px;margin-bottom:12px}
 .tquote{font-size:13px;color:var(--gray);line-height:1.65;font-style:italic;margin-bottom:14px}
@@ -125,14 +125,12 @@ footer strong{color:var(--gold)}
   .modal-head,.modal-body,.modal-foot{padding-left:18px;padding-right:18px}
   .buy-btn{width:100%;justify-content:center}
 }
-header { position: fixed; top: 0; left: 0; right: 0; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; background: rgba(10,15,28,0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.05); }
+header { position: fixed; top: 0; left: 0; right: 0; padding: 24px 32px; display: flex; justify-content: space-between; align-items: center; background: rgba(10,15,28,0); z-index: 100; border-bottom: 1px solid transparent; transition: all 0.4s ease; }
+header.scrolled { padding: 12px 24px; background: rgba(10,15,28,0.85); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-bottom: 1px solid rgba(201,150,42,0.3); box-shadow: 0 4px 30px rgba(0,0,0,0.5); }
 .logo { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--gold); letter-spacing: 1px; }
 .header-btn { background: var(--gold); color: var(--navy); font-size: 13px; font-weight: 700; padding: 8px 16px; border-radius: 4px; border: none; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 10px rgba(201,150,42,0.15); }
 .header-btn:hover { background: var(--gold2); transform: translateY(-1px); box-shadow: 0 4px 15px rgba(201,150,42,0.3); }
-.marquee-wrap { width: 100%; max-width: 820px; overflow: hidden; display: flex; margin-top: 32px; position: relative; }
-.marquee-wrap::before, .marquee-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 40px; z-index: 2; pointer-events: none; }
-.marquee-wrap::before { left: 0; background: linear-gradient(to right, rgba(10,15,28,1), transparent); }
-.marquee-wrap::after { right: 0; background: linear-gradient(to left, rgba(10,15,28,1), transparent); }
+.marquee-wrap { width: 100%; max-width: 820px; overflow: hidden; display: flex; margin-top: 32px; position: relative; mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); }
 .hero-marquee { display: flex; flex-wrap: nowrap !important; animation: scroll 20s linear infinite; min-width: max-content; padding-right: 12px; gap: 12px; }
 .marquee-wrap:hover .hero-marquee { animation-play-state: paused; }
 @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
@@ -150,12 +148,8 @@ header { position: fixed; top: 0; left: 0; right: 0; padding: 16px 24px; display
   overflow: hidden;
   display: flex;
   margin-bottom: 24px;
+  margin-bottom: 24px;
 }
-.testi-marquee-wrap::before, .testi-marquee-wrap::after {
-  content: ''; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2; pointer-events: none;
-}
-.testi-marquee-wrap::before { left: 0; background: linear-gradient(to right, var(--navy2), transparent); }
-.testi-marquee-wrap::after { right: 0; background: linear-gradient(to left, var(--navy2), transparent); }
 .testi-track {
   display: flex;
   gap: 16px;
@@ -174,34 +168,100 @@ header { position: fixed; top: 0; left: 0; right: 0; padding: 16px 24px; display
 }
 .testi-track .tcard { width: 340px; flex-shrink: 0; }
 
+@keyframes fadeUp { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+.hero-anim { opacity: 0; animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.hero-anim-1 { animation-delay: 0.1s; }
+.hero-anim-2 { animation-delay: 0.2s; }
+.hero-anim-3 { animation-delay: 0.3s; }
+.hero-anim-4 { animation-delay: 0.4s; }
+.hero-anim-5 { animation-delay: 0.5s; }
+.hero-anim-6 { animation-delay: 0.6s; }
+.video-glow-wrap { position: relative; width: 100%; max-width: 820px; margin-bottom: 28px; z-index: 1; }
+.video-glow-wrap::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 110%; height: 120%; background: radial-gradient(ellipse at center, rgba(201,150,42,0.18) 0%, transparent 60%); filter: blur(40px); z-index: -1; pointer-events: none; }
+@keyframes buttonPulse { 0% { box-shadow: 0 0 0 0 rgba(201,150,42, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(201,150,42, 0); } 100% { box-shadow: 0 0 0 0 rgba(201,150,42, 0); } }
+.buy-btn::after { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: 0 0 0 0 rgba(201,150,42, 0.4); animation: buttonPulse 2s infinite; z-index: -1; pointer-events: none; }
+.scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--gold2), var(--gold)); width: 0%; z-index: 1000; box-shadow: 0 0 10px rgba(201,150,42,0.5); transition: width 0.1s; }
 
+/* App-like Zoom */
+.zoom-back { transform: scale(0.97); filter: blur(5px); opacity: 0.6; pointer-events: none; }
+header, .demo, .testi, footer { transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), filter 0.5s, opacity 0.5s; }
+body { background: #050812; cursor: default; }
+
+/* Result Modal Dopamine Pop */
+@keyframes resultPop { 0% { transform: scale(0.95) translateY(10px); opacity: 0; box-shadow: 0 0 0 rgba(201,150,42,0); } 100% { transform: scale(1) translateY(0); opacity: 1; box-shadow: 0 10px 40px rgba(201,150,42,0.3), inset 0 0 20px rgba(201,150,42,0.1); } }
+.result.show { display: block; animation: resultPop 0.6s cubic-bezier(0.16,1,0.3,1) forwards; }
+.result-tag, .result-name, .result-price, .result-why, .result-policy { opacity: 0; animation: fadeUp 0.5s cubic-bezier(0.16,1,0.3,1) forwards; }
+.result.show .result-tag { animation-delay: 0.1s; }
+.result.show .result-name { animation-delay: 0.2s; }
+.result.show .result-price { animation-delay: 0.3s; }
+.result.show .result-why { animation-delay: 0.4s; }
+.result.show .result-policy { animation-delay: 0.5s; }
+
+/* Footer */
+footer{border-top:1px solid rgba(255,255,255,0.05);padding:48px 24px;background:var(--navy2);text-align:center;position:relative;}
+footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,150,42,0.4),transparent);}
+.footer-inner{max-width:600px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:16px;}
+.footer-brand{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--white);letter-spacing:1px;}
+.footer-brand span{color:var(--gold);}
+.footer-links{display:flex;gap:24px;}
+.footer-links a{color:var(--gray);text-decoration:none;font-size:13px;transition:color 0.2s;}
+.footer-links a:hover{color:var(--gold);}
+.footer-copy{font-size:12px;color:var(--gray);opacity:0.6;}
+
+/* Custom Cursor */
+.halo-cursor { position: fixed; top: 0; left: 0; width: 24px; height: 24px; border: 1.5px solid var(--gold); border-radius: 50%; transform: translate(-50%, -50%); pointer-events: none; z-index: 99999; transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s; }
+/* Sheet Demo */
+.sheet-demo { padding: 90px 24px; background: #050812; border-top: 1px solid var(--gray2); border-bottom: 1px solid var(--gray2); }
+.sheet-inner { max-width: 1000px; margin: 0 auto; text-align: center; }
+.sheet-inner h2 { font-family: 'Bebas Neue', sans-serif; font-size: 48px; margin-bottom: 40px; color: var(--white); }
+.sheet-inner h2 span { color: var(--gold); }
+.sheet-mockup { display: grid; grid-template-columns: 1fr 1fr 2fr 1fr; background: var(--navy); border: 1px solid var(--gray2); border-radius: 12px; overflow: visible; box-shadow: 0 20px 50px rgba(0,0,0,0.5); text-align: left; }
+.sheet-header { background: var(--navy2); padding: 16px; font-size: 12px; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid var(--gray2); }
+.sheet-cell { padding: 16px; font-size: 14px; color: var(--white); border-bottom: 1px solid rgba(255,255,255,0.05); position: relative; display: flex; align-items: center; gap: 8px; }
+.status-hot { color: #10B981; }
+.status-cold { color: #EF4444; }
+.ai-cell { color: var(--gold2); font-weight: 600; cursor: pointer; }
+.pulse-dot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; display: inline-block; box-shadow: 0 0 0 rgba(201,150,42,0.4); animation: buttonPulse 2s infinite; flex-shrink:0; }
+.s-tooltip { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%) translateY(10px); background: var(--navy2); border: 1px solid var(--gold); padding: 12px; border-radius: 8px; font-size: 12px; color: var(--white); width: 220px; text-align: center; opacity: 0; pointer-events: none; transition: all 0.3s cubic-bezier(0.16,1,0.3,1); z-index: 10; box-shadow: 0 10px 30px rgba(0,0,0,0.5); font-weight: 400; line-height: 1.5; }
+.s-tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border-width: 6px; border-style: solid; border-color: var(--gold) transparent transparent transparent; }
+.ai-cell:hover .s-tooltip { opacity: 1; transform: translateX(-50%) translateY(-10px); }
+.sheet-cell.action { color: var(--gold); font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+@media(max-width: 768px){
+  .sheet-mockup { display: flex; flex-direction: column; }
+  .sheet-header { display: none; }
+  .sheet-cell { border-bottom: none; padding: 8px 16px; }
+  .sheet-cell:nth-child(4n+1) { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 16px; margin-top: 8px; font-weight: bold; }
+}
 </style>
 </head>
 <body>
+<div class="scroll-progress"></div>
 <header>
   <div class="logo">CLOSIMO</div>
   <button class="header-btn" onclick="document.getElementById('overlay').classList.add('open');document.body.style.overflow='hidden'">Buy Now</button>
 </header>
 <section class="demo" style="padding-top: 100px;">
-  <div class="demo-eyebrow"><span class="dot"></span> Built for 20+ industries in Pakistan. · Google Sheets Connected to AI.</div>
-  <h1 class="demo-title reveal">Watch How We Fix<br><span>Your Sales Pipeline.</span></h1>
-  <p class="demo-sub">Your team is losing <strong>9 out of 10 winnable deals.</strong> Not to competition, price or product. But inside your own sales pipeline. This system fixes that.</p>
-  <p class="demo-audit">Most tools look good in the pitch and break after. This is a Google Sheet. You can see everything before you spend a single rupee.</p>
-  <p class="demo-trust">You do not need to trust us. The sheet speaks for itself.</p>
-  <p class="demo-social">50+ businesses using this are seeing 30 to 40% more sales on average.</p>
-  <div class="video-wrap" onclick="this.innerHTML='<iframe width=\'100%\' height=\'100%\' src=\'https://www.youtube.com/embed/LhEYP5EgWQc?autoplay=1\' frameborder=\'0\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\' allowfullscreen style=\'position:absolute;top:0;left:0;width:100%;height:100%;\'></iframe>'" style="max-width:820px;width:100%;background-image:linear-gradient(rgba(10, 15, 28, 0.4), rgba(10, 15, 28, 0.7)), url('./thumbnail.webp');background-size:cover;background-position:center;">
+  <div class="demo-eyebrow hero-anim hero-anim-1"><span class="dot"></span> Built for 20+ industries in Pakistan. · Google Sheets Connected to AI.</div>
+  <h1 class="demo-title hero-anim hero-anim-2">Watch How We Fix<br><span>Your Sales Pipeline.</span></h1>
+  <p class="demo-sub hero-anim hero-anim-3">Your team is losing <strong>9 out of 10 winnable deals.</strong> Not to competition, price or product. But inside your own sales pipeline. This system fixes that.</p>
+  <p class="demo-audit hero-anim hero-anim-4">Most tools look good in the pitch and break after. This is a Google Sheet. You can see everything before you spend a single rupee.</p>
+  <p class="demo-trust hero-anim hero-anim-4">You do not need to trust us. The sheet speaks for itself.</p>
+  <p class="demo-social hero-anim hero-anim-5">50+ businesses using this are seeing 30 to 40% more sales on average.</p>
+  <div class="video-glow-wrap hero-anim hero-anim-6">
+  <div class="video-wrap" onclick="this.innerHTML='<iframe width=\'100%\' height=\'100%\' src=\'https://www.youtube.com/embed/LhEYP5EgWQc?autoplay=1\' frameborder=\'0\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\' allowfullscreen style=\'position:absolute;top:0;left:0;width:100%;height:100%;\'></iframe>'" style="width:100%;background-image:linear-gradient(rgba(10, 15, 28, 0.4), rgba(10, 15, 28, 0.7)), url('./thumbnail.webp');background-size:cover;background-position:center;margin-bottom:0;">
     <div class="play-btn">
       <svg width="28" height="28" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="var(--gold)"/></svg>
     </div>
     <div class="video-label" style="color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">▶ &nbsp; 8 MIN · NO FLUFF · WATCH AT 1.5X · DONE IN 5</div>
   </div>
-  <button class="buy-btn" onclick="document.getElementById('overlay').classList.add('open');document.body.style.overflow='hidden'">
+  </div>
+  <button class="buy-btn hero-anim" style="animation-delay: 0.7s;" onclick="document.getElementById('overlay').classList.add('open');document.body.style.overflow='hidden'">
     Get My SalesOS →
   </button>
-  <div class="buy-proof">
-    <div class="proof-item"><span>✓</span> One Time Payment</div>
-    <div class="proof-item"><span>✓</span> No Monthly Fees</div>
-    <div class="proof-item"><span>✓</span> System Pays for Itself</div>
+  <div class="buy-proof-list">
+    <div class="proof-list-item"><span>✓</span> One time payment. No monthly fee. Ever.</div>
+    <div class="proof-list-item"><span>✓</span> Close one extra deal. System paid for.</div>
+    <div class="proof-list-item"><span>✓</span> Autopilot training. 30 to 40% more deals.</div>
   </div>
   <style>
     .payment-logos {
@@ -262,6 +322,45 @@ header { position: fixed; top: 0; left: 0; right: 0; padding: 16px 24px; display
       Bank Transfer
     </div>
   </div>
+  </div>
+</section>
+
+<section class="sheet-demo">
+  <div class="sheet-inner">
+    <h2 class="reveal">See The <span>System</span> In Action</h2>
+    <div class="sheet-mockup reveal">
+      <div class="sheet-header" style="border-top-left-radius: 12px;">Lead Name</div>
+      <div class="sheet-header">Status</div>
+      <div class="sheet-header">AI Coach Analysis</div>
+      <div class="sheet-header" style="border-top-right-radius: 12px;">Next Action</div>
+      
+      <div class="sheet-cell">Ahmed K.</div>
+      <div class="sheet-cell status-hot">Hot</div>
+      <div class="sheet-cell ai-cell">
+         <span class="pulse-dot"></span>
+         <div class="s-tooltip">AI detected high buying intent based on email response. Recommends immediate call.</div>
+         High Intent Detected
+      </div>
+      <div class="sheet-cell action">Call today</div>
+      
+      <div class="sheet-cell">Fatima S.</div>
+      <div class="sheet-cell status-cold">Cold</div>
+      <div class="sheet-cell ai-cell">
+         <span class="pulse-dot"></span>
+         <div class="s-tooltip">Lead unresponsive for 7 days. AI drafted a revival email.</div>
+         Needs Nurture
+      </div>
+      <div class="sheet-cell action">Send Email</div>
+
+      <div class="sheet-cell" style="border-bottom:none;">Zain A.</div>
+      <div class="sheet-cell status-hot" style="border-bottom:none;">Warm</div>
+      <div class="sheet-cell ai-cell" style="border-bottom:none;">
+         <span class="pulse-dot"></span>
+         <div class="s-tooltip">Proposal sent 3 days ago. Optimal time to follow up based on historical data.</div>
+         Follow-up Window Open
+      </div>
+      <div class="sheet-cell action" style="border-bottom:none;">Ping on WhatsApp</div>
+    </div>
   </div>
 </section>
 
@@ -424,8 +523,27 @@ header { position: fixed; top: 0; left: 0; right: 0; padding: 16px 24px; display
 </section>
 
 <footer>
-  <p><strong>CLOSIMO</strong> · One time payment. No monthly fee. No BS.</p>
+  <div class="footer-inner">
+    <div class="footer-brand">CLOSIMO <span>SALES OS</span></div>
+    <div class="footer-links">
+      <a href="/closimo-legal.html" target="_blank">Privacy Policy</a>
+      <a href="/closimo-legal.html" target="_blank">Terms of Service</a>
+    </div>
+    <div class="footer-copy">© 2024 Closimo. All rights reserved.</div>
+  </div>
 </footer>
+
+<div class="overlay" id="exit-modal" onclick="if(event.target===this) this.classList.remove('open')">
+  <div class="modal" style="text-align:center; padding: 40px 24px;">
+    <button class="modal-close" onclick="document.getElementById('exit-modal').classList.remove('open')">✕</button>
+    <h2 style="font-family:'Bebas Neue',sans-serif; font-size:42px; margin-bottom:12px; line-height:1;">Wait! Have Questions <br><span style="color:var(--gold);">Before Buying?</span></h2>
+    <p style="color:var(--gray); font-size:15px; margin-bottom:32px; line-height:1.6;">Don't leave empty-handed. Book a <strong>Quick 15-Minute Meeting</strong> with our team to see if SalesOS is the exact right fit for your business.</p>
+    <button class="btn-pay" onclick="window.open('https://wa.me/923700950063?text=I%20would%20like%20to%20book%20a%20quick%20meeting%20regarding%20SalesOS','_blank')" style="display:inline-flex; align-items:center; justify-content:center; gap:10px;">
+      Book A Quick Meeting →
+    </button>
+  </div>
+</div>
+
 <div class="overlay" id="overlay" onclick="closeOverlay(event)">
   <div class="modal">
     <div class="modal-head">
@@ -535,6 +653,7 @@ function calcPrice(){
 function closeModal(){
   document.getElementById('overlay').classList.remove('open');
   document.body.style.overflow='';
+  document.querySelectorAll('header, .demo, .testi, footer').forEach(el => el.classList.remove('zoom-back'));
 }
 function closeOverlay(e){
   if(e.target===document.getElementById('overlay'))closeModal();
@@ -588,6 +707,102 @@ if (marquee) {
   const clone = marquee.cloneNode(true);
   marquee.parentElement.appendChild(clone);
 }
+
+// Magnetic Play Button
+const videoWrap = document.querySelector('.video-wrap');
+const playBtn = document.querySelector('.play-btn');
+if(videoWrap && playBtn) {
+  videoWrap.addEventListener('mousemove', (e) => {
+    const rect = videoWrap.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    playBtn.style.transition = 'transform 0.1s ease-out, background 0.2s';
+    playBtn.style.transform = `translate(calc(-50% + ${x * 0.15}px), calc(-50% + ${y * 0.15}px)) scale(1.06)`;
+  });
+  videoWrap.addEventListener('mouseleave', () => {
+    playBtn.style.transition = 'transform 0.4s cubic-bezier(0.16,1,0.3,1), background 0.2s';
+    playBtn.style.transform = `translate(-50%, -50%) scale(1)`;
+  });
+}
+// Scroll Effects (Header & Progress Bar)
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('header');
+  if (window.scrollY > 50) {
+    if(header) header.classList.add('scrolled');
+  } else {
+    if(header) header.classList.remove('scrolled');
+  }
+  const scrollPx = document.documentElement.scrollTop;
+  const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = `${(scrollPx / winHeightPx) * 100}%`;
+  const progressBar = document.querySelector('.scroll-progress');
+  if(progressBar) progressBar.style.width = scrolled;
+});
+
+function openModal(){
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  document.querySelectorAll('header, .demo, .testi, footer').forEach(el => el.classList.add('zoom-back'));
+}
+document.querySelectorAll('.header-btn, .buy-btn').forEach(btn => btn.onclick = openModal);
+
+// Custom Halo Cursor
+const halo = document.createElement('div');
+halo.classList.add('halo-cursor');
+document.body.appendChild(halo);
+document.addEventListener('mousemove', e => {
+  halo.style.left = e.clientX + 'px';
+  halo.style.top = e.clientY + 'px';
+});
+document.querySelectorAll('a, button, .play-btn, .q-opt, .video-wrap').forEach(el => {
+  el.addEventListener('mouseenter', () => halo.classList.add('hovering'));
+  el.addEventListener('mouseleave', () => halo.classList.remove('hovering'));
+});
+
+// Magnetic Header Button
+const headerBtn = document.querySelector('.header-btn');
+if(headerBtn) {
+  headerBtn.addEventListener('mousemove', (e) => {
+    const rect = headerBtn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    headerBtn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.05)`;
+  });
+  headerBtn.addEventListener('mouseleave', () => {
+    headerBtn.style.transform = `translate(0px, 0px) scale(1)`;
+  });
+}
+
+// Subtle Audio
+const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+let audioCtx;
+function playTick() {
+  if (!audioCtx) audioCtx = new AudioContextClass();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  osc.type = 'sine';
+  osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+  osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.05);
+  gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+  osc.start();
+  osc.stop(audioCtx.currentTime + 0.05);
+}
+document.querySelectorAll('.q-opt, .header-btn, .buy-btn').forEach(el => {
+  el.addEventListener('mousedown', playTick);
+});
+
+// Exit Intent
+let exitTriggered = false;
+document.addEventListener('mouseleave', (e) => {
+  if (e.clientY < 10 && !exitTriggered) {
+    exitTriggered = true;
+    document.getElementById('exit-modal').classList.add('open');
+  }
+});
 </script>
 </body>
 </html>
