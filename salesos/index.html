@@ -133,12 +133,62 @@ footer strong{color:var(--gold)}
     <div class="proof-item"><span>✓</span> Close one extra deal. System paid for.</div>
     <div class="proof-item"><span>✓</span> Autopilot training. 30 to 40% more deals.</div>
   </div>
-  <div class="payment-icons">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/NayaPay_logo.svg/200px-NayaPay_logo.svg.png" alt="NayaPay" title="NayaPay">
-    <img src="https://upload.wikimedia.org/wikipedia/en/7/72/JazzCash_logo.png" alt="JazzCash" title="JazzCash">
-    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Easypaisa_logo.svg/200px-Easypaisa_logo.svg.png" alt="EasyPaisa" title="EasyPaisa">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Raast_logo.svg/200px-Raast_logo.svg.png" alt="Raast" title="Raast">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Bank_transfer_icon.svg/200px-Bank_transfer_icon.svg.png" alt="Bank Transfer" title="Bank Transfer">
+  <style>
+    .payment-chips {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .pay-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--navy3);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gray);
+      transition: all 0.25s ease;
+      cursor: default;
+    }
+    .pay-chip:hover {
+      border-color: var(--gold);
+      color: var(--white);
+      background: rgba(201, 150, 42, 0.05);
+      transform: translateY(-1px);
+    }
+    .pay-chip svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+  </style>
+  <div class="payment-chips">
+    <div class="pay-chip" title="NayaPay Supported">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#00B760" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+      NayaPay
+    </div>
+    <div class="pay-chip" title="JazzCash Supported">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+      JazzCash
+    </div>
+    <div class="pay-chip" title="EasyPaisa Supported">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#00A859" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      EasyPaisa
+    </div>
+    <div class="pay-chip" title="Raast Instant Payments Supported">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#006A4E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Raast
+    </div>
+    <div class="pay-chip" title="Direct Bank Transfer Supported">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#E8B84B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M12 2L2 7h20L12 2zM6 11v7M10 11v7M14 11v7M18 11v7"/></svg>
+      Bank Transfer
+    </div>
   </div>
 </section>
 <section class="testi">
@@ -237,12 +287,27 @@ footer strong{color:var(--gold)}
     <div class="modal-foot" id="modal-foot" style="display:none">
       <input type="text" id="customer-name" placeholder="Enter your Name" style="width:100%; padding:14px; border:1px solid var(--border); border-radius:3px; background:var(--navy); color:var(--white); font-family:inherit; font-size:15px; margin-bottom:10px; outline:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--border)'" required>
       <button class="btn-pay" id="btn-pay" onclick="pay()">Confirm My Package →</button>
-      <div class="payment-icons" style="justify-content:center;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/NayaPay_logo.svg/200px-NayaPay_logo.svg.png" alt="NayaPay" title="NayaPay">
-        <img src="https://upload.wikimedia.org/wikipedia/en/7/72/JazzCash_logo.png" alt="JazzCash" title="JazzCash">
-        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Easypaisa_logo.svg/200px-Easypaisa_logo.svg.png" alt="EasyPaisa" title="EasyPaisa">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Raast_logo.svg/200px-Raast_logo.svg.png" alt="Raast" title="Raast">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Bank_transfer_icon.svg/200px-Bank_transfer_icon.svg.png" alt="Bank Transfer" title="Bank Transfer">
+      <div class="payment-chips" style="justify-content:center; margin-top:14px;">
+        <div class="pay-chip" title="NayaPay Supported">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00B760" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+          NayaPay
+        </div>
+        <div class="pay-chip" title="JazzCash Supported">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+          JazzCash
+        </div>
+        <div class="pay-chip" title="EasyPaisa Supported">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00A859" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          EasyPaisa
+        </div>
+        <div class="pay-chip" title="Raast Instant Payments Supported">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#006A4E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Raast
+        </div>
+        <div class="pay-chip" title="Direct Bank Transfer Supported">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E8B84B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M12 2L2 7h20L12 2zM6 11v7M10 11v7M14 11v7M18 11v7"/></svg>
+          Bank Transfer
+        </div>
       </div>
     </div>
   </div>
