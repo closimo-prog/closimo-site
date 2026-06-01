@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SalesOS — Closimo</title>
+<meta name="description" content="Watch how we fix your sales pipeline. Built for 20+ industries in Pakistan. Google Sheets connected to AI.">
+<meta property="og:title" content="SalesOS — Closimo">
+<meta property="og:description" content="Watch how we fix your sales pipeline. Built for 20+ industries in Pakistan. Google Sheets connected to AI.">
+<meta property="og:image" content="https://closimo.com/image2.png">
+<meta property="og:url" content="https://closimo.com/salesos/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SalesOS — Closimo">
+<meta name="twitter:description" content="Watch how we fix your sales pipeline. Built for 20+ industries in Pakistan. Google Sheets connected to AI.">
+<meta name="twitter:image" content="https://closimo.com/image2.png">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0A0F1C;--navy2:#111827;--navy3:#1a2235;
+  --gold:#C9962A;--gold2:#E8B84B;--white:#FFFFFF;
+  --gray:#8892A4;--gray2:#1F2D42;--green:#10B981;
+  --border:rgba(201,150,42,0.18);
+}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.6;overflow-x:hidden;}
+.demo{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 24px 40px;background:radial-gradient(ellipse at 50% 0%,rgba(201,150,42,0.1) 0%,transparent 65%);}
+.demo-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold2);margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--gold2);animation:blink 1.8s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.demo-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(42px,9vw,88px);line-height:0.95;text-align:center;margin-bottom:8px;letter-spacing:0.5px;}
+.demo-title span{color:var(--gold)}
+.demo-sub{font-size:15px;color:var(--gray);text-align:center;margin-bottom:20px;max-width:480px;}
+.demo-sub strong{color:var(--white)}
+.demo-audit{font-size:14px;color:var(--gray);text-align:center;max-width:520px;margin-bottom:10px;line-height:1.6;}
+.demo-trust{font-size:14px;color:var(--gold2);font-weight:600;text-align:center;margin-bottom:16px;font-style:italic;}
+.demo-social{font-size:15px;font-weight:700;color:var(--white);text-align:center;margin-bottom:28px;}
+.video-wrap{width:100%;max-width:820px;position:relative;aspect-ratio:16/9;background:#070C17;border:1px solid var(--border);border-radius:8px;overflow:hidden;cursor:pointer;margin-bottom:28px;}
+.video-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,150,42,0.05) 0%,transparent 70%);}
+.play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px;border-radius:50%;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;transition:background 0.2s,transform 0.2s;}
+.play-btn::before{content:'';position:absolute;inset:-10px;border-radius:50%;border:1px solid rgba(201,150,42,0.2);animation:ripple 2.5s ease-out infinite;}
+@keyframes ripple{0%{transform:scale(1);opacity:0.6}100%{transform:scale(1.6);opacity:0}}
+.video-wrap:hover .play-btn{background:var(--gold);transform:translate(-50%,-50%) scale(1.06)}
+.video-wrap:hover .play-btn svg path{fill:var(--navy)}
+.video-label{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:700;color:var(--gray);letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;}
+.buy-btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);font-weight:700;font-size:17px;padding:18px 48px;border-radius:3px;border:none;cursor:pointer;letter-spacing:0.03em;transition:background 0.2s,transform 0.15s;}
+.buy-btn:hover{background:var(--gold2);transform:translateY(-2px)}
+.buy-proof{display:flex;flex-direction:column;gap:8px;align-items:center;margin-top:20px;}
+.proof-item{font-size:12px;color:var(--gray);display:flex;align-items:center;gap:6px;}
+.proof-item span{color:var(--green)}
+.payment-note{font-size:11px;color:var(--gray);margin-top:12px;text-align:center;}
+.payment-note strong{color:var(--white);}
+.overlay{position:fixed;inset:0;background:rgba(5,8,18,0.94);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(10px);}
+.overlay.open{display:flex}
+.modal{background:var(--navy2);border:1px solid var(--border);border-radius:10px;width:100%;max-width:520px;max-height:92vh;overflow-y:auto;position:relative;}
+.modal::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:10px 10px 0 0;}
+.modal-head{padding:32px 28px 20px}
+.modal-head h2{font-family:'Bebas Neue',sans-serif;font-size:38px;line-height:1;margin-bottom:6px;}
+.modal-head h2 span{color:var(--gold)}
+.modal-head p{font-size:13px;color:var(--gray)}
+.modal-close{position:absolute;top:14px;right:18px;background:none;border:none;color:var(--gray);font-size:18px;cursor:pointer;transition:color 0.2s;}
+.modal-close:hover{color:var(--white)}
+.modal-body{padding:8px 28px 24px}
+.q-block{margin-bottom:24px}
+.q-context{font-size:12px;color:var(--gold2);font-weight:600;font-style:italic;margin-bottom:6px;line-height:1.4;}
+.q-text{font-size:16px;font-weight:700;margin-bottom:4px;line-height:1.35}
+.q-hint{font-size:12px;color:var(--gray);margin-bottom:12px;}
+.q-opts{display:flex;flex-direction:column;gap:8px}
+.q-opt{display:flex;align-items:center;gap:10px;background:var(--navy3);border:1px solid var(--gray2);border-radius:5px;padding:12px 14px;cursor:pointer;font-size:13px;font-weight:500;color:var(--white);transition:border-color 0.15s,background 0.15s;user-select:none;}
+.q-opt:hover{border-color:var(--gold);background:rgba(201,150,42,0.05)}
+.q-opt.sel{border-color:var(--gold);background:rgba(201,150,42,0.1)}
+.q-opt input[type="radio"]{accent-color:var(--gold);width:15px;height:15px;flex-shrink:0}
+.q-opt input[type="checkbox"]{accent-color:var(--gold);width:15px;height:15px;flex-shrink:0}
+.divider{height:1px;background:var(--gray2);margin:0 0 24px}
+.price-indicator{background:var(--navy3);border:1px solid var(--border);border-radius:6px;padding:10px 14px;font-size:13px;color:var(--gold2);font-weight:600;text-align:center;margin-top:12px;display:none;}
+.price-indicator.show{display:block}
+.result{background:var(--navy);border:1px solid var(--gold);border-radius:8px;padding:22px;margin-bottom:20px;display:none;}
+.result.show{display:block}
+.result-tag{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+.result-name{font-family:'Bebas Neue',sans-serif;font-size:30px;line-height:1.1;margin-bottom:4px;}
+.result-price{font-size:15px;color:var(--gold2);font-weight:700;margin-bottom:10px}
+.result-why{font-size:13px;color:var(--gray);line-height:1.6}
+.result-policy{font-size:11px;color:var(--gray);margin-top:14px;border-top:1px solid var(--gray2);padding-top:12px;line-height:1.5;}
+.modal-foot{padding:0 28px 28px;display:flex;flex-direction:column;gap:10px}
+.btn-pay{width:100%;background:var(--gold);color:var(--navy);font-weight:700;font-size:15px;padding:15px;border-radius:3px;border:none;cursor:pointer;letter-spacing:0.03em;transition:background 0.2s;}
+.btn-pay:hover{background:var(--gold2)}
+.testi{padding:72px 24px;background:var(--navy2);border-top:1px solid var(--border)}
+.testi-inner{max-width:900px;margin:0 auto}
+.testi-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;text-align:center;}
+.testi-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,5vw,52px);line-height:1;text-align:center;margin-bottom:48px;}
+.testi-title span{color:var(--gold)}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
+.tcard{background:var(--navy);border:1px solid var(--gray2);border-radius:8px;padding:22px;transition:border-color 0.2s;}
+.tcard:hover{border-color:var(--border)}
+.stars{color:var(--gold2);font-size:13px;letter-spacing:3px;margin-bottom:12px}
+.tquote{font-size:13px;color:var(--gray);line-height:1.65;font-style:italic;margin-bottom:14px}
+.tauthor{font-size:13px;font-weight:700}
+.trole{font-size:11px;color:var(--gray);margin-top:2px}
+.tindustry{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);background:rgba(201,150,42,0.08);border:1px solid var(--border);padding:3px 8px;border-radius:100px;margin-top:8px;}
+.payment-icons{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:14px;}
+.payment-icons img{height:24px;width:auto;opacity:0.75;transition:opacity 0.2s;object-fit:contain;}
+.payment-icons img:hover{opacity:1}
+footer{border-top:1px solid var(--gray2);padding:24px;text-align:center;font-size:12px;color:var(--gray);}
+footer strong{color:var(--gold)}
+.reveal{opacity:0;transform:translateY(30px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1);}
+.reveal.active{opacity:1;transform:translateY(0);}
+@media(max-width:520px){
+  .modal-head,.modal-body,.modal-foot{padding-left:18px;padding-right:18px}
+  .buy-btn{width:100%;justify-content:center}
+}
+</style>
+</head>
+<body>
+<section class="demo">
+  <div class="demo-eyebrow"><span class="dot"></span> Built for 20+ industries in Pakistan. · Google Sheets Connected to AI.</div>
+  <h1 class="demo-title">Watch How We Fix<br><span>Your Sales Pipeline.</span></h1>
+  <p class="demo-sub">Your team is losing <strong>9 out of 10 winnable deals.</strong> Not to competition, price or product. But inside your own sales pipeline. This system fixes that.</p>
+  <p class="demo-audit">Most tools look good in the pitch and break after. This is a Google Sheet. You can see everything before you spend a single rupee.</p>
+  <p class="demo-trust">You do not need to trust us. The sheet speaks for itself.</p>
+  <p class="demo-social">50+ businesses using this are seeing 30 to 40% more sales on average.</p>
+  <div class="video-wrap" onclick="this.innerHTML='<iframe width=\'100%\' height=\'100%\' src=\'https://www.youtube.com/embed/LhEYP5EgWQc?autoplay=1\' frameborder=\'0\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\' allowfullscreen style=\'position:absolute;top:0;left:0;width:100%;height:100%;\'></iframe>'" style="max-width:820px;width:100%">
+    <div class="play-btn">
+      <svg width="28" height="28" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="var(--gold)"/></svg>
+    </div>
+    <div class="video-label">▶ &nbsp; 8 MIN · NO FLUFF · WATCH AT 1.5X · DONE IN 5</div>
+  </div>
+  <button class="buy-btn" onclick="document.getElementById('overlay').classList.add('open');document.body.style.overflow='hidden'">
+    Get My SalesOS →
+  </button>
+  <div class="buy-proof">
+    <div class="proof-item"><span>✓</span> One time payment. No monthly fee. Ever.</div>
+    <div class="proof-item"><span>✓</span> Close one extra deal. System paid for.</div>
+    <div class="proof-item"><span>✓</span> Autopilot training. 30 to 40% more deals.</div>
+  </div>
+  <div class="payment-icons">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/NayaPay_logo.svg/200px-NayaPay_logo.svg.png" alt="NayaPay" title="NayaPay">
+    <img src="https://upload.wikimedia.org/wikipedia/en/7/72/JazzCash_logo.png" alt="JazzCash" title="JazzCash">
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Easypaisa_logo.svg/200px-Easypaisa_logo.svg.png" alt="EasyPaisa" title="EasyPaisa">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Raast_logo.svg/200px-Raast_logo.svg.png" alt="Raast" title="Raast">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Bank_transfer_icon.svg/200px-Bank_transfer_icon.svg.png" alt="Bank Transfer" title="Bank Transfer">
+  </div>
+</section>
+<section class="testi">
+  <div class="testi-inner">
+    <p class="testi-label">Real Results</p>
+    <h2 class="testi-title">Businesses that <span>stopped losing.</span></h2>
+    <div class="testi-grid">
+      <div class="tcard reveal">
+        <div class="stars">★★★★★</div>
+        <p class="tquote">"Before this we were losing at least 30% of leads because nobody followed up. Now every rep knows exactly what to do every morning."</p>
+        <div class="tauthor">Ahmed K.</div><div class="trole">Founder</div>
+        <div class="tindustry">Solar · Lahore</div>
+      </div>
+      <div class="tcard reveal">
+        <div class="stars">★★★★★</div>
+        <p class="tquote">"Two weeks after setup we recovered three dead proposals worth over 4 lac rupees. I could finally see what my team was doing."</p>
+        <div class="tauthor">Saad M.</div><div class="trole">CEO</div>
+        <div class="tindustry">Real Estate · Karachi</div>
+      </div>
+      <div class="tcard reveal">
+        <div class="stars">★★★★★</div>
+        <p class="tquote">"My reps used to go silent after two follow-ups. Now they follow up 8 to 10 times without me saying a word."</p>
+        <div class="tauthor">Usman R.</div><div class="trole">Director</div>
+        <div class="tindustry">Agency · Islamabad</div>
+      </div>
+      <div class="tcard reveal">
+        <div class="stars">★★★★★</div>
+        <p class="tquote">"No monthly fees. Setup in one session. We closed 40% more deals in the first month. I wish I had this two years ago."</p>
+        <div class="tauthor">Naveed A.</div><div class="trole">Owner</div>
+        <div class="tindustry">Construction · Multan</div>
+      </div>
+      <div class="tcard reveal">
+        <div class="stars">★★★★★</div>
+        <p class="tquote">"I was skeptical about a Google Sheet running my sales. Two weeks later I cannot imagine going back. Every lead is accounted for."</p>
+        <div class="tauthor">Bilal H.</div><div class="trole">MD</div>
+        <div class="tindustry">Logistics · Faisalabad</div>
+      </div>
+      <div class="tcard reveal">
+        <div class="stars">★★★★★</div>
+        <p class="tquote">"That week we closed two deals we had already given up on. The AI coaching alone paid for the system in 3 days."</p>
+        <div class="tauthor">Hira Z.</div><div class="trole">Founder</div>
+        <div class="tindustry">Interior Design · Lahore</div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <p><strong>CLOSIMO</strong> · One time payment. No monthly fee. No BS.</p>
+</footer>
+<div class="overlay" id="overlay" onclick="closeOverlay(event)">
+  <div class="modal">
+    <div class="modal-head">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <h2>Find Your <span>Package.</span></h2>
+      <p>Answer 2 questions. We map the exact setup for your business.</p>
+    </div>
+    <div class="modal-body">
+      <div class="q-block">
+        <p class="q-context">Most sales teams work hard but still lose deals because nobody can see where the money is going.</p>
+        <p class="q-text">What is costing your business the most money right now?</p>
+        <div class="q-opts">
+          <label class="q-opt"><input type="radio" name="q1" value="a"> Leads come in but staff is too slow to call back</label>
+          <label class="q-opt"><input type="radio" name="q1" value="b"> I cannot see what my sales staff is doing daily</label>
+          <label class="q-opt"><input type="radio" name="q1" value="c"> Deals are getting lost and I cannot find where</label>
+          <label class="q-opt"><input type="radio" name="q1" value="d"> Everything on WhatsApp is completely out of control</label>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="q-block">
+        <p class="q-context">Every setup includes the full system with AI coaching and 14 days of team training. Your price is based on how many lead sources we build into your pipeline.</p>
+        <p class="q-text">Where do your leads come from?</p>
+        <p class="q-hint">Pick all that apply. Your package is calculated automatically.</p>
+        <div class="q-opts" id="channel-opts">
+          <label class="q-opt"><input type="checkbox" name="channels" value="meta" onchange="calcPrice()"> Meta Ads — Facebook and Instagram</label>
+          <label class="q-opt"><input type="checkbox" name="channels" value="google-ads" onchange="calcPrice()"> Google Ads</label>
+          <label class="q-opt"><input type="checkbox" name="channels" value="google-organic" onchange="calcPrice()"> Google Organic — SEO and Content</label>
+          <label class="q-opt"><input type="checkbox" name="channels" value="tiktok" onchange="calcPrice()"> TikTok Ads</label>
+          <label class="q-opt"><input type="checkbox" name="channels" value="linkedin" onchange="calcPrice()"> LinkedIn</label>
+          <label class="q-opt"><input type="checkbox" name="channels" value="olx" onchange="calcPrice()"> OLX</label>
+          <label class="q-opt"><input type="checkbox" name="channels" value="telesales" onchange="calcPrice()"> Telesales</label>
+          <label class="q-opt"><input type="checkbox" name="channels" value="whatsapp" onchange="calcPrice()"> WhatsApp Inbound</label>
+          <label class="q-opt"><input type="checkbox" name="channels" value="walkins" onchange="calcPrice()"> Walk-ins and Referrals</label>
+        </div>
+        <div class="price-indicator" id="price-indicator"></div>
+        <p class="commitment-line" id="commitment-line" style="display:none;font-size:12px;color:var(--gray);text-align:center;margin-top:8px;line-height:1.5;">No refunds. No templates. Built around how your team actually works. If it is not working on day 15 we stay until it is.</p>
+      </div>
+      <div class="result" id="result">
+        <div class="result-tag">Your Package</div>
+        <div class="result-name" id="rname"></div>
+        <div class="result-price" id="rprice"></div>
+        <div class="result-why" id="rwhy"></div>
+        <p class="result-policy">No refunds. No templates. We deploy a live AI integrated system into your business over 14 days. Built around how your team actually works. If it is not working on day 15 our work is not done. We stay until it is.</p>
+      </div>
+      <button class="btn-pay" onclick="getResult()">Show My Package →</button>
+    </div>
+    <div class="modal-foot" id="modal-foot" style="display:none">
+      <input type="text" id="customer-name" placeholder="Enter your Name" style="width:100%; padding:14px; border:1px solid var(--border); border-radius:3px; background:var(--navy); color:var(--white); font-family:inherit; font-size:15px; margin-bottom:10px; outline:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--border)'" required>
+      <button class="btn-pay" id="btn-pay" onclick="pay()">Confirm My Package →</button>
+      <div class="payment-icons" style="justify-content:center;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/NayaPay_logo.svg/200px-NayaPay_logo.svg.png" alt="NayaPay" title="NayaPay">
+        <img src="https://upload.wikimedia.org/wikipedia/en/7/72/JazzCash_logo.png" alt="JazzCash" title="JazzCash">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Easypaisa_logo.svg/200px-Easypaisa_logo.svg.png" alt="EasyPaisa" title="EasyPaisa">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Raast_logo.svg/200px-Raast_logo.svg.png" alt="Raast" title="Raast">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Bank_transfer_icon.svg/200px-Bank_transfer_icon.svg.png" alt="Bank Transfer" title="Bank Transfer">
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+document.querySelectorAll('.q-opt').forEach(o=>{
+  o.addEventListener('click',function(){
+    const input=this.querySelector('input');
+    if(input.type==='radio'){
+      const n=input.name;
+      document.querySelectorAll(`input[name="${n}"]`).forEach(i=>i.closest('.q-opt').classList.remove('sel'));
+      this.classList.add('sel');
+    } else {
+      setTimeout(()=>{
+        this.classList.toggle('sel', input.checked);
+      },0);
+    }
+  });
+});
+function calcPrice(){
+  const checked=document.querySelectorAll('input[name="channels"]:checked');
+  const count=checked.length;
+  const indicator=document.getElementById('price-indicator');
+  if(count===0){indicator.classList.remove('show');return;}
+  indicator.classList.add('show');
+  document.getElementById('commitment-line').style.display='block';
+  if(count===1) indicator.textContent='1 lead source selected — 49,999 PKR';
+  else if(count===2) indicator.textContent='2 lead sources selected — 69,999 PKR';
+  else indicator.textContent=count+' lead sources selected — 89,999 PKR';
+}
+function closeModal(){
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeOverlay(e){
+  if(e.target===document.getElementById('overlay'))closeModal();
+}
+let chosen='tier1';
+let chosenChannels=[];
+let chosenPrice='49,999 PKR';
+function getResult(){
+  const checked=document.querySelectorAll('input[name="channels"]:checked');
+  if(checked.length===0){alert('Please select at least one lead source.');return;}
+  const count=checked.length;
+  chosenChannels=Array.from(checked).map(c=>c.value);
+  let pkg,name,price,why;
+  if(count===1){
+    pkg='tier1';name='SalesOS — 1 Lead Source';price='49,999 PKR · One time investment';
+    why='Full system built and customized for your business. AI coaching integrated. 14 days of team training and optimization included.';
+    chosenPrice='49,999 PKR';
+  } else if(count===2){
+    pkg='tier2';name='SalesOS — 2 Lead Sources';price='69,999 PKR · One time investment';
+    why='Multi-channel pipeline built for your exact sources. AI sales coach integrated across both channels. 14 days of team training and optimization included.';
+    chosenPrice='69,999 PKR';
+  } else {
+    pkg='tier3';name='SalesOS — '+count+' Lead Sources';price='89,999 PKR · One time investment';
+    why='Enterprise pipeline built across all your active channels. Full cross-channel tracking. AI coaching optimized for your team. 14 days of hands-on training and optimization included.';
+    chosenPrice='89,999 PKR';
+  }
+  chosen=pkg;
+  document.getElementById('rname').textContent=name;
+  document.getElementById('rprice').textContent=price;
+  document.getElementById('rwhy').textContent=why;
+  document.getElementById('result').classList.add('show');
+  document.getElementById('modal-foot').style.display='flex';
+  document.getElementById('result').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function pay(){
+  const nameInput = document.getElementById('customer-name').value.trim();
+  if(!nameInput) {
+    alert('Please enter your name before confirming.');
+    document.getElementById('customer-name').focus();
+    return;
+  }
+  const channelList=chosenChannels.join(', ');
+  const msg='Assalam o Alaikum! This is ' + nameInput + '. I watched the demo and want to get SalesOS at '+chosenPrice+'. My lead sources are: '+channelList+'. Please confirm my onboarding slot.';
+  window.open('https://wa.me/923700950063?text='+encodeURIComponent(msg),'_blank');
+}
+</script>
+</body>
+</html>
