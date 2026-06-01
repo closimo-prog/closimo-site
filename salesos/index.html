@@ -210,28 +210,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
 
 /* Custom Cursor */
 .halo-cursor { position: fixed; top: 0; left: 0; width: 24px; height: 24px; border: 1.5px solid var(--gold); border-radius: 50%; transform: translate(-50%, -50%); pointer-events: none; z-index: 99999; transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s; }
-/* Sheet Demo */
-.sheet-demo { padding: 90px 24px; background: #050812; border-top: 1px solid var(--gray2); border-bottom: 1px solid var(--gray2); }
-.sheet-inner { max-width: 1000px; margin: 0 auto; text-align: center; }
-.sheet-inner h2 { font-family: 'Bebas Neue', sans-serif; font-size: 48px; margin-bottom: 40px; color: var(--white); }
-.sheet-inner h2 span { color: var(--gold); }
-.sheet-mockup { display: grid; grid-template-columns: 1fr 1fr 2fr 1fr; background: var(--navy); border: 1px solid var(--gray2); border-radius: 12px; overflow: visible; box-shadow: 0 20px 50px rgba(0,0,0,0.5); text-align: left; }
-.sheet-header { background: var(--navy2); padding: 16px; font-size: 12px; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid var(--gray2); }
-.sheet-cell { padding: 16px; font-size: 14px; color: var(--white); border-bottom: 1px solid rgba(255,255,255,0.05); position: relative; display: flex; align-items: center; gap: 8px; }
-.status-hot { color: #10B981; }
-.status-cold { color: #EF4444; }
-.ai-cell { color: var(--gold2); font-weight: 600; cursor: pointer; }
-.pulse-dot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; display: inline-block; box-shadow: 0 0 0 rgba(201,150,42,0.4); animation: buttonPulse 2s infinite; flex-shrink:0; }
-.s-tooltip { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%) translateY(10px); background: var(--navy2); border: 1px solid var(--gold); padding: 12px; border-radius: 8px; font-size: 12px; color: var(--white); width: 220px; text-align: center; opacity: 0; pointer-events: none; transition: all 0.3s cubic-bezier(0.16,1,0.3,1); z-index: 10; box-shadow: 0 10px 30px rgba(0,0,0,0.5); font-weight: 400; line-height: 1.5; }
-.s-tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border-width: 6px; border-style: solid; border-color: var(--gold) transparent transparent transparent; }
-.ai-cell:hover .s-tooltip { opacity: 1; transform: translateX(-50%) translateY(-10px); }
-.sheet-cell.action { color: var(--gold); font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
-@media(max-width: 768px){
-  .sheet-mockup { display: flex; flex-direction: column; }
-  .sheet-header { display: none; }
-  .sheet-cell { border-bottom: none; padding: 8px 16px; }
-  .sheet-cell:nth-child(4n+1) { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 16px; margin-top: 8px; font-weight: bold; }
-}
+
 /* Mobile Sticky Bar */
 .mobile-sticky-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(10, 15, 28, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid rgba(255,255,255,0.1); padding: 16px 24px; z-index: 999; align-items: center; justify-content: space-between; box-shadow: 0 -10px 40px rgba(0,0,0,0.5); transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); }
 .mobile-sticky-bar.visible { transform: translateY(0); }
@@ -370,44 +349,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   </div>
 </section>
 
-<section class="sheet-demo">
-  <div class="sheet-inner">
-    <h2 class="reveal">See The <span>System</span> In Action</h2>
-    <div class="sheet-mockup reveal">
-      <div class="sheet-header" style="border-top-left-radius: 12px;">Lead Name</div>
-      <div class="sheet-header">Status</div>
-      <div class="sheet-header">AI Coach Analysis</div>
-      <div class="sheet-header" style="border-top-right-radius: 12px;">Next Action</div>
-      
-      <div class="sheet-cell">Ahmed K.</div>
-      <div class="sheet-cell status-hot">Hot</div>
-      <div class="sheet-cell ai-cell">
-         <span class="pulse-dot"></span>
-         <div class="s-tooltip">AI detected high buying intent based on email response. Recommends immediate call.</div>
-         High Intent Detected
-      </div>
-      <div class="sheet-cell action">Call today</div>
-      
-      <div class="sheet-cell">Fatima S.</div>
-      <div class="sheet-cell status-cold">Cold</div>
-      <div class="sheet-cell ai-cell">
-         <span class="pulse-dot"></span>
-         <div class="s-tooltip">Lead unresponsive for 7 days. AI drafted a revival email.</div>
-         Needs Nurture
-      </div>
-      <div class="sheet-cell action">Send Email</div>
 
-      <div class="sheet-cell" style="border-bottom:none;">Zain A.</div>
-      <div class="sheet-cell status-hot" style="border-bottom:none;">Warm</div>
-      <div class="sheet-cell ai-cell" style="border-bottom:none;">
-         <span class="pulse-dot"></span>
-         <div class="s-tooltip">Proposal sent 3 days ago. Optimal time to follow up based on historical data.</div>
-         Follow-up Window Open
-      </div>
-      <div class="sheet-cell action" style="border-bottom:none;">Ping on WhatsApp</div>
-    </div>
-  </div>
-</section>
 
 <section class="testi">
   <div class="testi-inner">
