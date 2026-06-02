@@ -107,7 +107,7 @@ body::after { bottom: -200px; right: -200px; background: var(--green); }
 .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
 .tcard{background:rgba(26,34,53,0.4);border:1px solid rgba(255,255,255,0.05);border-radius:12px;padding:26px;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
 .tcard::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,150,42,0.3),transparent);opacity:0;transition:opacity 0.3s;}
-.tcard:hover{transform:translateY(-6px) scale(1.02);border-color:var(--gold);box-shadow:0 20px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);background:rgba(26,34,53,0.7);}
+.tcard:hover{transform:translateY(-6px) scale(1.02);border-color:var(--gold);box-shadow:0 20px 40px rgba(201,150,42,0.15), inset 0 1px 0 rgba(255,255,255,0.1);background: linear-gradient(120deg, rgba(26,34,53,0.7) 30%, rgba(201,150,42,0.08) 50%, rgba(26,34,53,0.7) 70%); background-size: 200% auto; animation: goldShimmer 4s infinite linear;}
 .tcard:hover::before{opacity:1;}
 .stars{color:var(--gold2);font-size:13px;letter-spacing:3px;margin-bottom:12px}
 .tquote{font-size:13px;color:var(--gray);line-height:1.65;font-style:italic;margin-bottom:14px}
@@ -188,8 +188,13 @@ header, .demo, .testi, footer { transition: transform 0.5s cubic-bezier(0.16,1,0
 body { background: #050812; cursor: default; }
 
 /* Result Modal Dopamine Pop */
-@keyframes resultPop { 0% { transform: scale(0.95) translateY(10px); opacity: 0; box-shadow: 0 0 0 rgba(201,150,42,0); } 100% { transform: scale(1) translateY(0); opacity: 1; box-shadow: 0 10px 40px rgba(201,150,42,0.3), inset 0 0 20px rgba(201,150,42,0.1); } }
-.result.show { display: block; animation: resultPop 0.6s cubic-bezier(0.16,1,0.3,1) forwards; }
+@keyframes resultPop {
+  0% { transform: scale(0.9) translateY(20px); opacity: 0; }
+  50% { transform: scale(1.02) translateY(-4px); }
+  75% { transform: scale(0.99) translateY(2px); }
+  100% { transform: scale(1) translateY(0); opacity: 1; box-shadow: 0 10px 40px rgba(201,150,42,0.3), inset 0 0 20px rgba(201,150,42,0.1); }
+}
+.result.show { display: block; animation: resultPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
 .result-tag, .result-name, .result-price, .result-why, .result-policy { opacity: 0; animation: fadeUp 0.5s cubic-bezier(0.16,1,0.3,1) forwards; }
 .result.show .result-tag { animation-delay: 0.1s; }
 .result.show .result-name { animation-delay: 0.2s; }
@@ -256,6 +261,13 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
 .typing-indicator .dot:nth-child(1) { animation-delay: -0.32s; }
 .typing-indicator .dot:nth-child(2) { animation-delay: -0.16s; }
 @keyframes chatBounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
+/* Gold Card Shimmer keyframes */
+@keyframes goldShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+
 </style>
 </head>
 <body>
@@ -272,12 +284,9 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   <p class="demo-trust hero-anim hero-anim-4">You do not need to trust us. The sheet speaks for itself.</p>
   <p class="demo-social hero-anim hero-anim-5">50+ businesses using this are seeing 30 to 40% more sales on average.</p>
   <div class="video-glow-wrap hero-anim hero-anim-6">
-  <div class="video-wrap" onclick="this.innerHTML='<iframe width=\'100%\' height=\'100%\' src=\'https://www.youtube.com/embed/us58UTiz9rY?autoplay=1\' frameborder=\'0\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\' allowfullscreen style=\'position:absolute;top:0;left:0;width:100%;height:100%;\'></iframe>'" style="width:100%;background-image:linear-gradient(rgba(10, 15, 28, 0.4), rgba(10, 15, 28, 0.7)), url('./thumbnail.webp');background-size:cover;background-position:center;margin-bottom:0;">
-    <div class="play-btn">
-      <svg width="28" height="28" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="var(--gold)"/></svg>
+    <div class="video-wrap" style="width:100%;margin-bottom:0;">
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/us58UTiz9rY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
     </div>
-    <div class="video-label" style="color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">▶ &nbsp; 8 MIN · NO FLUFF · WATCH AT 1.3X · DONE IN 5</div>
-  </div>
   </div>
   <button class="buy-btn hero-anim" style="animation-delay: 0.7s;" onclick="document.getElementById('overlay').classList.add('open');document.body.style.overflow='hidden'">
     Get My SalesOS →
@@ -287,6 +296,8 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     <div class="proof-list-item"><span>✓</span> Close one extra deal. System paid for.</div>
     <div class="proof-list-item"><span>✓</span> Autopilot training. 30 to 40% more deals.</div>
   </div>
+
+
   <style>
     .payment-logos {
       display: flex;
