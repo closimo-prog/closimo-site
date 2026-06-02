@@ -286,10 +286,6 @@ body:hover .mouse-spotlight { opacity: 1; }
 .delay-1 { transition-delay: 0.1s; }
 .delay-2 { transition-delay: 0.2s; }
 
-/* Interactive Video Glow */
-.video-glow-wrap { position: relative; width: 100%; max-width: 820px; margin-bottom: 28px; border-radius: 8px; }
-.video-glow-wrap::before { content: ''; position: absolute; top: -30px; left: -30px; right: -30px; bottom: -30px; background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(201,150,42,0.5), transparent 50%); z-index: -1; filter: blur(30px); opacity: 0; transition: opacity 0.6s ease; pointer-events: none; }
-.video-glow-wrap.glow-active::before { opacity: 1; }
 </style>
 </head>
 <body>
@@ -935,20 +931,6 @@ document.addEventListener('mousemove', (e) => {
   const rect = canvas.getBoundingClientRect();
   mouse.x = e.clientX - rect.left;
   mouse.y = e.clientY - rect.top;
-  
-  const vg = document.querySelector('.video-glow-wrap');
-  if (vg) {
-    const vgRect = vg.getBoundingClientRect();
-    const isNear = e.clientX > vgRect.left - 400 && e.clientX < vgRect.right + 400 &&
-                   e.clientY > vgRect.top - 400 && e.clientY < vgRect.bottom + 400;
-    if (isNear) {
-      vg.style.setProperty('--mouse-x', `${e.clientX - vgRect.left}px`);
-      vg.style.setProperty('--mouse-y', `${e.clientY - vgRect.top}px`);
-      vg.classList.add('glow-active');
-    } else {
-      vg.classList.remove('glow-active');
-    }
-  }
 });
 document.addEventListener('mouseleave', () => { mouse.x = -1000; mouse.y = -1000; });
 
