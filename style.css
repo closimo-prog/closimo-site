@@ -33,6 +33,7 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -352,16 +353,15 @@ nav {
 }
 
 .nav-links a {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
-  color: var(--orange);
+  color: var(--white);
   transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.2s;
-  padding: 0 12px;
+  padding: 0 14px;
   height: 58px;
   display: flex;
   align-items: center;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   will-change: transform;
   display: inline-block;
   /* Needs to be block or inline-block for transform */
@@ -370,7 +370,7 @@ nav {
 }
 
 .nav-links a:hover {
-  color: var(--white)
+  color: var(--orange)
 }
 
 /* Nav CTA — Agevia pill split-button: text | divider | arrow */
@@ -3760,4 +3760,36 @@ input[type=range].saas-slider:active::-webkit-slider-thumb {
 .btt-btn:hover {
   background: #e65215;
   transform: translateY(-2px);
+}
+
+/* Pricing Section Styles */
+.pricing-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 32px 28px;
+  margin-top: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.pricing-card:hover {
+  border-color: rgba(255, 92, 26, 0.3);
+  transform: translateY(-2px);
+}
+
+.pricing-option {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: rgba(0, 0, 0, 0.2);
+  margin-bottom: 12px;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.pricing-option:hover {
+  border-color: var(--orange);
+  background: rgba(255, 92, 26, 0.04);
 }
