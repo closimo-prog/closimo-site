@@ -7,13 +7,13 @@
     <title>B2B Sales Pipeline Leakage Calculator — Free Tool</title>
     <meta name="description"
         content="Find out exactly how much revenue is leaking from your B2B sales pipeline. Free calculator with benchmarks for 120 industries. Results in seconds.">
-    <link rel="canonical" href="https://closimo.com/calculator/">
+    <link rel="canonical" href="https://closimo.com.pk/calculator/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600;900&display=swap" rel="stylesheet">
 
     <script
-        type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"B2B Sales Pipeline Leakage Calculator","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://closimo.com/calculator/","description":"Free B2B sales pipeline leakage calculator. Benchmarks across 120 industries. Find where your deals are dying.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+        type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"B2B Sales Pipeline Leakage Calculator","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://closimo.com.pk/calculator/","description":"Free B2B sales pipeline leakage calculator. Benchmarks across 120 industries. Find where your deals are dying.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
     <script
         type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What causes B2B sales pipeline leakage?","acceptedAnswer":{"@type":"Answer","text":"The five stages where B2B pipeline leaks are: lead qualification (avg 30% qualify), meeting booking, show-up rate (avg 80-85%), proposal conversion, and proposal closing. The most overlooked is the show-up rate which most companies never measure."}},{"@type":"Question","name":"What is the average B2B sales cycle length?","acceptedAnswer":{"@type":"Answer","text":"The median B2B sales cycle is 77 days. SaaS averages 58 days, IT Managed Services 65 days, ERP 165 days. Sales cycles have lengthened 22-38% since 2021."}},{"@type":"Question","name":"How much pipeline coverage do B2B companies need?","acceptedAnswer":{"@type":"Answer","text":"B2B companies need 3-7x their revenue target in active pipeline. SaaS needs 4x, IT Managed Services 5x, General Contractors 7x — based on industry win rates."}},{"@type":"Question","name":"What percentage of B2B deals are lost to no decision?","acceptedAnswer":{"@type":"Answer","text":"45-55% of all lost B2B deals are lost to no decision. The status quo wins more often than any competitor. Most pipeline leakage is fixable through urgency creation, not better pitching."}}]}</script>
 
@@ -30,13 +30,15 @@
             --s2: #161616;
             --bdr: #1e1e1e;
             --bdr2: #2a2a2a;
-            --text: #fff;
+            --text: #EEEEE9;
             --muted: #b0b0b0;
             --hint: #777;
-            --green: #34d399;
+            --green: #FF5C1A;
+            --gain: #22C55E;
+            --orange-hi: #FF6B2B;
             /* Vibrant Green */
-            --green-dk: #059669;
-            --green-lo: rgba(52, 211, 153, 0.1);
+            --green-dk: #E8440A;
+            --green-lo: rgba(255, 92, 26, 0.10);
             --red: #ff5e5e;
             /* Vibrant Poppy Red */
             --red-lo: rgba(255, 94, 94, 0.08);
@@ -162,7 +164,7 @@
         .orb-6 {
             width: 30vw;
             height: 30vw;
-            background: rgba(29, 158, 117, 0.05);
+            background: rgba(255, 92, 26, 0.05);
             bottom: 10%;
             left: 40%;
             animation-delay: -8s;
@@ -285,8 +287,8 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: rgba(29, 158, 117, 0.1);
-            border: 1px solid rgba(29, 158, 117, 0.4);
+            background: rgba(255, 92, 26, 0.1);
+            border: 1px solid rgba(255, 92, 26, 0.4);
             /* Stronger badge border */
             border-radius: 20px;
             padding: 4px 12px;
@@ -360,9 +362,9 @@
 
         .cbtn.active {
             background: var(--green);
-            color: #000;
+            color: #fff;
             border-color: var(--green);
-            box-shadow: 0 0 15px rgba(52, 211, 153, 0.4);
+            box-shadow: 0 0 15px rgba(255, 92, 26, 0.4);
             font-weight: 600
         }
 
@@ -478,10 +480,10 @@
         }
 
         .tog.active {
-            background: rgba(52, 211, 153, 0.08);
+            background: rgba(255, 92, 26, 0.08);
             border-color: var(--green);
             color: var(--green);
-            box-shadow: 0 0 15px rgba(52, 211, 153, 0.2);
+            box-shadow: 0 0 15px rgba(255, 92, 26, 0.2);
             font-weight: 600
         }
 
@@ -731,7 +733,7 @@
         }
 
         .rt {
-            border: 0.5px solid rgba(29, 158, 117, 0.2)
+            border: 0.5px solid rgba(255, 92, 26, 0.2)
         }
 
         .ra {
@@ -889,7 +891,7 @@
         .rec-btn.selected-yes {
             background: var(--green-lo);
             color: var(--green);
-            border-color: rgba(29, 158, 117, 0.4)
+            border-color: rgba(255, 92, 26, 0.4)
         }
 
         .rec-btn.selected-no {
@@ -929,7 +931,7 @@
             width: 100%;
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--green), transparent);
-            box-shadow: 0 0 25px rgba(29, 158, 117, 0.5);
+            box-shadow: 0 0 25px rgba(255, 92, 26, 0.5);
             margin: 64px 0 32px;
             display: none;
             opacity: 1;
@@ -942,13 +944,13 @@
             100% {
                 opacity: 0.6;
                 transform: scaleX(0.98);
-                box-shadow: 0 0 15px rgba(29, 158, 117, 0.2);
+                box-shadow: 0 0 15px rgba(255, 92, 26, 0.2);
             }
 
             50% {
                 opacity: 1;
                 transform: scaleX(1);
-                box-shadow: 0 0 40px rgba(29, 158, 117, 0.9);
+                box-shadow: 0 0 40px rgba(255, 92, 26, 0.9);
             }
         }
 
@@ -966,17 +968,17 @@
             color: var(--green);
             letter-spacing: 0.15em;
             white-space: nowrap;
-            background: rgba(29, 158, 117, 0.1);
+            background: rgba(255, 92, 26, 0.1);
             padding: 5px 14px;
             border-radius: 20px;
-            border: 0.5px solid rgba(29, 158, 117, 0.3);
+            border: 0.5px solid rgba(255, 92, 26, 0.3);
             text-transform: uppercase;
         }
 
         .step-line {
             flex: 1;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(29, 158, 117, 0.5), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 92, 26, 0.5), transparent);
         }
 
         /* INLINE GROUP SEPARATOR */
@@ -997,7 +999,7 @@
             content: '';
             flex: 1;
             height: 1px;
-            background: linear-gradient(90deg, rgba(29, 158, 117, 0.3), transparent);
+            background: linear-gradient(90deg, rgba(255, 92, 26, 0.3), transparent);
         }
 
         /* ══ AUDIT ROADMAP ══ */
@@ -1062,7 +1064,7 @@
             border-color: var(--green);
             color: var(--green);
             background: var(--green-lo);
-            box-shadow: 0 0 15px rgba(29, 158, 117, 0.4);
+            box-shadow: 0 0 15px rgba(255, 92, 26, 0.4);
         }
 
         .r-content {
@@ -1177,12 +1179,12 @@
 
             0%,
             100% {
-                box-shadow: 0 0 5px rgba(29, 158, 117, 0.2);
+                box-shadow: 0 0 5px rgba(255, 92, 26, 0.2);
                 transform: scale(0.995);
             }
 
             50% {
-                box-shadow: 0 0 25px rgba(29, 158, 117, 0.7);
+                box-shadow: 0 0 25px rgba(255, 92, 26, 0.7);
                 transform: scale(1.005);
             }
         }
@@ -1339,11 +1341,18 @@
             width: 0;
             height: 3px;
             background: linear-gradient(90deg, var(--green-lo), var(--green));
-            box-shadow: 0 0 12px rgba(29, 158, 117, 0.4);
+            box-shadow: 0 0 12px rgba(255, 92, 26, 0.4);
             z-index: 10000;
             transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
-    </style>
+    
+        /* CLOSIMO brand layer */
+        h1, h2, h3, .hero h1, .rn, .mn { font-family: 'Bricolage Grotesque', 'Inter', sans-serif; letter-spacing: -0.02em; }
+        .logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { height: 26px; width: auto; display: block; }
+        .logo .logo-sub { color: var(--muted); font-size: 13px; font-weight: 500; padding-left: 12px; border-left: 1px solid var(--bdr2); white-space: nowrap; }
+        @media (max-width: 600px) { .logo .logo-sub { display: none; } }
+</style>
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0KFXKT97C8"></script>
   <script>
@@ -1368,7 +1377,7 @@
 
     <!-- NAV -->
     <nav>
-        <a href="/" class="logo">Sales Pipeline Leakage Calculator</a>
+        <a href="/" class="logo" aria-label="CLOSIMO home"><img src="/image1.png" alt="CLOSIMO"><span class="logo-sub">Pipeline Leakage Calculator</span></a>
         <div class="nav-stats">
             <div class="nstat">
                 <span class="nstat-num live-stat" data-target="450" data-prefix="$" data-suffix="M+">$0</span>
@@ -1551,7 +1560,7 @@
                     <div class="rl">Your lifetime value lost per year</div>
                     <div class="rs">The true cost — lost deals compound over time</div>
                 </div>
-                <div class="rn" style="color:var(--green)" id="t-ltv">—</div>
+                <div class="rn" style="color:var(--gain)" id="t-ltv">—</div>
             </div>
 
             <div style="height:20px"></div>
@@ -1568,7 +1577,7 @@
                     <div class="ml">Industry benchmark</div>
                 </div>
                 <div class="mc">
-                    <div class="mn" id="m3" style="color:var(--green)">—</div>
+                    <div class="mn" id="m3" style="color:var(--gain)">—</div>
                     <div class="ml">Upside at benchmark</div>
                 </div>
             </div>
@@ -1676,7 +1685,7 @@
                         look.</p>
                 </div>
                 <div class="cta-btn-wrap">
-                    <a href="https://closimo.com/#tally-open" target="_blank" class="cta-btn">Book your FREE
+                    <a href="https://closimo.com.pk/#tally-open" target="_blank" class="cta-btn">Book your FREE
                         Comprehensive Sales Audit ↗</a>
                 </div>
                 <div class="cta-below">
@@ -1699,9 +1708,9 @@
     </div>
 
     <footer>
-        <p>Free tool · 120 B2B industries · 2026 benchmarks · <a href="https://closimo.com" target="_blank">Built by
+        <p>Free tool · 120 B2B industries · 2026 benchmarks · <a href="https://closimo.com.pk" target="_blank">Built by
                 <strong>CLOSIMO</strong> ↗</a></p>
-        <p><a href="https://closimo.com" target="_blank">closimo.com</a></p>
+        <p><a href="https://closimo.com.pk" target="_blank">closimo.com.pk</a></p>
     </footer>
 
 
@@ -2094,10 +2103,10 @@
             document.getElementById('m2').textContent = benchOCR.toFixed(1) + '%';
             if (gap > 0) {
                 document.getElementById('m3').textContent = '+' + fmt(pipeline * (gap / 100));
-                document.getElementById('m3').style.color = '#1D9E75';
+                document.getElementById('m3').style.color = '#22C55E';
             } else {
                 document.getElementById('m3').textContent = 'At benchmark';
-                document.getElementById('m3').style.color = '#1D9E75';
+                document.getElementById('m3').style.color = '#22C55E';
             }
 
 
