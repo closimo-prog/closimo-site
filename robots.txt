@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://closimo.com/sitemap.xml
+Sitemap: https://closimo.com.pk/sitemap.xml

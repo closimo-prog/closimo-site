@@ -11,7 +11,7 @@
 - Language Composition: HTML (86.2%), CSS (11.5%), JavaScript (2.2%), PowerShell (0.1%)
 - Total Size: 1677 KB
 - Repository URL: https://github.com/closimo-prog/closimo-site
-- Live Site: https://closimo.com/
+- Live Site: https://closimo.com.pk/
 
 **Description:**
 B2B sales pipeline audit platform — find revenue leakage across 5 pipeline stages. Built for Pakistan, UAE & Saudi markets. Free audit tool + 120-industry benchmark calculator.
@@ -139,7 +139,7 @@ B2B sales pipeline audit platform — find revenue leakage across 5 pipeline sta
 <meta name="description" content="Specific 155-160 char description for this article...">
 <meta property="og:title" content="Article Title">
 <meta property="og:description" content="...">
-<meta property="og:url" content="https://closimo.com/blog/article-name.html">
+<meta property="og:url" content="https://closimo.com.pk/blog/article-name.html">
 ```
 
 **Impact:** 🟡 **HIGH** — Affects click-through rate in search results
@@ -357,7 +357,7 @@ closimo-site/
   <!-- Unique Title & Description -->
   <title>[STAGE]: [PROBLEM] | CLOSIMO 2026 Benchmark</title>
   <meta name="description" content="155-160 character description of the specific article content...">
-  <link rel="canonical" href="https://closimo.com/blog/[article-slug].html">
+  <link rel="canonical" href="https://closimo.com.pk/blog/[article-slug].html">
   
   <!-- Keywords -->
   <meta name="keywords" content="sales pipeline, benchmarks, [industry], [stage]">
@@ -366,8 +366,8 @@ closimo-site/
   <meta property="og:type" content="article">
   <meta property="og:title" content="[STAGE]: [PROBLEM]">
   <meta property="og:description" content="155-160 chars...">
-  <meta property="og:url" content="https://closimo.com/blog/[article-slug].html">
-  <meta property="og:image" content="https://closimo.com/images/og-stage-[1-5].jpg">
+  <meta property="og:url" content="https://closimo.com.pk/blog/[article-slug].html">
+  <meta property="og:image" content="https://closimo.com.pk/images/og-stage-[1-5].jpg">
   <meta property="article:published_time" content="2026-05-XX">
   <meta property="article:modified_time" content="2026-05-XX">
   <meta property="article:author" content="SM Awais">
@@ -379,18 +379,18 @@ closimo-site/
     "@type": "BlogPosting",
     "headline": "[STAGE]: [PROBLEM]",
     "description": "Full description",
-    "image": "https://closimo.com/images/og-stage-[1-5].jpg",
+    "image": "https://closimo.com.pk/images/og-stage-[1-5].jpg",
     "datePublished": "2026-05-XX",
     "dateModified": "2026-05-XX",
     "author": {
       "@type": "Person",
       "name": "SM Awais",
-      "url": "https://closimo.com"
+      "url": "https://closimo.com.pk"
     },
     "publisher": {
       "@type": "Organization",
       "name": "CLOSIMO",
-      "url": "https://closimo.com"
+      "url": "https://closimo.com.pk"
     }
   }
   </script>
@@ -448,9 +448,9 @@ closimo-site/
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://closimo.com/"},
-      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://closimo.com/blog/"},
-      {"@type": "ListItem", "position": 3, "name": "[Article Title]", "item": "https://closimo.com/blog/[slug].html"}
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://closimo.com.pk/"},
+      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://closimo.com.pk/blog/"},
+      {"@type": "ListItem", "position": 3, "name": "[Article Title]", "item": "https://closimo.com.pk/blog/[slug].html"}
     ]
   }
   </script>
