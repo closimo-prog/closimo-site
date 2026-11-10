@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B2B Sales Pipeline Leakage Calculator — Free Tool</title>
     <meta name="description"
-        content="Find out exactly how much revenue is leaking from your B2B sales pipeline. Free calculator with benchmarks for 120 industries. Results in seconds.">
+        content="Find out exactly how much revenue is leaking from your B2B sales pipeline. Free calculator with benchmarks for 20+ industries. Results in seconds.">
     <link rel="canonical" href="https://closimo.com.pk/calculator/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600;900&display=swap" rel="stylesheet">
 
     <script
-        type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"B2B Sales Pipeline Leakage Calculator","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://closimo.com.pk/calculator/","description":"Free B2B sales pipeline leakage calculator. Benchmarks across 120 industries. Find where your deals are dying.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+        type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"B2B Sales Pipeline Leakage Calculator","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://closimo.com.pk/calculator/","description":"Free B2B sales pipeline leakage calculator. Benchmarks across 20+ industries. Find where your deals are dying.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
     <script
         type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What causes B2B sales pipeline leakage?","acceptedAnswer":{"@type":"Answer","text":"The five stages where B2B pipeline leaks are: lead qualification (avg 30% qualify), meeting booking, show-up rate (avg 80-85%), proposal conversion, and proposal closing. The most overlooked is the show-up rate which most companies never measure."}},{"@type":"Question","name":"What is the average B2B sales cycle length?","acceptedAnswer":{"@type":"Answer","text":"The median B2B sales cycle is 77 days. SaaS averages 58 days, IT Managed Services 65 days, ERP 165 days. Sales cycles have lengthened 22-38% since 2021."}},{"@type":"Question","name":"How much pipeline coverage do B2B companies need?","acceptedAnswer":{"@type":"Answer","text":"B2B companies need 3-7x their revenue target in active pipeline. SaaS needs 4x, IT Managed Services 5x, General Contractors 7x — based on industry win rates."}},{"@type":"Question","name":"What percentage of B2B deals are lost to no decision?","acceptedAnswer":{"@type":"Answer","text":"45-55% of all lost B2B deals are lost to no decision. The status quo wins more often than any competitor. Most pipeline leakage is fixable through urgency creation, not better pitching."}}]}</script>
 
@@ -1380,15 +1380,15 @@
         <a href="/" class="logo" aria-label="CLOSIMO home"><img src="/image1.png" alt="CLOSIMO"><span class="logo-sub">Pipeline Leakage Calculator</span></a>
         <div class="nav-stats">
             <div class="nstat">
-                <span class="nstat-num live-stat" data-target="450" data-prefix="$" data-suffix="M+">$0</span>
+                <span class="nstat-num live-stat" data-target="100" data-prefix="PKR " data-suffix="M+">PKR 0</span>
                 <span class="nstat-lbl">in sales leakage found</span>
             </div>
             <div class="nstat">
-                <span class="nstat-num live-stat" data-target="120" data-suffix="+">0</span>
+                <span class="nstat-num live-stat" data-target="20" data-suffix="+">0</span>
                 <span class="nstat-lbl">industries</span>
             </div>
             <div class="nstat">
-                <span class="nstat-num live-stat" id="audit-counter" data-target="340" data-suffix="+">0</span>
+                <span class="nstat-num live-stat" id="audit-counter" data-target="100" data-suffix="+">0</span>
                 <span class="nstat-lbl">sales teams audited</span>
             </div>
             <div class="nstat">
@@ -1681,7 +1681,7 @@
             <div class="cta-block reveal" id="cta-block" style="margin-top: 0;">
                 <div class="cta-top">
                     <p id="cta-title">You now know what it's costing you. These are estimates based on 2026 benchmarks
-                        across 120 B2B industries. Every pipeline leaks differently — your exact number needs a deeper
+                        across 20+ B2B industries. Every pipeline leaks differently — your exact number needs a deeper
                         look.</p>
                 </div>
                 <div class="cta-btn-wrap">
@@ -1708,7 +1708,7 @@
     </div>
 
     <footer>
-        <p>Free tool · 120 B2B industries · 2026 benchmarks · <a href="https://closimo.com.pk" target="_blank">Built by
+        <p>Free tool · 20+ B2B industries · 2026 benchmarks · <a href="https://closimo.com.pk" target="_blank">Built by
                 <strong>CLOSIMO</strong> ↗</a></p>
         <p><a href="https://closimo.com.pk" target="_blank">closimo.com.pk</a></p>
     </footer>
@@ -1866,16 +1866,13 @@
             document.getElementById('rec-no').className = 'rec-btn' + (v === 'no' ? ' selected-no' : '');
         }
 
-        var auditCount = 340;
+        var auditCount = 100;
         function submitSurvey() {
             var q1 = document.getElementById('survey-q1').value.trim();
             if (!q1 && !recChoice) return;
 
             syncToSheets();
 
-            auditCount++;
-            var el = document.getElementById('audit-counter');
-            el.textContent = auditCount + '+';
             document.getElementById('survey-q1').disabled = true;
             document.getElementById('rec-yes').disabled = true;
             document.getElementById('rec-no').disabled = true;
@@ -2176,7 +2173,7 @@
             var nav = document.querySelector('nav');
             if (nav) obs.observe(nav);
             // Set audit counter immediately
-            document.getElementById('audit-counter').textContent = '340+';
+            document.getElementById('audit-counter').textContent = '100+';
         })();
 
         document.addEventListener('DOMContentLoaded', function () {
