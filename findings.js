@@ -10,9 +10,17 @@
   ps.forEach(function(p){p.addEventListener('click',function(){go(p.dataset.s);p.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'})})});
   var first=document.querySelector('.fp.on');if(first)go(first.dataset.s);
 })();
-/* Touch screens: the card in the middle of the screen turns orange */
+/* Phones: swipe one card at a time. The card on screen turns orange and the counter follows */
 (function(){
-  if(!('IntersectionObserver' in window)||matchMedia('(hover:hover)').matches)return;
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('on',e.isIntersecting)})},{rootMargin:'-42% 0px -42% 0px'});
-  document.querySelectorAll('.fc4').forEach(function(c){io.observe(c)});
+  var touch=!matchMedia('(hover:hover)').matches;
+  document.querySelectorAll('.fpan').forEach(function(p){
+    var g=p.querySelector('.fgrid5'),n=p.querySelector('.sw5 span');if(!g)return;
+    var cs=g.querySelectorAll('.fc5');
+    if(!('IntersectionObserver' in window))return;
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(touch)e.target.classList.toggle('on',e.isIntersecting);
+      if(e.isIntersecting&&n)n.textContent=[].indexOf.call(cs,e.target)+1;
+    })},{root:matchMedia('(min-width:760px)').matches?null:g,threshold:.6});
+    cs.forEach(function(c){io.observe(c)});
+  });
 })();
