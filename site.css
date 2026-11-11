@@ -592,3 +592,18 @@ img.brand{height:30px;width:auto;display:block}
 img.brand-s{height:20px;width:auto;display:block}
 .sty-by img.brand-s{height:20px}
 @media (max-width:420px){img.brand{height:24px}}
+/* receipts in CLOSIMO orange, no white */
+.rcpt{background:var(--or)!important;color:var(--or-ink)!important}
+.rcpt .small{color:rgba(20,6,0,.72)!important}
+.rcpt h3{color:var(--or-ink)!important}
+.rh{border-bottom:1px dashed rgba(20,6,0,.35)!important}
+.rr{border-bottom:1px dashed rgba(20,6,0,.25)!important}
+.rr span{color:rgba(20,6,0,.78)!important}
+.rr b{color:var(--or-ink)}
+.rt{border-top:2px solid var(--or-ink)!important}
+.rt strong{color:var(--or-ink)!important}
+/* findings grouped by industry */
+.fgroups{display:grid;gap:36px;margin-top:8px}
+.fgh{margin:0 0 12px;font:600 22px/1.2 "Bricolage Grotesque",Inter,sans-serif;color:var(--ink);display:flex;align-items:baseline;gap:10px}
+.fgh span{font:400 20px/1 "Bebas Neue",Impact,sans-serif;color:var(--or)}
+.fgrp[hidden]{display:none!important}
