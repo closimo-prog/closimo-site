@@ -1638,6 +1638,7 @@
                     <button class="rec-btn" id="rec-no" onclick="setRec('no')">No</button>
                 </div>
                 <button class="survey-submit" onclick="submitSurvey()">Submit — add my audit to the data</button>
+                <p style="font-size:12px;color:#8a8a82;margin:8px 0 0">When you press Submit, your name, company and answers go to CLOSIMO. We never share them.</p>
                 <div class="survey-done" id="survey-done">Thank you. Your audit has been added.</div>
             </div>
 
@@ -1681,7 +1682,7 @@
                         look.</p>
                 </div>
                 <div class="cta-btn-wrap">
-                    <a href="https://closimo.com.pk/#tally-open" target="_blank" class="cta-btn">Book your FREE
+                    <a href="https://closimo.com.pk/#tally-open" target="_blank" rel="noopener noreferrer" class="cta-btn">Book your FREE
                         Comprehensive Sales Audit ↗</a>
                 </div>
                 <div class="cta-below">
@@ -1704,9 +1705,9 @@
     </div>
 
     <footer>
-        <p>Free tool · 20+ B2B industries · 2026 benchmarks · <a href="https://closimo.com.pk" target="_blank">Built by
+        <p>Free tool · 20+ B2B industries · 2026 benchmarks · <a href="https://closimo.com.pk" target="_blank" rel="noopener noreferrer">Built by
                 <strong>CLOSIMO</strong> ↗</a></p>
-        <p><a href="https://closimo.com.pk" target="_blank">closimo.com.pk</a></p>
+        <p><a href="https://closimo.com.pk" target="_blank" rel="noopener noreferrer">closimo.com.pk</a></p>
     </footer>
 
 
@@ -1901,9 +1902,7 @@
             };
             localStorage.setItem('closimoState', JSON.stringify(state));
 
-            // Sync leads after 2 seconds of inactivity
-            if (sheetTimeout) clearTimeout(sheetTimeout);
-            sheetTimeout = setTimeout(syncToSheets, 2000);
+            // Details are sent only when the visitor presses Submit
         }
 
         function loadState() {

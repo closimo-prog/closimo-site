@@ -875,14 +875,12 @@
         if (el) el.textContent = data.label;
       }
 
-      // Try IP geolocation — free, no API key needed
-      fetch('https://ipapi.co/json/', { signal: AbortSignal.timeout(3000) })
-        .then(r => r.json())
-        .then(d => {
-          const currency = COUNTRY_MAP[d.country_code] || 'DEFAULT';
-          applyFigure(currency);
-        })
-        .catch(() => applyFigure('DEFAULT')); // silent fallback to USD
+      // Pick the currency from the visitor's time zone. Nothing leaves the browser.
+      let tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+      const TZ={'Asia/Karachi':'PKR','Asia/Dubai':'AED','Asia/Riyadh':'SAR','Asia/Qatar':'SAR','Asia/Kuwait':'SAR','Asia/Bahrain':'SAR','Asia/Muscat':'SAR','Asia/Kolkata':'INR','Asia/Calcutta':'INR','Asia/Dhaka':'BDT','Europe/London':'GBP','Asia/Singapore':'SGD'};
+      let cur=TZ[tz];
+      if(!cur){if(tz.indexOf('America/')===0)cur=(/Toronto|Vancouver|Edmonton|Winnipeg|Halifax|Regina/.test(tz)?'CAD':'USD');else if(tz.indexOf('Australia/')===0)cur='AUD';else if(tz.indexOf('Europe/')===0)cur='EUR';}
+      applyFigure(cur||'DEFAULT');
     })();
 
     // Scroll-triggered fade-in for article cards
