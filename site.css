@@ -587,3 +587,8 @@ html{overflow-x:clip}
 /* header polish: no line under the nav, slimmer findings bar */
 header{border-bottom:0!important}
 .tbar{min-height:32px!important;padding-block:5px!important;padding-top:calc(5px + env(safe-area-inset-top,0px))!important;font-size:12.5px!important;gap:8px!important}
+/* official CLOSIMO logo, transparent */
+img.brand{height:30px;width:auto;display:block}
+img.brand-s{height:20px;width:auto;display:block}
+.sty-by img.brand-s{height:20px}
+@media (max-width:420px){img.brand{height:24px}}
