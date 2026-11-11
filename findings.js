@@ -10,3 +10,9 @@
   ps.forEach(function(p){p.addEventListener('click',function(){go(p.dataset.s);p.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'})})});
   var first=document.querySelector('.fp.on');if(first)go(first.dataset.s);
 })();
+/* Touch screens: the card in the middle of the screen turns orange */
+(function(){
+  if(!('IntersectionObserver' in window)||matchMedia('(hover:hover)').matches)return;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('on',e.isIntersecting)})},{rootMargin:'-42% 0px -42% 0px'});
+  document.querySelectorAll('.fc4').forEach(function(c){io.observe(c)});
+})();
