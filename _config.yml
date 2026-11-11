@@ -1,0 +1,6 @@
+exclude:
+  - SEO_AUDIT_REPORT.md
+  - README.md
+  - docs
+  - data.json
+  - app.js
