@@ -5,24 +5,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description"
-    content="CLOSIMO — Sales Audit for B2B Companies. Find exactly where you're losing deals. Real report in 48 hours. Starting at 99 USD.">
+    content="CLOSIMO finds where your sales team loses deals, why, and what it costs, then fixes it with your team. Free Sales Diagnosis for teams of 3 or more reps.">
   <link rel="canonical" href="https://closimo.com.pk/">
   <!-- SEO & Open Graph Meta Tags -->
-  <meta property="og:title" content="CLOSIMO — Sales Audit for B2B Companies">
-  <meta property="og:description" content="Find exactly where you're losing deals. Real report in 48 hours. Starting at 99 USD.">
+  <meta property="og:title" content="CLOSIMO | Find the deals your team should win">
+  <meta property="og:description" content="Find where your team loses deals, why, and what it costs. Free Sales Diagnosis for teams of 3 or more reps.">
   <meta property="og:image" content="https://closimo.com.pk/image2.png">
   <meta property="og:url" content="https://closimo.com.pk/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="CLOSIMO — Sales Audit for B2B Companies">
+  <meta name="twitter:title" content="CLOSIMO | Find the deals your team should win">
   <meta name="twitter:description"
-    content="Find exactly where you're losing deals. Real report in 48 hours. Starting at 99 USD.">
+    content="Find where your team loses deals, why, and what it costs. Free Sales Diagnosis for teams of 3 or more reps.">
   <meta name="twitter:image" content="https://closimo.com.pk/image2.png">
   <!-- Preloads & Favicon -->
   <link rel="icon" href="favicon-orange.png" type="image/png">
-  <link rel="preload" href="image2.png" as="image">
-  <link rel="preload"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600&display=swap"
+    <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap"
     as="style">
   <!-- Local Business Schema -->
   <script type="application/ld+json">
@@ -32,17 +31,18 @@
     "name": "CLOSIMO",
     "url": "https://closimo.com.pk/",
     "logo": "https://closimo.com.pk/image1.png",
-    "description": "B2B Sales Audit consultancy helping companies find pipeline revenue leakage.",
+    "description": "Sales systems consultancy. We find where sales teams lose deals and fix it with the team.",
+    "address": {"@type":"PostalAddress","streetAddress":"Office #10, Orient Mall, Khanewal Road","addressLocality":"Multan","addressCountry":"PK"},
     "telephone": "+923700950063"
   }
   </script>
-  <title>CLOSIMO — Sales Audit for B2B Companies</title>
+  <title>CLOSIMO | Find the deals your team should win</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="site.css">
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0KFXKT97C8"></script>
   <script>
@@ -53,1060 +53,149 @@
   </script>
 </head>
 
-<body>
-  <!-- Noise Overlay -->
-  <div class="noise-overlay"></div>
-  <div class="interactive-grid" id="interactive-grid"></div>
-  <div id="scroll-progress"></div>
-  <svg aria-hidden="true" style="display: none;">
-    <symbol id="icon-star" viewBox="0 0 24 24">
-      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-    </symbol>
-  </svg>
-  <div class="topbar">
-    🏆 <span class="geo-cur" data-usd="$3.6M+">PKR 100 CRORE+</span> IN CLOSED B2B DEALS FOR CLIENTS IN 2025
-    &nbsp;—&nbsp; <a href="#results">SEE CASE STUDIES →</a>
-  </div>
-  <div class="nav-outer">
-    <div class="nav-frame">
-      <nav>
-        <a href="#" class="nav-logo" style="padding:0"><img src="image1.png" alt="CLOSIMO"
-            style="height:28px;width:auto;display:block;object-fit:cover"></a>
-        <ul class="nav-links">
-          <li><a href="#how">How It Works</a></li>
-          <li><a href="#audit-reports">Sample Audit Report</a></li>
-          <li><a href="#results">Case Studies</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
+<body class="v2">
+<a class="tbar" href="#findings"><span><b>40+ real Sales Diagnosis findings</b></span><em>See them</em></a>
+<header><div class="wrap nav">
+  <img src="image1.png" alt="CLOSIMO" width="184" height="37">
+  <nav class="pnav" aria-label="Main"><a href="about/">About Us</a><a href="#results">Case Studies</a><a href="#start">Pricing</a><a href="#faq">FAQ</a></nav>
+  <a class="cta" href="#start">Book Free Diagnosis</a>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <p class="qual"><svg class="qi" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>3 or more reps · PKR 20 lakh or more a month</p>
+      <h1>You're losing deals your team should win.</h1>
+      <p class="sub">We find where your pipeline leaks, why, what it costs, and fix it with your team.</p>
+      <div class="btns">
+        <a class="btn p" href="#start">Book Free Diagnosis</a>
+        <a class="btn g" href="#start">Book Sales Audit</a>
+      </div>
+      <ul class="bdg"><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg><span><b>PKR 100 Cr+</b> closed<em class="dk"> by clients</em></span></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span><b>PKR 100 Cr+</b> leakage found</span></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span><b>50+</b> Diagnoses in 2026</span></li></ul>
+    </div>
+    
+  </section>
+
+  <section class="clients" aria-label="Our clients">
+    <p class="small">Our clients</p>
+    <div class="mq"><ul class="mqt"><li><img loading="lazy" decoding="async" src="images/clients/sjd-light.webp" alt="SJ Design" style="height:40px"></li><li><img loading="lazy" decoding="async" src="images/clients/sla-light.webp" alt="Smart Light Arabia" style="height:60px"></li><li><img loading="lazy" decoding="async" src="images/clients/taaraf-light.webp" alt="Al Taaraf Group" style="height:30px"></li><li><img loading="lazy" decoding="async" src="images/clients/ascom-light.webp" alt="Ascom Consulting UK" style="height:40px"></li><li><img loading="lazy" decoding="async" src="images/clients/deyaa-light.webp" alt="Al Deyaa Media Production" style="height:36px"></li><li><img loading="lazy" decoding="async" src="images/clients/efro-light.webp" alt="Efrotech" style="height:30px"></li><li><img loading="lazy" decoding="async" src="images/clients/yx-light.webp" alt="YouExcel" style="height:50px"></li><li><img loading="lazy" decoding="async" src="images/clients/insignia-light.webp" alt="Insignia Business Solutions" style="height:36px"></li><li><img loading="lazy" decoding="async" src="images/clients/maxtech-light.webp" alt="Maxtech Corporation" style="height:22px"></li><li><img loading="lazy" decoding="async" src="images/clients/3w-light.webp" alt="3W Healthcare" style="height:44px"></li><li aria-hidden="true"><img loading="lazy" decoding="async" src="images/clients/sjd-light.webp" alt="" style="height:40px"></li><li aria-hidden="true"><img loading="lazy" decoding="async" src="images/clients/sla-light.webp" alt="" style="height:52px"></li><li aria-hidden="true"><img loading="lazy" decoding="async" src="images/clients/taaraf-light.webp" alt="" style="height:30px"></li><li aria-hidden="true"><img loading="lazy" decoding="async" src="images/clients/ascom-light.webp" alt="" style="height:40px"></li><li aria-hidden="true"><img loading="lazy" decoding="async" src="images/clients/deyaa-light.webp" alt="" style="height:36px"></li><li aria-hidden="true"><img loading="lazy" decoding="async" src="images/clients/efro-light.webp" alt="" style="height:30px"></li><li aria-hidden="true"><img loading="lazy" decoding="async" src="images/clients/yx-light.webp" alt="" style="height:40px"></li><li aria-hidden="true"><img loading="lazy" decoding="async" src="images/clients/insignia-light.webp" alt="" style="height:36px"></li><li aria-hidden="true"><img loading="lazy" decoding="async" src="images/clients/maxtech-light.webp" alt="" style="height:22px"></li><li aria-hidden="true"><img loading="lazy" decoding="async" src="images/clients/3w-light.webp" alt="" style="height:44px"></li></ul></div>
+  </section>
+
+  <section class="s" id="findings">
+    <h2>What our diagnosis calls found</h2>
+    <p class="lede">Real numbers from each owner, shown by industry. We always take the low end.</p>
+    <div class="rgrid"><article class="rcpt">
+      <div class="rh"><span class="small">Diagnosis finding</span><span class="small">Doors and construction</span></div>
+      <h3>Only 6 of 100+ leads closed.</h3>
+      <div class="rows"><div class="rr"><span>Leads a month</span><b>100 to 150</b></div><div class="rr"><span>Smallest deal size</span><b>PKR 25 lakh</b></div><div class="rr"><span>Deals closed</span><b>6</b></div><div class="rr"><span>Winnable deals lost</span><b>14</b></div>
+      </div>
+      <div class="rt"><span>Revenue lost a year</span><strong>PKR 42 crore</strong></div>
+    </article><article class="rcpt">
+      <div class="rh"><span class="small">Diagnosis finding</span><span class="small">Trade exhibitions</span></div>
+      <h3>15 of 20 interested companies never booked.</h3>
+      <div class="rows"><div class="rr"><span>Interested companies per event</span><b>20</b></div><div class="rr"><span>Average booking</span><b>About $3,000</b></div><div class="rr"><span>Bookings closed</span><b>5</b></div>
+      </div>
+      <div class="rt"><span>Revenue lost a year</span><strong>$1.35 million or more</strong></div>
+    </article><article class="rcpt">
+      <div class="rh"><span class="small">Diagnosis finding</span><span class="small">Travel agency</span></div>
+      <h3>1,000 leads a month. Only 50 deals.</h3>
+      <div class="rows"><div class="rr"><span>Leads a month</span><b>About 1,000</b></div><div class="rr"><span>Deals closed</span><b>50</b></div><div class="rr"><span>Winnable deals lost</span><b>20 or more</b></div>
+      </div>
+      <div class="rt"><span>Gross profit lost a year</span><strong>PKR 3 crore or more</strong></div>
+    </article></div>
+    <a class="allp" href="findings/">See all 44 findings</a>
+  </section>
+
+  <section class="s" id="problems">
+    <h2>Does this sound like your team?</h2>
+    <ul class="xcards"><li class="xc open fixed"><div class="xh"><em class="xn">01</em><span class="xt">Your team is busy, but revenue is not moving.</span></div><div class="xb"><div><p>Calls, chats and meetings all day. Deals still stall after the first talk, and nobody can show you where.</p></div></div></li><li class="xc open fixed"><div class="xh"><em class="xn">02</em><span class="xt">Interested buyers disappear.</span></div><div class="xb"><div><p>They ask for the price, then go quiet. Slow replies and missed follow ups hand them to someone else.</p></div></div></li><li class="xc open fixed"><div class="xh"><em class="xn">03</em><span class="xt">You keep fixing things that don't fix it.</span></div><div class="xb"><div><p>More ads, a new hire, a new CRM. The leak stays, because nobody measured where the deals are lost.</p></div></div></li></ul>
+    
+  </section>
+
+<section class="s" id="covers">
+    <h2>What the audit covers</h2>
+    <p class="lede">Five areas. Each one ends with what it costs you and what to fix first.</p>
+    <div class="aud">
+      <ul class="alist" role="tablist" aria-label="Audit areas"><li><button type="button" class="ab on" role="tab" aria-selected="true" data-i="0"><span class="an">01</span><span class="at">Your full pipeline</span></button><div class="am"><p>Every step from the first lead to the closed deal. We find where deals stall and what each drop costs you.</p></div></li><li><button type="button" class="ab" role="tab" aria-selected="false" data-i="1"><span class="an">02</span><span class="at">Your sales people, one to one</span></button><div class="am"><p>We sit with each rep. How they sell, what they do well, and where they lose the deal.</p></div></li><li><button type="button" class="ab" role="tab" aria-selected="false" data-i="2"><span class="an">03</span><span class="at">Your training system</span></button><div class="am"><p>How weak spots are found and trained, and how often. Most teams only learn the product.</p></div></li><li><button type="button" class="ab" role="tab" aria-selected="false" data-i="3"><span class="an">04</span><span class="at">Your incentives</span></button><div class="am"><p>What your pay plan really rewards. To change how people sell, you have to pay for it.</p></div></li><li><button type="button" class="ab" role="tab" aria-selected="false" data-i="4"><span class="an">05</span><span class="at">Your sales structure</span></button><div class="am"><p>Who does what. Plus how you qualify, follow up, present the proposal and negotiate.</p></div></li></ul>
+      <div class="apanel"><div class="apn on" role="tabpanel" data-i="0"><div class="aph"><svg class="api" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg><span class="small">Area 01 of 05</span></div><h3>Your full pipeline</h3><p class="apd">Every step from the first lead to the closed deal. We find where deals stall and what each drop costs you.</p><ul><li>Lead capture to first reply</li><li>Every stage up to the close</li><li>What each drop off costs you</li></ul><p class="apf">Ends with what it costs you and what to fix first.</p></div><div class="apn" role="tabpanel" data-i="1" hidden><div class="aph"><svg class="api" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="small">Area 02 of 05</span></div><h3>Your sales people, one to one</h3><p class="apd">We sit with each rep. How they sell, what they do well, and where they lose the deal.</p><ul><li>How each rep sells</li><li>What they do well</li><li>Where they lose the deal</li></ul><p class="apf">Ends with what it costs you and what to fix first.</p></div><div class="apn" role="tabpanel" data-i="2" hidden><div class="aph"><svg class="api" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg><span class="small">Area 03 of 05</span></div><h3>Your training system</h3><p class="apd">How weak spots are found and trained, and how often. Most teams only learn the product.</p><ul><li>How weak spots are found</li><li>How they get trained</li><li>How often it happens</li></ul><p class="apf">Ends with what it costs you and what to fix first.</p></div><div class="apn" role="tabpanel" data-i="3" hidden><div class="aph"><svg class="api" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18M7 6h1v4m8.71 3.88.7.71-2.82 2.82"/></svg><span class="small">Area 04 of 05</span></div><h3>Your incentives</h3><p class="apd">What your pay plan really rewards. To change how people sell, you have to pay for it.</p><ul><li>What your pay plan rewards</li><li>What behaviour it creates</li><li>What to change first</li></ul><p class="apf">Ends with what it costs you and what to fix first.</p></div><div class="apn" role="tabpanel" data-i="4" hidden><div class="aph"><svg class="api" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3M12 12V8"/></svg><span class="small">Area 05 of 05</span></div><h3>Your sales structure</h3><p class="apd">Who does what. Plus how you qualify, follow up, present the proposal and negotiate.</p><ul><li>Who does what</li><li>How you qualify and follow up</li><li>Proposal, presentation and negotiation</li></ul><p class="apf">Ends with what it costs you and what to fix first.</p></div></div>
+    </div>
+  </section>
+
+  <section class="s" id="start">
+    <h2>Two ways to start</h2>
+    <div class="offers">
+      <div class="offer free">
+        <h3>Free Sales Diagnosis</h3>
+        <p class="amt">No cost. No pressure to buy.</p>
+        <ul>
+          <li class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>One call with our team of experts</li>
+          <li class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>You tell us how your team sells</li>
+          <li class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>We show you where deals are lost and what it costs</li>
+          <li class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8M16 17H8M10 9H8"/></svg>You get a one page Sales Diagnosis Report</li>
         </ul>
-        <a href="#pricing" class="nav-cta"><span
-            class="nav-cta-text">Start My Audit</span><span class="nav-cta-arrow">➟</span></a>
-        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-      </nav>
-      <div class="mobile-menu" id="mobileMenu">
-        <a href="#how" onclick="closeMenu()">How It Works</a>
-        <a href="#audit-reports" onclick="closeMenu()">Sample Audit Report</a>
-        <a href="#results" onclick="closeMenu()">Case Studies</a>
-        <a href="#testimonials" onclick="closeMenu()">Testimonials</a>
-        <a href="#pricing" onclick="closeMenu()"
-          style="color:var(--orange);font-weight:700">Start My Audit (From $99) →</a>
+        <a class="btn" href="#start" data-book="diagnosis">Book Free Diagnosis</a>
+      </div>
+      <div class="offer paid">
+        <h3>CLOSIMO Sales Audit</h3>
+        <p class="amt">Pick your team size</p>
+        <div class="seg" role="radiogroup" aria-label="Team size">
+          <button type="button" role="radio" aria-checked="true" data-p="PKR 60,000">3 to 5 Sales Reps</button>
+          <button type="button" role="radio" aria-checked="false" data-p="PKR 100,000">6 to 10 Sales Reps</button>
+          <button type="button" role="radio" aria-checked="false" data-p="Fully custom">More than 10 Sales Reps</button>
+        </div>
+        <strong class="pval" id="pval" aria-live="polite">PKR 60,000</strong>
+        <ul><li class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>Your full pipeline</li><li class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Your sales people, one to one</li><li class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Your training system</li><li class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18M7 6h1v4m8.71 3.88.7.71-2.82 2.82"/></svg>Your incentives</li><li class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3M12 12V8"/></svg>Your sales structure</li></ul>
+        <a class="btn" href="#start" data-book="audit">Book Sales Audit</a>
       </div>
     </div>
-  </div>
-  <main>
-    <section class="hero">
-      <div class="parallax-layer" data-speed="0.15">
-        <div class="glow-blob" style="top:-20%; left:-10%;"></div>
-      </div>
-      <div class="parallax-layer" data-speed="0.08">
-        <div class="glow-blob green" style="bottom:-10%; right:-20%;"></div>
-      </div>
-      <div class="frame-outer">
-        <span class="corner tl"></span><span class="corner tr"></span>
-        <span class="corner bl"></span><span class="corner br"></span>
-        <div class="hero-inner">
-          <div class="hero-left">
-            <div class="hero-badge reveal">
-              <div class="pulse"></div>
-              <span style="color:var(--green);font-weight:700;letter-spacing:0.08em">B2B ONLY</span>
-              <span
-                style="width:1px;height:14px;background:rgba(34,197,94,0.3);display:inline-block;margin:0 4px"></span>
-              <span style="color:var(--muted);font-weight:500">10+ Employees · <span class="geo-cur"
-                  data-usd="$35K–$350K">PKR 10M–100M</span> Monthly Sales</span>
-            </div>
-            <h1 class="reveal reveal-delay-1">Stop Losing Deals <em>You Should Be Winning</em></h1>
-            <p class="hero-sub reveal reveal-delay-2">Most companies lose 9 out of 10 deals not to their competitors but inside their own sales pipeline. <span class="hero-sub-ext">We find where you are losing most deals, what it's costing you, and how to fix it.</span></p>
-            <div class="reveal reveal-delay-3" class="flex-col-stretch">
-              <div class="hero-actions">
-                <a href="#pricing" class="btn"><span
-                    class="btn-text">Start My Audit</span><span class="btn-arr">➟</span></a>
-              </div>
-              <div class="hero-objection-kill">
-                <div class="hero-badge" style="margin-bottom:0;border-radius:999px;padding:8px 16px;font-size:11px;">
-                  <span style="color:var(--green);font-weight:700">Starting at 99 USD. Backed by our guarantee.</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hero-right" style="padding:0;position:relative">
-            <img class="hero-img" src="image2.png" alt="CLOSIMO Team" fetchpriority="high" decoding="async"
-              loading="eager" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
-            <div class="hero-overlay reveal reveal-delay-2">
-              <div
-                style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);margin-bottom:8px">
-                Live Audit Session · CLOSIMO Office 2026</div>
-              <div style="font-size:14px;font-weight:600;color:#fff;line-height:1.55"><span class="geo-cur"
-                  data-usd="$140,000+">PKR 4 Crore</span> in lost deals found
-                across 4 problem areas in a single session</div>
-            </div>
-            <div class="hero-dashboard-widget reveal reveal-delay-3" id="hero-widget">
-              <div class="hdw-header">
-                Pipeline Impact <div class="hdw-header-dot"></div>
-              </div>
-              <div class="hdw-val">+183% <span>Efficiency</span></div>
-              <div class="hdw-bars">
-                <div class="hdw-bar">
-                  <div class="hdw-bar-fill" data-height="25%"></div>
-                </div>
-                <div class="hdw-bar">
-                  <div class="hdw-bar-fill" data-height="45%"></div>
-                </div>
-                <div class="hdw-bar">
-                  <div class="hdw-bar-fill" data-height="70%"></div>
-                </div>
-                <div class="hdw-bar">
-                  <div class="hdw-bar-fill" data-height="100%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="proof-bar reveal">
-      <div class="wrap">
-        <div class="proof-inner">
-          <div class="proof-stat">
-            <div class="proof-val"><em><span class="geo-cur-stat" data-prefix="$" data-target="4.4" data-suffix="M+">PKR
-                  <span class="countup" data-target="120">0</span> Crore</span></em></div>
-            <div class="proof-lbl">Generated for Clients</div>
-          </div>
-          <div class="proof-div"></div>
-          <div class="proof-stat">
-            <div class="proof-val"><em>20+</em> Industries</div>
-            <div class="proof-lbl">Served Across Markets</div>
-          </div>
-          <div class="proof-div"></div>
-          <div class="proof-stat">
-            <div class="proof-val"><em><span class="geo-cur" data-usd="$250K+"><span class="geo-cur"
-                    data-usd="$250,000+">PKR 7 Crore+</span></span></em></div>
-            <div class="proof-lbl">Leakage Found in Audits</div>
-          </div>
-          <div class="proof-div"></div>
-          <div class="proof-stat">
-            <div class="proof-val"><em>48</em> Hours</div>
-            <div class="proof-lbl">Full Report Delivered</div>
-          </div>
-          <div class="proof-div"></div>
-          <div class="proof-stat">
-            <div class="proof-val" style="color:var(--green)">Results Backed</div>
-            <div class="proof-lbl" style="color:var(--green);opacity:0.7">Value Guaranteed</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="section-divider reveal"><span>About the Founder</span></div>
-    <section id="about" style="padding:0;position:relative" class="reveal reveal-delay-1">
-      <div class="parallax-layer" data-speed="0.1">
-        <div class="glow-blob cyan" style="top:20%; left:-20%;"></div>
-      </div>
-      <div class="frame-outer" style="max-width:var(--max)">
-        <span class="corner tl"></span><span class="corner tr"></span>
-        <span class="corner bl"></span><span class="corner br"></span>
-        <div class="founder-inner">
-          <div class="founder-photo-col" style="padding:0;overflow:hidden;position:relative">
-            <img src="image3.png" alt="SM Awais" loading="lazy" decoding="async"
-              style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
-            <div class="founder-overlay">
-              <div
-                style="font-size:16px;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;color:#fff;letter-spacing:-0.02em;margin-bottom:4px">
-                SM Awais</div>
-              <div
-                style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)">
-                Founder & CEO · CLOSIMO</div>
-            </div>
-          </div>
-          <div class="founder-copy">
-            <div class="label">About the Founder</div>
-            <div class="founder-name">SM <em>Awais</em></div>
-            <div class="founder-role">Founder & CEO · CLOSIMO</div>
-            <p class="founder-bio">
-              In January 2025, I had a serious accident. It forced me off my feet and gave me something I hadn't had in
-              years — time to be still.
-            </p>
-            <p class="founder-bio">
-              I'd spent years running <strong>SMA Business Connect</strong>, helping companies with operations, finance,
-              and HR. But sitting with every client file I'd ever worked, I kept seeing the same thing: <strong>80% of
-                every business problem traced back to one place — their sales process.</strong> Not their team. Not
-              their
-              product. The process. And they had no idea what it was costing them.
-            </p>
-            <p class="founder-bio">
-              That's when CLOSIMO was born. Not from ambition. From stillness. From being forced to stop and actually
-              look
-              at the data.
-              <strong>Built to find what's bleeding your revenue, put a PKR number on it, and fix it — before the
-                engagement ends.</strong>
-            <p
-              style="margin-top:16px;font-size:14px;color:var(--muted);border-left:2px solid var(--border);padding-left:14px">
-              NDAs available upon request before any information is shared.</p>
-            </p>
-            <div class="founder-origin">
-              <div class="fo-item">
-                <div class="fo-icon">
-                  <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
-                    <path
-                      d="M10 2L12.5 7.5L18.5 8.5L14.25 12.5L15.5 18.5L10 15.5L4.5 18.5L5.75 12.5L1.5 8.5L7.5 7.5L10 2Z"
-                      stroke="#FF5C1A" stroke-width="1.5" stroke-linejoin="round" fill="rgba(255,92,26,0.08)" />
-                  </svg>
-                </div>
-                <div>
-                  <div class="fo-label">The Origin</div>
-                  <div class="fo-text">SMA Business Connect · 2019</div>
-                </div>
-              </div>
-              <div class="fo-item">
-                <div class="fo-icon">
-                  <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
-                    <path d="M10 3C10 3 4 6 4 11a6 6 0 0012 0c0-5-6-8-6-8z" stroke="#22C55E" stroke-width="1.5"
-                      stroke-linejoin="round" fill="rgba(34,197,94,0.08)" />
-                  </svg>
-                </div>
-                <div>
-                  <div class="fo-label">The Turning Point</div>
-                  <div class="fo-text">Accident · January 2025 · CLOSIMO founded</div>
-                </div>
-              </div>
-              <div class="fo-item">
-                <div class="fo-icon">
-                  <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
-                    <rect x="3" y="3" width="14" height="14" rx="3" stroke="#22C55E" stroke-width="1.5"
-                      fill="rgba(34,197,94,0.08)" />
-                    <path d="M7 10l2.5 2.5L13 7.5" stroke="#22C55E" stroke-width="1.5" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                </div>
-                <div>
-                  <div class="fo-label">Since Launch</div>
-                  <div class="fo-text">20+ Sales Audits for B2B Teams in 2026.</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="section-divider reveal"><span>Sound Familiar?</span></div>
-    <section style="padding:0;position:relative">
-      <div class="parallax-layer" data-speed="-0.12">
-        <div class="glow-blob" style="top:40%; right:-20%;"></div>
-      </div>
-      <div class="frame-outer">
-        <span class="corner tl"></span><span class="corner tr"></span>
-        <span class="corner bl"></span><span class="corner br"></span>
-        <div style="padding:56px 48px 0" class="reveal">
-          <div class="label">Sound Familiar?</div>
-          <h2 class="section-title">The Problems Every B2B Founder Knows</h2>
-          <p class="section-sub" style="margin-bottom:0;padding-bottom:40px">If any of these sound like your business,
-            you
-            are not alone — and you are not out of options.</p>
-        </div>
-        <div class="problems-grid">
-          <div class="problem-col reveal hover-target">
-            <div class="problem-num">01</div>
-            <div class="problem-icon">
-              <svg aria-hidden="true" viewBox="0 0 44 44" fill="none">
-                <g style="animation:bob 2.5s ease-in-out infinite">
-                  <circle class="anim-draw" pathLength="100" cx="18" cy="18" r="11" stroke="#FF5C1A"
-                    stroke-width="2.2" />
-                  <circle class="anim-draw-fill delay-2" cx="18" cy="18" r="6" stroke="#FF5C1A" stroke-width="1.5"
-                    opacity="0.35" />
-                  <line class="anim-draw delay-1" pathLength="100" x1="26" y1="26" x2="38" y2="38" stroke="#FF5C1A"
-                    stroke-width="2.8" stroke-linecap="round" />
-                  <line class="anim-draw delay-2" pathLength="100" x1="14" y1="18" x2="22" y2="18" stroke="#FF5C1A"
-                    stroke-width="1.8" stroke-linecap="round" opacity="0.6" />
-                  <line class="anim-draw delay-3" pathLength="100" x1="18" y1="14" x2="18" y2="22" stroke="#FF5C1A"
-                    stroke-width="1.8" stroke-linecap="round" opacity="0.6" />
-                </g>
-              </svg>
-            </div>
-            <div class="problem-title">Your team is busy but revenue is not moving</div>
-            <div class="problem-text">Meetings happen, proposals go out, then silence. The pipeline looks full until you
-              realize most of it was never real to begin with.</div>
-          </div>
-          <div class="problem-col reveal reveal-delay-1 hover-target">
-            <div class="problem-num">02</div>
-            <div class="problem-icon">
-              <svg aria-hidden="true" viewBox="0 0 44 44" fill="none">
-                <g style="animation:blink 3s ease-in-out infinite">
-                  <path class="anim-draw" pathLength="100"
-                    d="M22 7C14.5 7 8.5 12.5 8.5 21v17l4.5-3 4.5 3 4.5-3 4.5 3 4.5-3 4.5 3V21C35.5 12.5 29.5 7 22 7Z"
-                    stroke="#FF5C1A" stroke-width="2.2" stroke-linejoin="round" />
-                </g>
-                <g style="animation:blink 2s ease-in-out infinite 0.3s">
-                  <circle class="anim-draw-fill delay-2" cx="17" cy="21" r="2.5" fill="#FF5C1A" />
-                </g>
-                <g style="animation:blink 2s ease-in-out infinite 0.6s">
-                  <circle class="anim-draw-fill delay-3" cx="27" cy="21" r="2.5" fill="#FF5C1A" />
-                </g>
-                <path class="anim-draw delay-1" pathLength="100" d="M18 27 Q22 30.5 26 27" stroke="#FF5C1A"
-                  stroke-width="1.8" stroke-linecap="round" opacity="0.5" />
-              </svg>
-            </div>
-            <div class="problem-title">Interested prospects disappear without a word</div>
-            <div class="problem-text">They were engaged, asked good questions, even requested a proposal. Then nothing.
-              No
-              reply, no reason, no closure.</div>
-          </div>
-          <div class="problem-col reveal reveal-delay-2 hover-target">
-            <div class="problem-num">03</div>
-            <div class="problem-icon">
-              <svg aria-hidden="true" viewBox="0 0 44 44" fill="none">
-                <g style="animation:spin 6s linear infinite">
-                  <circle class="anim-draw" pathLength="100" cx="22" cy="22" r="12" stroke="#FF5C1A" stroke-width="2.2"
-                    stroke-dasharray="6 4" />
-                </g>
-                <circle class="anim-draw delay-1" pathLength="100" cx="22" cy="22" r="5" stroke="#FF5C1A"
-                  stroke-width="2" />
-                <circle class="anim-draw-fill delay-2" cx="22" cy="22" r="1.8" fill="#FF5C1A" />
-                <line class="anim-draw delay-2" pathLength="100" x1="22" y1="3" x2="22" y2="9" stroke="#FF5C1A"
-                  stroke-width="2.2" stroke-linecap="round" />
-                <polygon class="anim-draw-fill delay-3" points="19,7 22,2 25,7" fill="#FF5C1A" />
-              </svg>
-            </div>
-            <div class="problem-title">You keep fixing things that don't fix the real problem</div>
-            <div class="problem-text">New reps, new scripts, new targets. Numbers shift for a month then drift back.
-              Something upstream is broken and invisible from where you are standing.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="section-divider"><span>What You Receive</span></div>
-    <section id="pricing" style="padding:0">
-      <div class="frame-outer">
-        <span class="corner tl"></span><span class="corner tr"></span>
-        <span class="corner bl"></span><span class="corner br"></span>
-        <div style="padding:56px 48px 0">
-          <div class="label">What You Receive</div>
-          <h2 class="section-title">Everything You Need to Find What Is Costing You Deals</h2>
-          <p class="section-sub">One audit. Two options, based on your team size. Everything your team needs to stop losing deals is inside.</p>
-        </div>
-        <div class="get-layout">
-          <div class="get-left" style="padding: 0 48px 56px 0;">
-            <div class="pricing-card">
-              <h3 style="font-size: 22px; font-weight: 800; color: var(--white); margin-bottom: 20px; letter-spacing: -0.02em;">Pick Your Audit</h3>
-              
-              <div class="pricing-option">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                  <span style="font-size: 14px; font-weight: 700; color: var(--white);">Teams of 5 or fewer</span>
-                  <span style="font-size: 20px; font-weight: 800; color: var(--orange); font-family: 'Bricolage Grotesque';">99 USD</span>
-                </div>
-                <div style="font-size: 12px; color: var(--muted);">Complete pipeline diagnostic for smaller teams.</div>
-              </div>
+  </section>
 
-              <div class="pricing-option">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                  <span style="font-size: 14px; font-weight: 700; color: var(--white);">Teams above 5</span>
-                  <span style="font-size: 20px; font-weight: 800; color: var(--orange); font-family: 'Bricolage Grotesque';">199 USD</span>
-                </div>
-                <div style="font-size: 12px; color: var(--muted);">Full audit & custom process analysis for larger orgs.</div>
-              </div>
-
-              <div class="pricing-features" style="font-size: 13px; color: var(--white); margin-bottom: 20px; line-height: 1.6;">
-                <div style="margin-bottom: 12px; display: flex; gap: 8px; align-items: flex-start;">
-                  <span style="color: var(--green); font-weight: bold;">✓</span>
-                  <span>Both include the full audit, the cost of every leak we find, and your 21 day roadmap.</span>
-                </div>
-                <div style="display: flex; gap: 10px; align-items: center; border: 1px solid rgba(255, 191, 0, 0.25); background: rgba(255, 191, 0, 0.05); padding: 14px; margin-top: 16px; border-radius: var(--r); box-shadow: 0 0 20px rgba(255, 191, 0, 0.1);">
-                  <span style="color: var(--gold); font-size: 18px; font-weight: bold;">★</span>
-                  <span style="color: var(--gold); font-size: 13px; font-weight: 700; line-height: 1.4;">Guarantee: If we do not find leaks worth ten times what you paid, we refund you in full.</span>
-                </div>
-              </div>
-
-              <a href="#tally-open" data-tally-open="xXZ2Oy" data-tally-layout="modal" data-tally-width="500"
-                data-tally-overlay="1" data-tally-emoji-text="??" data-tally-emoji-animation="wave" class="btn" style="width: 100%; display: inline-flex; justify-content: center;"><span
-                  class="btn-text">Start My Audit</span><span class="btn-arr">➟</span></a>
-            </div>
-          </div>
-          <div class="get-right">
-            <div class="get-card reveal hover-target">
-              <div class="get-icon">
-                <svg aria-hidden="true" viewBox="0 0 36 36" fill="none">
-                  <g style="animation:bob 2.5s ease-in-out infinite">
-                    <circle class="anim-draw" pathLength="100" cx="15" cy="15" r="9" stroke="#FF5C1A"
-                      stroke-width="2.5" />
-                    <circle class="anim-draw-fill delay-1" cx="15" cy="15" r="4" stroke="#FF5C1A" stroke-width="1.8"
-                      opacity="0.3" />
-                    <circle class="anim-draw-fill delay-2" cx="15" cy="15" r="1.5" fill="#FF5C1A" />
-                    <line class="anim-draw delay-1" pathLength="100" x1="21.5" y1="21.5" x2="30" y2="30"
-                      stroke="#FF5C1A" stroke-width="2.8" stroke-linecap="round" />
-                  </g>
-                </svg>
-              </div>
-              <div class="get-body">
-                <h4>Where you are losing most deals inside your own sales pipeline</h4>
-                <p>We go through every stage of your sales process and find the exact moments prospects drop off, with
-                  PKR
-                  figures on each one.</p>
-              </div>
-            </div>
-            <div class="get-card reveal hover-target">
-              <div class="get-icon">
-                <svg aria-hidden="true" viewBox="0 0 36 36" fill="none">
-                  <g style="animation:bob 2.5s ease-in-out infinite 0.3s">
-                    <rect class="anim-draw" pathLength="100" x="5" y="4" width="26" height="28" rx="4" stroke="#FF5C1A"
-                      stroke-width="2.5" />
-                  </g>
-                  <line class="anim-draw delay-1" pathLength="100" x1="10" y1="13" x2="26" y2="13" stroke="#FF5C1A"
-                    stroke-width="2" stroke-linecap="round" />
-                  <line class="anim-draw delay-2" pathLength="100" x1="10" y1="19" x2="26" y2="19" stroke="#FF5C1A"
-                    stroke-width="2" stroke-linecap="round" opacity="0.55" />
-                  <line class="anim-draw delay-3" pathLength="100" x1="10" y1="25" x2="19" y2="25" stroke="#FF5C1A"
-                    stroke-width="2" stroke-linecap="round" opacity="0.3" />
-                  <circle class="anim-draw-fill delay-4" cx="24" cy="25" r="3" fill="rgba(34,197,94,0.2)"
-                    stroke="#22C55E" stroke-width="1.5" />
-                </svg>
-              </div>
-              <div class="get-body">
-                <h4>The real cost of every problem, in your own numbers</h4>
-                <p>Not vague observations. Your actual numbers. Every issue comes with its annual cost so you know
-                  exactly
-                  what is at stake.</p>
-              </div>
-            </div>
-            <div class="get-card reveal hover-target">
-              <div class="get-icon">
-                <svg aria-hidden="true" viewBox="0 0 36 36" fill="none">
-                  <g style="animation:bob 2.5s ease-in-out infinite 0.6s">
-                    <rect class="anim-draw" pathLength="100" x="4" y="6" width="28" height="24" rx="4" stroke="#FF5C1A"
-                      stroke-width="2.5" />
-                  </g>
-                  <polyline class="anim-draw delay-2" pathLength="100" points="9,21 15,27 27,11" stroke="#22C55E"
-                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </div>
-              <div class="get-body">
-                <h4>A one week roadmap to fix it</h4>
-                <p>Scripts, qualification frameworks, follow-up sequences, objection responses. Ready for
-                  Monday morning.</p>
-              </div>
-            </div>
-            <div class="get-card reveal hover-target">
-              <div class="get-icon">
-                <svg aria-hidden="true" viewBox="0 0 36 36" fill="none">
-                  <g style="animation:bob 2.5s ease-in-out infinite 0.9s">
-                    <path class="anim-draw" pathLength="100"
-                      d="M18 3L22.5 13L33 13L25 19.5L28 30L18 23.5L8 30L11 19.5L3 13L13.5 13Z" stroke="#FF5C1A"
-                      stroke-width="2.5" stroke-linejoin="round" fill="rgba(255,92,26,0.08)" />
-                  </g>
-                </svg>
-              </div>
-              <div class="get-body">
-                <h4>Full implementation plan included</h4>
-                <p>Whether you build it yourself or bring us in, you leave with everything documented. The report alone
-                  is
-                  worth the 30 minutes it takes.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="section-divider"><span>The Process</span></div>
-    <section id="how" style="padding:0;margin-top:20px">
-      <div class="frame-outer">
-        <span class="corner tl"></span><span class="corner tr"></span>
-        <span class="corner bl"></span><span class="corner br"></span>
-        <div style="padding:56px 48px 0">
-          <div class="label">The Process</div>
-          <h2 class="section-title">How the Audit Works</h2>
-          <p class="section-sub" style="margin-bottom:0;padding-bottom:40px">Three steps. Thirty minutes of your time.
-            Everything else is on us.</p>
-        </div>
-        <div class="how-grid">
-          <div class="how-card reveal hover-target">
-            <div class="how-step">Step 01 · <span style="color:var(--cyan);letter-spacing:0.06em">The Triage</span>
-            </div>
-            <div class="how-icon">
-              <svg aria-hidden="true" viewBox="0 0 52 52" fill="none">
-                <g style="animation:bob 2.5s ease-in-out infinite">
-                  <rect class="anim-draw" pathLength="100" x="6" y="8" width="40" height="34" rx="5" stroke="#22C55E"
-                    stroke-width="2.5" />
-                </g>
-                <line class="anim-draw delay-1" pathLength="100" x1="14" y1="20" x2="38" y2="20" stroke="#22C55E"
-                  stroke-width="2" stroke-linecap="round" />
-                <line class="anim-draw delay-2" pathLength="100" x1="14" y1="27" x2="38" y2="27" stroke="#22C55E"
-                  stroke-width="2" stroke-linecap="round" opacity="0.55" />
-                <line class="anim-draw delay-3" pathLength="100" x1="14" y1="34" x2="28" y2="34" stroke="#22C55E"
-                  stroke-width="2" stroke-linecap="round" opacity="0.3" />
-              </svg>
-            </div>
-            <div class="how-title">Tell us about your business</div>
-            <div class="how-text">A short form — where you are today, who you sell to, what is not working. Your answers
-              shape everything that follows.</div>
-          </div>
-          <div class="how-card reveal hover-target">
-            <div class="how-step">Step 02 · <span style="color:var(--cyan);letter-spacing:0.06em">The Deep Dive</span>
-            </div>
-            <div class="how-icon">
-              <svg aria-hidden="true" viewBox="0 0 52 52" fill="none">
-                <g style="animation:bob 2.5s ease-in-out infinite 0.4s">
-                  <circle class="anim-draw" pathLength="100" cx="26" cy="26" r="17" stroke="#22C55E"
-                    stroke-width="2.5" />
-                </g>
-                <circle class="anim-draw delay-1" pathLength="100" cx="26" cy="26" r="10" stroke="#22C55E"
-                  stroke-width="1.5" opacity="0.3" />
-                <path class="anim-draw delay-2" pathLength="100" d="M18 26L23 31L34 20" stroke="#22C55E"
-                  stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </div>
-            <div class="how-title">We prepare your diagnosis</div>
-            <div class="how-text">We review your answers before we speak and send a short follow-up to fill any gaps. By
-              the time we talk, we already know where to look.</div>
-          </div>
-          <div class="how-card reveal hover-target">
-            <div class="how-step">Step 03 · <span style="color:var(--cyan);letter-spacing:0.06em">The Cure</span></div>
-            <div class="how-icon">
-              <svg aria-hidden="true" viewBox="0 0 52 52" fill="none">
-                <g style="animation:bob 2.5s ease-in-out infinite 0.8s">
-                  <circle class="anim-draw" pathLength="100" cx="26" cy="18" r="9" stroke="#22C55E"
-                    stroke-width="2.5" />
-                </g>
-                <circle class="anim-draw delay-1" pathLength="100" cx="26" cy="18" r="4" stroke="#22C55E"
-                  stroke-width="1.5" opacity="0.3" />
-                <path class="anim-draw delay-2" pathLength="100" d="M10 44C10 35.5 17.2 29 26 29C34.8 29 42 35.5 42 44"
-                  stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" />
-              </svg>
-            </div>
-            <div class="how-title">We present the findings to you</div>
-            <div class="how-text">A direct conversation where we present your findings, show you the numbers, and hand
-              you
-              everything you need to act on it immediately.</div>
-          </div>
-        </div>
-        <div style="text-align:center;padding:40px 48px;border-top:1px solid var(--border)">
-          <a href="#pricing" class="btn"><span
-              class="btn-text">Start My Audit</span><span class="btn-arr">➟</span></a>
-          <div style="font-size:12px;color:var(--muted);margin-top:10px;letter-spacing:0.04em">Full report in your hands
-            within 48 hours.</div>
-        </div>
-      </div>
-    </section>
-    <div class="section-divider"><span>What Changes</span></div>
-    <section>
-      <div class="wrap">
-        <div class="label">Before & After</div>
-        <h2 class="section-title" style="margin-bottom:32px">What changes in 21 days</h2>
-        <div class="ba-wrap">
-          <div class="ba-col before">
-            <div class="ba-head b">✕ Where you are today</div>
-            <div class="ba-item neg">
-              <div class="ba-dot x">✕</div>Deals stalling at the last stage with no idea why
-            </div>
-            <div class="ba-item neg">
-              <div class="ba-dot x">✕</div>Prospects going quiet after promising conversations
-            </div>
-            <div class="ba-item neg">
-              <div class="ba-dot x">✕</div>Team working hard but revenue not showing it
-            </div>
-            <div class="ba-item neg">
-              <div class="ba-dot x">✕</div>Founder closing everything personally
-            </div>
-            <div class="ba-item neg">
-              <div class="ba-dot x">✕</div>No visibility into where leads actually drop off
-            </div>
-            <div class="ba-item neg">
-              <div class="ba-dot x">✕</div>Different revenue number every single month
-            </div>
-          </div>
-          <div class="ba-col after">
-            <div class="ba-head a">✓ With CLOSIMO in 21 Days</div>
-            <div class="ba-item pos">
-              <div class="ba-dot ok">✓</div>A process that moves deals forward without chasing
-            </div>
-            <div class="ba-item pos">
-              <div class="ba-dot ok">✓</div>Follow-up that runs automatically and actually works
-            </div>
-            <div class="ba-item pos">
-              <div class="ba-dot ok">✓</div>Team focused on the right people at the right time
-            </div>
-            <div class="ba-item pos">
-              <div class="ba-dot ok">✓</div>Sales keeps running when the founder steps out
-            </div>
-            <div class="ba-item pos">
-              <div class="ba-dot ok">✓</div>Clear picture of every deal and where it stands
-            </div>
-            <div class="ba-item pos">
-              <div class="ba-dot ok">✓</div>Revenue you can predict before the month even starts
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="section-divider reveal"><span>Calculate Your Leakage</span></div>
-    <section style="padding:0">
-      <div class="wrap">
-        <div class="roi-calculator-wrap reveal">
-          <div class="roi-grid">
-            <div class="roi-left">
-              <h2 class="section-title" style="font-size:clamp(24px, 5vw, 36px); margin-bottom:12px;">How Much Is Your Sales Pipeline<br>Costing You Right Now?</h2>
-              <p class="section-sub" style="margin-bottom:24px;">Drag the slider to your approximate monthly revenue.
-                Based on our audits of B2B companies, here is what is likely leaking out of your pipeline every year.
-              </p>
-              <div class="roi-label">Your Monthly Revenue</div>
-              <div class="roi-revenue-display"><span id="rev-prefix">PKR </span><span id="rev-val">10</span> <span
-                  id="rev-suffix"> Million</span></div>
-              <input type="range" class="saas-slider" id="rev-slider" min="1" max="100" value="10" step="1">
-              <div
-                style="display:flex; justify-content:space-between; font-size:11px; color:var(--muted); margin-top:8px; font-weight:600;">
-                <span>1M</span>
-                <span>100M+</span>
-              </div>
-            </div>
-            <div class="roi-right">
-              <div class="roi-result-card">
-                <div class="roi-result-label">⚠ Estimated Annual Leakage</div>
-                <div class="roi-result-value" id="leak-val">PKR 2.4 Crore</div>
-                <div class="roi-result-equiv" id="leak-equiv">That's roughly 6 senior employee salaries — lost silently
-                  every year.</div>
-                <div class="roi-result-sub">Based on a 20% average pipeline drop-off rate found across our latest audits.
-                </div>
-                <div style="font-size: 13px; color: var(--muted); margin: 12px 0 16px; font-weight: 500; line-height: 1.5; border-left: 2px solid var(--orange); padding-left: 12px;">A 99 or 199 dollar audit against a number like this is not a cost. It is the cheapest way to find out.</div>
-                <div class="roi-cta-wrap">
-                  <a href="#pricing" class="btn"><span class="btn-text">See What You Are Losing</span><span
-                      class="btn-arr">➟</span></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="section-divider reveal"><span>Audit Reports</span></div>
-    <section id="audit-reports" style="background:var(--bg)">
-      <div class="wrap">
-        <div class="label" style="color:var(--orange)">Pakistan Audits — 2026</div>
-        <h2 class="section-title" style="max-width:780px"><span class="geo-cur" data-usd="$250,000+">PKR 7 Crore+</span>
-          in Revenue Leakage<br>Found in 3 Audits.</h2>
-        <p class="section-sub">Real companies. Real numbers from real audit reports. Sample reports available to view.
-        </p>
-        <div class="ar-grid">
-          <div class="ar-card reveal">
-            <div class="ar-tag">ERP &amp; HR SOFTWARE <span>· Pakistan</span></div>
-            <p class="ar-prob"><span class="geo-cur" data-usd="$45K">13M PKR</span> monthly revenue. 10x performance
-              variance between reps. Zero proactive upsell on
-              300–400 existing customers.</p>
-            <div class="ar-divider"></div>
-            <div class="ar-results">
-              <div class="ar-row"><span class="ar-val"><span class="geo-cur" data-usd="$140,000+">PKR 4.0
-                    Crore</span></span><span class="ar-lbl">Annual leakage
-                  found</span></div>
-              <div class="ar-row"><span class="ar-val">4 problems</span><span class="ar-lbl">Root causes
-                  documented</span>
-              </div>
-              <div class="ar-row"><span class="ar-val">+26%</span><span class="ar-lbl">Projected monthly revenue</span>
-              </div>
-              <div class="ar-row"><span class="ar-val">12 weeks</span><span class="ar-lbl">Implementation roadmap</span>
-              </div>
-            </div>
-            <div class="mini-chart">
-              <div class="mini-chart-row">
-                <span class="mini-chart-label">Leakage</span>
-                <div class="mini-chart-track">
-                  <div class="mini-chart-fill" data-width="85%"></div>
-                </div>
-                <span class="mini-chart-value">13M</span>
-              </div>
-              <div class="mini-chart-row">
-                <span class="mini-chart-label">Upside</span>
-                <div class="mini-chart-track">
-                  <div class="mini-chart-fill green" data-width="26%"></div>
-                </div>
-                <span class="mini-chart-value">+26%</span>
-              </div>
-            </div>
-          </div>
-          <div class="ar-card reveal">
-            <div class="ar-tag">VERIFICATION SERVICES <span>· Pakistan</span></div>
-            <p class="ar-prob">99.5% of leads dying unmeasured. Only 19% of team time driving revenue. Sales knowledge
-              locked in one person's head.</p>
-            <div class="ar-divider"></div>
-            <div class="ar-results">
-              <div class="ar-row"><span class="ar-val"><span class="geo-cur" data-usd="$95,000+">PKR 2.7
-                    Crore</span></span><span class="ar-lbl">Annual leakage
-                  found</span></div>
-              <div class="ar-row"><span class="ar-val">3 problems</span><span class="ar-lbl">Root causes
-                  documented</span>
-              </div>
-              <div class="ar-row"><span class="ar-val">10% → 25%</span><span class="ar-lbl">Close rate target</span>
-              </div>
-              <div class="ar-row"><span class="ar-val">+183%</span><span class="ar-lbl">Rep productivity
-                  potential</span>
-              </div>
-            </div>
-            <div class="mini-chart">
-              <div class="mini-chart-row">
-                <span class="mini-chart-label">Risk</span>
-                <div class="mini-chart-track">
-                  <div class="mini-chart-fill" data-width="70%"></div>
-                </div>
-                <span class="mini-chart-value">2.7Cr</span>
-              </div>
-              <div class="mini-chart-row">
-                <span class="mini-chart-label">Gain</span>
-                <div class="mini-chart-track">
-                  <div class="mini-chart-fill cyan" data-width="100%"></div>
-                </div>
-                <span class="mini-chart-value">+183%</span>
-              </div>
-            </div>
-          </div>
-          <div class="ar-card reveal">
-            <div class="ar-tag">SAAS / SOFTWARE <span>· Pakistan</span></div>
-            <p class="ar-prob">400 leads monthly, only 1–2 closing. Demo video killing pipeline before prospects reach
-              the
-              high-converting live demo.</p>
-            <div class="ar-divider"></div>
-            <div class="ar-results">
-              <div class="ar-row"><span class="ar-val"><span class="geo-cur" data-usd="$17,000+"><span class="geo-cur"
-                      data-usd="$17,000+">PKR 48 Lakh</span></span></span><span class="ar-lbl">Annual leakage
-                  found</span>
-              </div>
-              <div class="ar-row"><span class="ar-val">3 problems</span><span class="ar-lbl">Root causes
-                  documented</span>
-              </div>
-              <div class="ar-row"><span class="ar-val">5–7x</span><span class="ar-lbl">More deals same spend</span>
-              </div>
-              <div class="ar-row"><span class="ar-val">90 days</span><span class="ar-lbl">Implementation roadmap</span>
-              </div>
-            </div>
-            <div class="mini-chart">
-              <div class="mini-chart-row">
-                <span class="mini-chart-label">Loss</span>
-                <div class="mini-chart-track">
-                  <div class="mini-chart-fill" data-width="95%"></div>
-                </div>
-                <span class="mini-chart-value">48L</span>
-              </div>
-              <div class="mini-chart-row">
-                <span class="mini-chart-label">Growth</span>
-                <div class="mini-chart-track">
-                  <div class="mini-chart-fill green" data-width="100%"></div>
-                </div>
-                <span class="mini-chart-value">5-7x</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="section-divider"><span>Proven Results</span></div>
-    <section id="results">
-      <div class="wrap">
-        <div class="label">Proven Results</div>
-        <h2 class="section-title"><span class="geo-cur" data-usd="$4.4M+ Generated">PKR 120 Crore
-            Generated</span>.<br>Real companies. Real numbers.</h2>
-        <p class="section-sub" style="margin-bottom:36px">The same system behind every one of these results is what we
-          audit your business against.</p>
-        <div class="cs-grid" style="margin-bottom:14px">
-          <div class="cs-card reveal">
-            <div class="cs-tag">ELV & Security</div>
-            <div class="cs-company">Proline UK</div>
-            <div class="cs-prob">No outbound, no pipeline visibility. Revenue lived entirely on founder relationships —
-              and when that dried up, there was nothing underneath it.</div>
-            <div class="cs-results">
-              <div class="cs-row">
-                <div class="cs-num"><span class="geo-cur" data-usd="$2.6M+">PKR 75 Crore</span></div>Generated in 12
-                months
-              </div>
-              <div class="cs-row">
-                <div class="cs-num">30 to 60</div>Qualified leads every month
-              </div>
-              <div class="cs-row">
-                <div class="cs-num">95%</div>Forecast accuracy achieved
-              </div>
-              <div class="cs-row">
-                <div class="cs-num">30 days</div>First deal closed
-              </div>
-            </div>
-          </div>
-          <div class="cs-card reveal">
-            <div class="cs-tag">Laboratory Equipment</div>
-            <div class="cs-company">Maxtech Corporation</div>
-            <div class="cs-prob">Twenty years in business, zero outbound. When referrals slowed, there was no system to
-              replace them. Enterprise deals were completely unpredictable.</div>
-            <div class="cs-results">
-              <div class="cs-row">
-                <div class="cs-num"><span class="geo-cur" data-usd="$1M+">PKR 28 Crore</span></div>Pipeline built in 3
-                months
-              </div>
-              <div class="cs-row">
-                <div class="cs-num">30 to 60</div>Qualified leads monthly
-              </div>
-              <div class="cs-row">
-                <div class="cs-num">25%</div>Shorter sales cycle
-              </div>
-              <div class="cs-row">
-                <div class="cs-num">30 days</div>First enterprise deal
-              </div>
-            </div>
-          </div>
-          <div class="cs-card reveal">
-            <div class="cs-tag">Telecom Channel Partner</div>
-            <div class="cs-company">Al Deyaa Media · Etisalat Partner</div>
-            <div class="cs-prob">Enterprise deals with no structure behind them. Low conversion and revenue that felt
-              like
-              a guess rather than something you could actually plan for.</div>
-            <div class="cs-results">
-              <div class="cs-row">
-                <div class="cs-num"><span class="geo-cur" data-usd="$780,000+">PKR 22 Crore</span></div>Revenue in 90
-                days
-              </div>
-              <div class="cs-row">
-                <div class="cs-num"><span class="geo-cur" data-usd="$26,000+">PKR 75 Lakh</span></div>Monthly recurring
-                contracts
-              </div>
-              <div class="cs-row">
-                <div class="cs-num">12% to 38%</div>Conversion rate lifted
-              </div>
-              <div class="cs-row">
-                <div class="cs-num">30 days</div>First deal closed
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cs-grid">
-          <div class="cs-card reveal">
-            <div class="cs-tag">Solar Systems</div>
-            <div class="cs-company">Harvest Solar</div>
-            <div class="cs-prob">Retail mindset in a B2B market. No pipeline, no process, no way to know where bigger
-              contracts were coming from — or why they were not.</div>
-            <div class="cs-results">
-              <div class="cs-row">
-                <div class="cs-num"><span class="geo-cur" data-usd="$130,000+">PKR 3.7 Crore</span></div>Closed in 90
-                days
-              </div>
-              <div class="cs-row">
-                <div class="cs-num">PKR 37 Crore</div>Active pipeline built
-              </div>
-              <div class="cs-row">
-                <div class="cs-num">50x ROI</div>On the engagement
-              </div>
-              <div class="cs-row">
-                <div class="cs-num">28 days</div>First deal closed
-              </div>
-            </div>
-          </div>
-          <div class="cs-card reveal">
-            <div class="cs-tag">Home Automation</div>
-            <div class="cs-company">Smart Light Arabia</div>
-            <div class="cs-prob">Early stage with no repeatable system. Everything lived in the founder's head. Scaling
-              meant working more hours — there was no other way.</div>
-            <div class="cs-results">
-              <div class="cs-row">
-                <div class="cs-num"><span class="geo-cur" data-usd="$78,000+">PKR 2.2 Crore</span></div>Revenue closed
-              </div>
-              <div class="cs-row">
-                <div class="cs-num">PKR 37 Crore</div>Pipeline built
-              </div>
-              <div class="cs-row">
-                <div class="cs-num">90%</div>Forecast accuracy
-              </div>
-              <div class="cs-row">
-                <div class="cs-num">30 days</div>First customer closed
-              </div>
-            </div>
-          </div>
-          <div class="cs-card reveal">
-            <div class="cs-tag">Staff Augmentation</div>
-            <div class="cs-company">XIS Labs</div>
-            <div class="cs-prob">Manual tracking across every deal. Inconsistent pipeline and no follow-up automation.
-              Good leads were slipping through because response times were too slow.</div>
-            <div class="cs-results">
-              <div class="cs-row">
-                <div class="cs-num">20 to 50</div>Leads per month
-              </div>
-              <div class="cs-row">
-                <div class="cs-num"><span class="geo-cur" data-usd="$2,500+">PKR 7 Lakh</span></div>Revenue per
-                placement
-              </div>
-              <div class="cs-row">
-                <div class="cs-num">40%</div>Deal loss reduced
-              </div>
-              <div class="cs-row">
-                <div class="cs-num">30 days</div>First client closed
-              </div>
-            </div>
-          </div>
-        </div>
-        <div style="text-align:center;margin-top:40px">
-          <a href="#pricing" class="btn"><span
-              class="btn-text">Start My Audit</span><span class="btn-arr">➟</span></a>
-        </div>
-      </div>
-    </section>
-    <div class="section-divider"><span>What People Say</span></div>
-    <div class="wa-strip"
-      style="background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:24px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
-      <div>
-        <div
-          style="font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:700;color:var(--white);margin-bottom:4px">
-          Prefer to ask a question first?</div>
-        <div style="font-size:13px;color:var(--muted)">No forms. No sales calls. Just a direct answer.</div>
-      </div>
-      <a href="https://wa.me/923700950063"
-        style="display:inline-flex;align-items:center;gap:10px;background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.25);border-radius:999px;padding:12px 22px;font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:700;color:#25D366;text-decoration:none;white-space:nowrap;transition:background 0.2s"
-        class="wa-hover" target="_blank" rel="noopener">
-        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="#25D366">
-          <path
-            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-          <path
-            d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.525 5.854L.057 23.59l5.904-1.548A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-5.006-1.375l-.358-.214-3.724.977.995-3.638-.234-.374A9.794 9.794 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
-        </svg>
-        WhatsApp Us Directly ➟
-      </a>
+  <section class="s" id="results">
+    <h2>Case studies</h2>
+    <p class="lede">Four clients, four results. Named with their permission.</p>
+    
+    <div class="res">
+      <article><img class="cl" src="images/clients/sjd-light.webp" alt="SJ Design"><span class="small">SJD Construction · Pakistan</span><strong>4x meetings</strong><p>From 1 to 2 qualified meetings to 5 in the next 5 weeks. 480 hours of manual chat replies saved a year. <a class="cs" href="blog/construction-sales-automation-case-study-2026.html">Read the case study</a></p></article>
+      <article><img class="cl" src="images/clients/sla-light.webp" alt="Smart Light Arabia"><span class="small">Smart Light Arabia · UAE</span><strong>AED 6 million</strong><p>Biggest single deal closed. We still run their sales today.</p></article>
+      <article><img class="cl" src="images/clients/taaraf-light.webp" alt="Al Taaraf Group"><span class="small">Al Taaraf Group · ELV and security</span><strong>PKR 75 crore</strong><p>Generated in 12 months. Revenue had lived only on the founder's relationships.</p></article>
+      <article><img class="cl" src="images/clients/ascom-light.webp" alt="Ascom Consulting UK"><span class="small">Ascom Consulting · Education and training · UK</span><strong>0 missed follow ups</strong><p>No visibility on leads. We set up a tracking system with AI built in. Now they see every lead end to end.</p></article>
     </div>
-    <section id="testimonials" class="testi-section" style="margin-top:20px">
-      <div class="wrap" style="margin-bottom:44px">
-        <div class="label">What People Say</div>
-        <h2 class="section-title">Founders who have been through it</h2>
-        <p class="section-sub" style="margin-bottom:0">Real conversations with real business owners about what actually
-          changed.</p>
-      </div>
-      <div class="testi-marquee-wrap">
-        <div class="testi-track ltr" id="track-ltr"></div>
-      </div>
-      <div class="testi-marquee-wrap">
-        <div class="testi-track rtl" id="track-rtl"></div>
-      </div>
-    </section>
-    <div class="section-divider"><span>Questions Answered</span></div>
-    <section id="faq">
-      <div class="wrap">
-        <div class="faq-layout">
-          <div>
-            <div class="label">FAQ</div>
-            <h2 class="section-title">Questions<br>Answered</h2>
-            <p style="color:var(--muted);margin-top:14px;line-height:1.72;font-size:15px">Still unsure? Message us
-              directly. We respond fast.</p>
-            <a href="https://wa.me/923700950063" target="_blank" rel="noopener"
-              style="display:inline-flex;align-items:center;gap:6px;margin-top:20px;color:var(--green);font-weight:600;font-size:14px;text-decoration:none">→
-              WhatsApp us now</a>
-          </div>
-          <div class="faq-list">
-            <div class="faq-item">
-              <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why does this cost money now?</div>
-              <div class="faq-a">
-                <div class="faq-a-inner">We used to run this for free. Too many people signed up who were not ready to act
-                  on what we found. Now it costs 99 or 199 dollars depending on your team size, and we back it
-                  with a guarantee. That keeps this for founders who are serious about fixing what we find.</div>
-              </div>
-            </div>
-            <div class="faq-item">
-              <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What if my team is exactly 5 people?</div>
-              <div class="faq-a">
-                <div class="faq-a-inner">5 people or fewer is the 99 dollar tier. Above 5, it moves to 199.</div>
-              </div>
-            </div>
-            <div class="faq-item">
-              <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What will I actually receive?
-              </div>
-              <div class="faq-a">
-                <div class="faq-a-inner">A detailed report showing every revenue leak in your sales process with PKR
-                  figures. A
-                  21-day fix roadmap. Scripts for qualification, discovery, and closing. Objection frameworks. Full
-                  implementation plan. Everything documented and ready to use immediately.</div>
-              </div>
-            </div>
-            <div class="faq-item">
-              <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How much of my time does this
-                take?
-              </div>
-              <div class="faq-a">
-                <div class="faq-a-inner">Thirty minutes total. A short form, a quick follow-up call, then the
-                  presentation. Your
-                  full report lands within 48 hours after that.</div>
-              </div>
-            </div>
-            <div class="faq-item">
-              <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What happens after the audit?
-              </div>
-              <div class="faq-a">
-                <div class="faq-a-inner">We present your findings and walk you through the roadmap. The report is yours
-                  to keep
-                  regardless. If you want us to implement the fixes, we offer a paid engagement starting from <span
-                    class="geo-cur" data-usd="$900">PKR 2.5 Lakh</span>.
-                  No pressure, no follow-up calls unless you ask for one.</div>
-              </div>
-            </div>
-            <div class="faq-item">
-              <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How is this different from other
-                audits?</div>
-              <div class="faq-a">
-                <div class="faq-a-inner">Most audits are a generic checklist. We go three layers deep into your actual
-                  business
-                  —
-                  the numbers, the process, the ground reality. Every problem comes with its PKR cost and a specific
-                  fix.</div>
-              </div>
-            </div>
-            <div class="faq-item">
-              <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do I qualify?</div>
-              <div class="faq-a">
-                <div class="faq-a-inner">If you have 10 or more employees, an active sales operation, and at least <span
-                    class="geo-cur" data-usd="$3,500">PKR 1M</span> in
-                  monthly revenue — yes. Not sure? WhatsApp us and we will tell you honestly in minutes.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="final-cta" id="audit">
-      <h2>Ready to Find What's<br><em>Costing You Deals?</em></h2>
-      <p>You are losing deals inside your own sales pipeline. One audit away from knowing exactly where.</p>
-      <a href="#pricing" class="btn"><span
-          class="btn-text">Start My Audit</span><span class="btn-arr">➟</span></a>
-      <div class="cta-scarcity">Each audit takes 6+ hours of analysis. We cap at 7 per month to protect that standard.
-      </div>
-      <div class="cta-micro">Real audit. Honest conversation. 48-hour delivery. Zero pressure.</div>
+
+    <h3 class="sub3">What our clients say</h3>
+    <div class="quotes"><figure><div class="qt"><img class="ql ql-sla" src="images/clients/sla-dark.webp" alt="Smart Light Arabia"><div class="stars" aria-label="5 out of 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg></div></div><blockquote>The team was working hard but deals weren't closing at the rate they should. CLOSIMO showed us exactly where the process was breaking down. We went from chasing proposals to a system that runs itself.</blockquote><figcaption><b>Hashmat Abbas</b><span>Head of Business · Smart Light Arabia</span></figcaption></figure><figure><div class="qt"><img class="ql ql-taaraf" src="images/clients/taaraf-dark.webp" alt="Al Taaraf Security Group"><div class="stars" aria-label="5 out of 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg></div></div><blockquote>Security is a relationship business. We were winning on relationships and losing on process. CLOSIMO fixed the process without touching what made us good at the relationship side.</blockquote><figcaption><b>Faizan Hamus</b><span>CEO · Al Taaraf Security Group</span></figcaption></figure><figure><div class="qt"><img class="ql ql-deyaa" src="images/clients/deyaa-dark.webp" alt="Al Deyaa Media Production"><div class="stars" aria-label="5 out of 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg></div></div><blockquote>I knew something was off but couldn't put a number on it. CLOSIMO put a number on it, then helped us fix it. Profitability doubled within the year.</blockquote><figcaption><b>Ahmed El Basel</b><span>Managing Partner · Al Deyaa Media Production</span></figcaption></figure><figure><div class="qt"><img class="ql ql-insignia" src="images/clients/insignia-dark.webp" alt="Insignia Business Solutions"><div class="stars" aria-label="5 out of 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg></div></div><blockquote>400 leads a month and barely 1–2 closing. That's not a lead problem, that's a process problem. CLOSIMO found <b>PKR 48 Lakh</b> in annual leakage across 3 root causes. The roadmap gave us a clear path to 5–7x more deals with the same spend.</blockquote><figcaption><b>Ahsan Riaz</b><span>Managing Director · Insignia Business Solutions</span></figcaption></figure><figure><div class="qt"><img class="ql ql-ascom" src="images/clients/ascom-dark.webp" alt="Ascom Consulting UK"><div class="stars" aria-label="5 out of 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg></div></div><blockquote>CLOSIMO set up our tracking system, powered by AI. Our team no longer guesses on follow ups. AI tells them who to follow up and what to say, based on each lead’s stage and preference. Every follow up is written in the first hour of the day, however many there are. We now see our whole sales operation in real time and get weekly and monthly suggestions on what to fix. Our decisions are now based on data.</blockquote><figcaption><b>Mir Hamsa</b><span>COO Pakistan · Ascom Consulting UK</span></figcaption></figure><figure><div class="qt"><img class="ql ql-maxtech" src="images/clients/maxtech-dark.webp" alt="Maxtech Corporation"><div class="stars" aria-label="5 out of 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z"/></svg></div></div><blockquote>Twenty years building this business. I thought I knew where the problems were. CLOSIMO showed me I was looking in the wrong place entirely. We finally have a pipeline we can predict.</blockquote><figcaption><b>Ghulam Mujtaba</b><span>Founder · Maxtech Corporation</span></figcaption></figure></div>
+    <div class="qdots" id="qdots" aria-hidden="true"></div>
+  </section>
+
+  <section class="s" id="faq">
+    <h2>Questions owners ask</h2>
+    <div class="faq">
+      <div><h3>Is the diagnosis really free?</h3><p>Yes. One call, then a one page Sales Diagnosis Report. You keep it either way. No pressure to buy.</p></div>
+      <div><h3>Will you share my data or my name?</h3><p>No. We sign an NDA with every client before any data is shared. That is why this site shows industries only, never names.</p></div>
+      <div><h3>Why pay for the audit?</h3><p>The diagnosis shows where to look. The audit proves it with your own data and puts a cost on every leak.</p></div>
+      
+      <div><h3>Who don't you work with?</h3><p>Government, semi government, tender based businesses and eCom stores.</p></div>
+      
+      
+      <div><h3>How do I pay for the audit?</h3><p>By bank transfer.</p></div>
     </div>
-    <footer class="footer-outer">
-      <div class="frame-outer">
-        <span class="corner tl"></span><span class="corner tr"></span>
-        <span class="corner bl"></span><span class="corner br"></span>
-        <div class="footer-top">
-          <a href="#" class="footer-logo" style="padding:0"><img src="image1.png" alt="CLOSIMO"
-              style="height:26px;width:auto;display:block;object-fit:cover"></a>
-          <ul class="footer-nav">
-            <li><a href="#about">About</a></li>
-            <li><a href="#how">How It Works</a></li>
-            <li><a href="calculator/">Quick Audit</a></li>
-            <li><a href="blog/">Resources</a></li>
-            <li><a href="#audit-reports">Sample Audit Report</a></li>
-            <li><a href="#results">Case Studies</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#faq">FAQ</a></li>
-          </ul>
-          <div class="footer-socials">
-            <a href="#" title="Facebook"><svg aria-hidden="true" viewBox="0 0 24 24">
-                <path
-                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-              </svg></a>
-            <a href="https://www.linkedin.com/in/smawais/" title="LinkedIn" target="_blank" rel="noopener"><svg
-                viewBox="0 0 24 24">
-                <path
-                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-              </svg></a>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <div class="footer-copy">© Copyright CLOSIMO 2026. All Rights Reserved.</div>
-          <div class="footer-legal"><a href="closimo-legal.html">Privacy Policy</a><a href="closimo-legal.html">Terms &
-              Conditions</a></div>
-        </div>
-      </div>
-    </footer>
-    <a href="https://wa.me/923700950063" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp">
-      <svg aria-hidden="true" viewBox="0 0 24 24">
-        <path
-          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-        <path
-          d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.525 5.854L.057 23.59l5.904-1.548A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-5.006-1.375l-.358-.214-3.724.977.995-3.638-.234-.374A9.794 9.794 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
-      </svg>
-    </a>
-    <button id="back-to-top" class="btt-btn" aria-label="Back to Top">↑</button>
-    <script src="app.js" defer></script>
-    <script async src="https://tally.so/widgets/embed.js"></script>
-  </main>
+  </section>
+
+  <section class="final">
+    <h2>Find out where your deals go.</h2>
+    <div class="btns">
+      <a class="btn p" href="#start" data-book="diagnosis">Book Free Diagnosis</a>
+      <a class="btn g" href="#start" data-book="audit">Book Sales Audit</a>
+    </div>
+    <p class="price">Free diagnosis call. Sales Audit from PKR 60,000.</p>
+  </section>
+
+  <footer class="end">
+    <img src="image1.png" alt="CLOSIMO" width="120" height="24">
+    <nav><a href="about/">About Us</a><a href="findings/">Findings</a><a href="#results">Case Studies</a><a href="calculator/">Leakage Calculator</a><a href="blog/">Blog</a><a href="#faq">FAQ</a></nav>
+    <p>Office #10, Orient Mall, Khanewal Road, Multan, Pakistan · WhatsApp +92 370 0950063</p>
+  </footer>
+</main>
+<nav class="mbar" id="mbar" aria-label="Book a call"><a class="btn p" href="#start">Free Diagnosis</a><a class="btn g" href="#start">Sales Audit</a></nav>
+<script src="home.js" defer></script>
 </body>
 </html>
