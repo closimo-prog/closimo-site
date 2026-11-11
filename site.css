@@ -584,3 +584,6 @@ html{overflow-x:clip}
 .sty-tl b{font:400 28px/1 "Bebas Neue",Impact,sans-serif;color:var(--or)}
 .sty-tl span{font-size:13px;color:var(--mute);line-height:1.4}
 @media (max-width:899px){.sty-by>div{border-right:0;padding-right:0}.sty-tx>p:not(.small){font-size:17px}}
+/* header polish: no line under the nav, slimmer findings bar */
+header{border-bottom:0!important}
+.tbar{min-height:32px!important;padding-block:5px!important;padding-top:calc(5px + env(safe-area-inset-top,0px))!important;font-size:12.5px!important;gap:8px!important}
