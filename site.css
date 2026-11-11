@@ -713,3 +713,19 @@ scroll-snap-align:start;background:var(--box);border:1px solid var(--edge);borde
 .vd5 p{font:500 15px/1.5 Inter,sans-serif!important;color:var(--m)!important;display:grid;gap:6px}
 .vd5 p b{font:700 19px/1.3 "Bricolage Grotesque",Inter,sans-serif;color:var(--k);text-wrap:balance}
 @media (min-width:760px){.vd5 p b{font-size:21px}}
+.bz5{margin:-4px 0 0;font-size:14px;line-height:1.45;color:var(--m)}
+@media (max-width:759px){
+.fc5{gap:10px;padding:18px 16px}
+.bs5{gap:8px}
+.br5{gap:4px 10px}
+.ls5{padding-top:10px}
+.ls5 strong{font-size:36px}
+.kv5{gap:5px;font-size:13.5px}
+.kv5 div{grid-template-columns:112px 1fr}
+.kv5 dt{font-size:10.5px}
+.vd5{padding-top:10px;gap:3px}
+.vd5 p{font-size:14px!important;gap:4px}
+.vd5 p b{font-size:18px}
+.bz5{font-size:13.5px}
+.fc5 h3{font-size:18px}
+}
