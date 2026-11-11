@@ -636,3 +636,40 @@ img.brand-s{height:20px;width:auto;display:block}
 .fc2 .loss{background:none!important;border:0!important;border-top:1px solid var(--edge)!important;border-radius:0!important;padding:14px 0 0!important;margin:auto 0 0!important;display:flex!important;flex-direction:row!important;align-items:baseline!important;gap:10px!important;flex-wrap:wrap}
 .fc2 .loss strong{font:400 34px/1 "Bebas Neue",Impact,sans-serif!important;color:var(--or)!important}
 .fc2 .loss span{font-size:14px!important;color:var(--mute)!important;margin:0!important}
+/* Findings v4: audit report cards. Black by default, orange on hover or in view */
+.fc4{background:var(--box);border:1px solid var(--edge);border-radius:24px;padding:24px 22px;display:flex;flex-direction:column;gap:14px;min-width:0;color:var(--ink);transition:background-color .25s,border-color .25s,color .25s;outline:none}
+.fh4{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}
+.fc4 .ind{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--or)}
+.fc4 .tm{font-size:12.5px;color:var(--faint)}
+.fc4 h3{margin:0;font:600 21px/1.25 "Bricolage Grotesque",Inter,sans-serif;color:inherit;text-wrap:balance}
+.fc4 .ln{margin:0;font-size:14px;line-height:1.5;color:var(--mute)}
+.fc4 .bars{gap:14px}
+.fc4 .bl{font-size:13.5px;color:var(--mute)}
+.fc4 .bv{font-weight:700;font-size:15px}
+.fc4 .bt{height:18px}
+.fc4 .st4{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;border-top:1px solid var(--edge);padding-top:14px;margin-top:auto}
+.fc4 .st4 p{margin:0;display:grid;gap:2px}
+.fc4 .st4 strong{font:400 36px/1 "Bebas Neue",Impact,sans-serif;color:var(--or);letter-spacing:.01em}
+.fc4 .st4 span{font-size:13px;color:var(--mute)}
+.fc4 .fy{align-self:flex-start;font-weight:600;font-size:14px;color:var(--faint);text-decoration:none}
+.fc4:not(:has(.st4)) .fy{margin-top:auto}
+.fc4.on,.fc4:focus-visible{background:var(--or);border-color:var(--or);color:var(--or-ink)}
+@media (hover:hover){.fc4:hover{background:var(--or);border-color:var(--or);color:var(--or-ink)}}
+.fc4.on .ind,.fc4.on .tm,.fc4.on .ln,.fc4.on .bl,.fc4.on .st4 span,.fc4.on .fy,.fc4.on .st4 strong,.fc4.on .br.hot .bv{color:var(--or-ink)}
+.fc4.on .ln,.fc4.on .bl,.fc4.on .st4 span,.fc4.on .tm{opacity:.78}
+.fc4.on .bt{background:rgba(20,6,0,.14);border-color:transparent}
+.fc4.on .bt i{background:rgba(20,6,0,.45)}
+.fc4.on .br.hot .bt i{background:var(--or-ink)}
+.fc4.on .st4{border-top-color:rgba(20,6,0,.22)}
+@media (hover:hover){
+.fc4:hover .ind,.fc4:hover .tm,.fc4:hover .ln,.fc4:hover .bl,.fc4:hover .st4 span,.fc4:hover .fy,.fc4:hover .st4 strong,.fc4:hover .br.hot .bv{color:var(--or-ink)}
+.fc4:hover .ln,.fc4:hover .bl,.fc4:hover .st4 span,.fc4:hover .tm{opacity:.78}
+.fc4:hover .bt{background:rgba(20,6,0,.14);border-color:transparent}
+.fc4:hover .bt i{background:rgba(20,6,0,.45)}
+.fc4:hover .br.hot .bt i{background:var(--or-ink)}
+.fc4:hover .st4{border-top-color:rgba(20,6,0,.22)}
+}
+@media (prefers-reduced-motion:reduce){.fc4{transition:none}}
+.fc4 .st4 strong{white-space:nowrap;font-size:clamp(30px,8.5vw,38px)}
+.fc4.on .bv{color:var(--or-ink)}
+@media (hover:hover){.fc4:hover .bv{color:var(--or-ink)}}
