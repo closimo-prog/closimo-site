@@ -25,6 +25,7 @@ panels=''.join('<div class="fpan" role="tabpanel" data-s="%s"%s><div class="fgri
 total=sum(len(fs) for _,fs in D)
 sec='''  <section class="fh">
     <a class="back" href="../">← Back to home</a>
+    <p class="small">Sales Diagnoses</p>
     <h1>40+ businesses we diagnosed since July 2026.</h1>
     <p>The sharpest of them, by sector. Their numbers in their words, where the deals die, what it costs, and our verdict. Industry only, because every client is under NDA.</p>
   </section>
