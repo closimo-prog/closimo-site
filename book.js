@@ -20,7 +20,12 @@
     var hidden = { offer: offer, tier: t, page: page };
     if (window.gtag) gtag('event', 'book_click', { offer: offer, page: page });
     if (window.Tally && Tally.openPopup) {
-      Tally.openPopup(FORM, { layout: 'modal', width: 560, overlay: true, hiddenFields: hidden });
+      Tally.openPopup(FORM, {
+        layout: 'modal', width: 560, overlay: true, hiddenFields: hidden,
+        onSubmit: function () {
+          if (window.gtag) gtag('event', 'generate_lead', { offer: offer, page: page, tier: t || 'none' });
+        }
+      });
     } else {
       var q = Object.keys(hidden).filter(function (k) { return hidden[k]; })
         .map(function (k) { return k + '=' + encodeURIComponent(hidden[k]); }).join('&');
