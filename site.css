@@ -761,6 +761,6 @@ footer.ft .flegal a{font-size:13px;color:var(--mute)}
 /* Paid Audit card highlight and button */
 #paybtn .pnow{font-weight:800}
 #paybtn.custom .pnow{display:none}
-.offer.paid.pulse{animation:paidpulse 1.6s ease-out 1}
+.offer.pulse{animation:paidpulse 1.6s ease-out 1}
 @keyframes paidpulse{0%{box-shadow:0 0 0 0 rgba(255,92,26,.7)}100%{box-shadow:0 0 0 18px rgba(255,92,26,0)}}
-@media (prefers-reduced-motion:reduce){.offer.paid.pulse{animation:none;outline:2px solid var(--or)}}
+@media (prefers-reduced-motion:reduce){.offer.pulse{animation:none;outline:2px solid var(--or)}}
