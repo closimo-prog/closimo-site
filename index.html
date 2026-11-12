@@ -41,7 +41,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="site.css?v=1722">
+  <link rel="stylesheet" href="site.css?v=1724">
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0KFXKT97C8"></script>
   <script>
@@ -68,7 +68,7 @@
       <p class="sub">We find where your pipeline leaks, why, what it costs, and fix it with your team.</p>
       <div class="btns">
         <a class="btn p" href="#start" data-book="diagnosis">Book Free Diagnosis</a>
-        <a class="btn g" href="#start" data-book="audit">Book Sales Audit</a>
+        <a class="btn g" href="#paid" data-go="audit">Book Paid Audit</a>
       </div>
       <ul class="bdg"><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg><span><b>PKR 100 Cr+</b> closed<em class="dk"> by clients</em></span></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span><b>PKR 100 Cr+</b> leakage found</span></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span><b>50+</b> Diagnoses in 2026</span></li></ul>
     </div>
@@ -134,17 +134,17 @@
         </ul>
         <a class="btn" href="#start" data-book="diagnosis">Book Free Diagnosis</a>
       </div>
-      <div class="offer paid">
+      <div class="offer paid" id="paid">
         <h3>CLOSIMO Sales Audit</h3>
         <p class="amt">Pick your team size</p>
         <div class="seg" role="radiogroup" aria-label="Team size">
-          <button type="button" role="radio" aria-checked="true" data-p="PKR 60,000">3 to 5 Sales Reps</button>
-          <button type="button" role="radio" aria-checked="false" data-p="PKR 100,000">6 to 10 Sales Reps</button>
-          <button type="button" role="radio" aria-checked="false" data-p="Fully custom">More than 10 Sales Reps</button>
+          <button type="button" role="radio" aria-checked="true" data-p="PKR 60,000" data-usd="$750">3 to 5 Sales Reps</button>
+          <button type="button" role="radio" aria-checked="false" data-p="PKR 100,000" data-usd="$1,250">6 to 10 Sales Reps</button>
+          <button type="button" role="radio" aria-checked="false" data-p="Fully custom" data-usd="Fully custom">More than 10 Sales Reps</button>
         </div>
         <strong class="pval" id="pval" aria-live="polite">PKR 60,000</strong>
         <ul><li class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>Your full pipeline</li><li class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Your sales people, one to one</li><li class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Your training system</li><li class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18M7 6h1v4m8.71 3.88.7.71-2.82 2.82"/></svg>Your incentives</li><li class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3M12 12V8"/></svg>Your sales structure</li></ul>
-        <a class="btn" href="#start" data-book="audit">Book Sales Audit</a>
+        <a class="btn" id="paybtn" href="#start" data-book="audit">Book Paid Audit<span class="pnow">&nbsp;· PKR 60,000</span></a>
       </div>
     </div>
   </section>
@@ -170,7 +170,7 @@
     <div class="faq">
       <div><h3>Is the diagnosis really free?</h3><p>Yes. One call, then a one page Sales Diagnosis Report. You keep it either way. No pressure to buy.</p></div>
       <div><h3>Will you share my data or my name?</h3><p>No. We sign an NDA with every client before any data is shared. That is why this site shows industries only, never names.</p></div>
-      <div><h3>Why pay for the audit?</h3><p>The diagnosis shows where to look. The audit proves it with your own data and puts a cost on every leak.</p></div>
+      <div><h3>What does the Paid Audit cover that the free diagnosis doesn't?</h3><p>The free diagnosis shows you where the leak is. The Paid Audit digs into why. We go through your full pipeline with your own data, sit with each sales person one to one, and check your team structure, training system and incentives. You get a cost on every leak and a clear plan to fix it.</p></div>
       
       <div><h3>Who don't you work with?</h3><p>Government, semi government, tender based businesses and eCom stores.</p></div>
       
@@ -183,9 +183,9 @@
     <h2>Find out where your deals go.</h2>
     <div class="btns">
       <a class="btn p" href="#start" data-book="diagnosis">Book Free Diagnosis</a>
-      <a class="btn g" href="#start" data-book="audit">Book Sales Audit</a>
+      <a class="btn g" href="#paid" data-go="audit">Book Paid Audit</a>
     </div>
-    <p class="price">Free diagnosis call. Sales Audit from PKR 60,000.</p>
+    <p class="price">Free diagnosis call. Paid Audit from <span class="pfrom">PKR 60,000</span>.</p>
   </section>
 
   <footer class="end ft">
@@ -200,14 +200,14 @@
         <div class="socs"><a class="soc" href="https://www.facebook.com/profile.php?id=61583271639873" target="_blank" rel="noopener noreferrer" aria-label="CLOSIMO on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.6V21z"/></svg></a><a class="soc" href="https://www.instagram.com/14mas.closimo/" target="_blank" rel="noopener noreferrer" aria-label="CLOSIMO on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.9" cy="7.1" r=".6" fill="currentColor" stroke="none"/></svg></a><a class="soc" href="https://www.linkedin.com/company/109760342/" target="_blank" rel="noopener noreferrer" aria-label="CLOSIMO on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5.4 9.3h3v9.7h-3zM6.9 4.6a1.7 1.7 0 1 1 0 3.5 1.7 1.7 0 0 1 0-3.5M10.3 9.3h2.9v1.3c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.6 2 3.6 4.6V19h-3v-4.8c0-1.1 0-2.6-1.6-2.6s-1.8 1.2-1.8 2.5V19h-3z"/></svg></a></div>
       </div>
       <div class="fcol"><h4>Company</h4><a href="about/">About Us</a><a href="findings/">Sales Diagnoses</a><a href="#results">Case Studies</a><a href="#start">Pricing</a><a href="#faq">FAQ</a></div>
-      <div class="fcol"><h4>Free tools</h4><a href="calculator/">Leakage Calculator</a><a href="blog/">Blog</a><a href="#start" data-book="diagnosis">Book Free Diagnosis</a><a href="#start" data-book="audit">Book Sales Audit</a></div>
+      <div class="fcol"><h4>Free tools</h4><a href="calculator/">Leakage Calculator</a><a href="blog/">Blog</a><a href="#start" data-book="diagnosis">Book Free Diagnosis</a><a href="#paid" data-go="audit">Book Paid Audit</a></div>
     </div>
     <div class="ftb"><nav class="flegal"><a href="closimo-legal.html">Privacy Policy</a><a href="closimo-legal.html#terms">Terms of Service</a></nav><p>© 2026 CLOSIMO · SMA Business Connect SMC-Private Limited. All rights reserved.</p></div>
   </footer>
 </main>
-<nav class="mbar" id="mbar" aria-label="Book a call"><a class="btn p" href="#start" data-book="diagnosis">Free Diagnosis</a><a class="btn g" href="#start" data-book="audit">Sales Audit</a></nav>
-<script src="home.js?v=1722" defer></script>
-<script src="book.js?v=1722" defer></script>
+<nav class="mbar" id="mbar" aria-label="Book a call"><a class="btn p" href="#start" data-book="diagnosis">Free Diagnosis</a><a class="btn g" href="#paid" data-go="audit">Paid Audit</a></nav>
+<script src="home.js?v=1724" defer></script>
+<script src="book.js?v=1724" defer></script>
 <script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>
