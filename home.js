@@ -13,9 +13,10 @@
   function sync(){var b=document.querySelector('.seg button[aria-checked="true"]')||bs[0];if(!b)return;var p=price(b);if(v)v.textContent=p;if(pn){pn.textContent='\u00a0· '+p;pn.parentNode.classList.toggle('custom',p==='Fully custom')}}
   if(!pk&&pf)pf.textContent='$750';
   bs.forEach(function(b){b.addEventListener('click',sync)});sync();
-  var card=document.getElementById('paid');
-  function go(e){if(e)e.preventDefault();if(!card)return;card.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});card.classList.remove('pulse');void card.offsetWidth;card.classList.add('pulse')}
-  document.addEventListener('click',function(e){var a=e.target.closest('[data-go="audit"]');if(a)go(e)});
-  if(location.hash==='#paid')setTimeout(go,300);
+  var sec=document.getElementById('start');
+  function go(kind,e){if(e)e.preventDefault();if(!sec)return;var c=document.getElementById(kind==='audit'?'paid':'free');sec.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});if(c){c.classList.remove('pulse');void c.offsetWidth;c.classList.add('pulse')}}
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-go]');if(a)go(a.getAttribute('data-go'),e)});
+  if(location.hash==='#paid')setTimeout(function(){go('audit')},300);
+  if(location.hash==='#free')setTimeout(function(){go('diagnosis')},300);
   window.closimoPrice=function(){var b=document.querySelector('.seg button[aria-checked="true"]');return b?price(b):''};
 })();
