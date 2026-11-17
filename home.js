@@ -27,3 +27,5 @@
   document.querySelectorAll('.apn ul li').forEach(function(li){li.setAttribute('data-go','audit');li.setAttribute('role','link');li.setAttribute('tabindex','0');});
   document.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target.matches&&e.target.matches('.qual[data-go],.apn li[data-go]')){e.preventDefault();e.target.click();}});
 })();
+/* Grow the home funnel bars when they come into view */
+(function(){var f=document.querySelectorAll('.fn');if(!('IntersectionObserver' in window)){f.forEach(function(x){x.classList.add('go')});return}var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('go');o.unobserve(e.target)}})},{threshold:.4});f.forEach(function(x){o.observe(x)})})();
