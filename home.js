@@ -20,3 +20,10 @@
   if(location.hash==='#free')setTimeout(function(){go('diagnosis')},300);
   window.closimoPrice=function(){var b=document.querySelector('.seg button[aria-checked="true"]');return b?price(b):''};
 })();
+/* Tap fixes (17 Nov). Clarity showed taps on the qualifier pill and the audit points */
+(function(){
+  var q=document.querySelector('.hero .qual');
+  if(q){q.setAttribute('data-go','diagnosis');q.setAttribute('role','link');q.setAttribute('tabindex','0');q.setAttribute('aria-label','See the two ways to start');}
+  document.querySelectorAll('.apn ul li').forEach(function(li){li.setAttribute('data-go','audit');li.setAttribute('role','link');li.setAttribute('tabindex','0');});
+  document.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target.matches&&e.target.matches('.qual[data-go],.apn li[data-go]')){e.preventDefault();e.target.click();}});
+})();
