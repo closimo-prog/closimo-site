@@ -773,13 +773,13 @@ footer.ft .flegal a{font-size:13px;color:var(--mute)}
 .fb{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:baseline}
 .fb span{font-size:13px;color:rgba(20,6,0,.75)}
 .fb b{font-size:14px;font-weight:700;color:var(--or-ink)}
-.ft{grid-column:1/-1;height:14px;border-radius:999px;background:rgba(20,6,0,.14);overflow:hidden}
-.ft i{display:block;height:100%;width:var(--w);border-radius:999px;background:var(--or-ink)}
-.fb.hot .ft i{background:#fff}
-.fn.go .ft i{animation:fngrow .9s cubic-bezier(.2,.7,.2,1) both}
-.fn.go .fb:nth-child(2) .ft i{animation-delay:.12s}.fn.go .fb:nth-child(3) .ft i{animation-delay:.24s}
+.fnt{grid-column:1/-1;height:14px;border-radius:999px;background:rgba(20,6,0,.14);overflow:hidden}
+.fnt i{display:block;height:100%;width:var(--w);border-radius:999px;background:var(--or-ink)}
+.fb.hot .fnt i{background:#fff}
+.fn.go .fnt i{animation:fngrow .9s cubic-bezier(.2,.7,.2,1) both}
+.fn.go .fb:nth-child(2) .fnt i{animation-delay:.12s}.fn.go .fb:nth-child(3) .fnt i{animation-delay:.24s}
 @keyframes fngrow{from{width:0}}
-@media (prefers-reduced-motion:reduce){.fn.go .ft i{animation:none}}
+@media (prefers-reduced-motion:reduce){.fn.go .fnt i{animation:none}}
 /* Home cards v2 (18 Nov). Industry first with icon, dark head band, card CTA */
 .rcpt .rh{flex-wrap:nowrap!important;align-items:center;margin:-20px -20px 0;padding:12px 20px!important;background:var(--or-ink);border-bottom:0!important;border-radius:14px 14px 0 0}
 .rind{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}
