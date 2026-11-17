@@ -780,3 +780,32 @@ footer.ft .flegal a{font-size:13px;color:var(--mute)}
 .fn.go .fb:nth-child(2) .ft i{animation-delay:.12s}.fn.go .fb:nth-child(3) .ft i{animation-delay:.24s}
 @keyframes fngrow{from{width:0}}
 @media (prefers-reduced-motion:reduce){.fn.go .ft i{animation:none}}
+/* Home cards v2 (18 Nov). Industry first with icon, dark head band, card CTA */
+.rcpt .rh{flex-wrap:nowrap!important;align-items:center;margin:-20px -20px 0;padding:12px 20px!important;background:var(--or-ink);border-bottom:0!important;border-radius:14px 14px 0 0}
+.rind{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.rico{width:18px;height:18px;flex:none;color:var(--or)}
+.rcpt .rtag{color:rgba(255,255,255,.55)!important;font-size:11px;letter-spacing:.1em;white-space:nowrap}
+.rgo{display:flex;align-items:center;gap:6px;justify-content:center;margin:4px -20px -16px;padding:13px 20px;background:var(--or-ink);color:#fff;font-size:14px;border-radius:0 0 14px 14px;text-decoration:none}
+.rgo b{color:var(--or);font-weight:700}
+.rgo span{color:var(--or);transition:transform .15s}
+@media (hover:hover){.rgo:hover span{transform:translateX(3px)}}
+@media (max-width:759px){.rcpt .rh{margin:-16px -16px 0;padding:11px 16px!important}.rgo{margin:2px -16px -12px;padding:12px 16px}}
+.rcpt{display:flex!important;flex-direction:column;overflow:hidden}
+.rcpt .rh,.rgo{border-radius:0!important}
+.rcpt .rh{margin-bottom:4px}
+.rgo{margin-top:auto!important}
+.rcpt .rt{margin-bottom:10px}
+.lw{display:inline-flex;align-items:center;gap:7px}
+.lico{width:15px;height:15px;flex:none;opacity:.85}
+.rt .lico{width:14px;height:14px}
+.rind em{font-style:normal;color:rgba(255,255,255,.6);font-weight:600}
+.rind i{font-style:normal;color:var(--or)}
+.rind{font-size:11.5px;letter-spacing:.06em;gap:7px}
+@media (max-width:420px){.rind{font-size:10.5px;letter-spacing:.04em}}
+.rind{font-size:10.5px!important;letter-spacing:.03em!important;gap:6px!important}
+.rcpt .rh{padding-inline:14px!important}
+@media (max-width:759px){.rind{font-size:11px!important}}
+@media (max-width:370px){.rind{font-size:10px!important;letter-spacing:.01em!important}}
+@media (min-width:900px) and (max-width:1140px){.rind{font-size:9.5px!important;letter-spacing:0!important}.rico{width:15px!important;height:15px!important}}
+@media (min-width:900px) and (max-width:1000px){.rgrid{grid-template-columns:1fr!important}}
+.fb{align-items:center!important}
