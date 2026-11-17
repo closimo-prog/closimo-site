@@ -20,3 +20,5 @@
   if(location.hash==='#free')setTimeout(function(){go('diagnosis')},300);
   window.closimoPrice=function(){var b=document.querySelector('.seg button[aria-checked="true"]');return b?price(b):''};
 })();
+/* Grow the home funnel bars when they come into view */
+(function(){var f=document.querySelectorAll('.fn');if(!('IntersectionObserver' in window)){f.forEach(function(x){x.classList.add('go')});return}var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('go');o.unobserve(e.target)}})},{threshold:.4});f.forEach(function(x){o.observe(x)})})();
