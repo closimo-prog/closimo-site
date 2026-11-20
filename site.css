@@ -809,3 +809,9 @@ footer.ft .flegal a{font-size:13px;color:var(--mute)}
 @media (min-width:900px) and (max-width:1140px){.rind{font-size:9.5px!important;letter-spacing:0!important}.rico{width:15px!important;height:15px!important}}
 @media (min-width:900px) and (max-width:1000px){.rgrid{grid-template-columns:1fr!important}}
 .fb{align-items:center!important}
+/* Glacier blue = the result (20 Nov). Only 3 places: qualifier, case results, Closed bar */
+:root{--glacier:#77E7FE}
+.qual{background:var(--glacier)!important;border-color:var(--glacier)!important;color:#0A0A0A!important}
+.qi{color:#0A0A0A!important}
+#results article strong{color:var(--glacier)!important}
+.fb.hot .fnt i{background:var(--glacier)!important}
